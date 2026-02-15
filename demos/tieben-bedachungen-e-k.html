@@ -238,13 +238,16 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
+            background-image: url('img/hero.png');
+            background-size: cover;
+            background-position: center;
         }
 
         .hero-visual::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30z' fill='%23ffffff' fill-opacity='0.05'/%3E%3C/svg%3E");
+            background: linear-gradient(135deg, rgba(180, 83, 9, 0.85) 0%, rgba(146, 64, 14, 0.9) 100%);
         }
 
         .hero-card {
@@ -384,6 +387,15 @@
             overflow: hidden;
         }
 
+        .service-card-image {
+            width: 100%;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 14px;
+            margin-bottom: 1.25rem;
+        }
+
         .service-card:hover {
             background: var(--white);
             border-color: var(--cloud);
@@ -496,16 +508,10 @@
             background: linear-gradient(135deg, var(--roof-light) 0%, var(--roof) 100%);
             border-radius: 24px;
             aspect-ratio: 4/3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .about-image svg {
-            width: 100px;
-            height: 100px;
-            fill: var(--white);
-            opacity: 0.3;
+            overflow: hidden;
+            background-image: url('img/werkstatt.png');
+            background-size: cover;
+            background-position: center;
         }
 
         .about-badge {
@@ -865,6 +871,7 @@
         </div>
         <div class="services-grid">
             <div class="service-card">
+                <div class="service-card-image" style="background-image: url('img/werkstatt.png');"></div>
                 <div class="service-icon">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                 </div>
@@ -872,6 +879,7 @@
                 <p>Neubau und Sanierung von Dachstühlen. Traditionelles Handwerk kombiniert mit modernen Techniken für maximale Stabilität.</p>
             </div>
             <div class="service-card">
+                <div class="service-card-image" style="background-image: url('img/hero.png');"></div>
                 <div class="service-icon">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                 </div>
@@ -879,6 +887,7 @@
                 <p>Individuelle Vordächer und Haustürüberdachungen. Schutz vor Wind und Wetter — elegant und funktional.</p>
             </div>
             <div class="service-card">
+                <div class="service-card-image" style="background-image: url('img/moebel.png');"></div>
                 <div class="service-icon">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
                 </div>
@@ -886,6 +895,7 @@
                 <p>Dachziegel, Dachsteine oder Schiefer — wir decken Ihr Dach fachgerecht ein. Alle gängigen Materialien.</p>
             </div>
             <div class="service-card">
+                <div class="service-card-image" style="background-image: url('img/einbau.png');"></div>
                 <div class="service-icon">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
                 </div>
@@ -893,6 +903,7 @@
                 <p>Sturmschäden, undichte Stellen oder lockere Ziegel? Wir reparieren schnell und zuverlässig.</p>
             </div>
             <div class="service-card">
+                <div class="service-card-image" style="background-image: url('img/hero.png');"></div>
                 <div class="service-icon">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
                 </div>
@@ -900,6 +911,7 @@
                 <p>Mehr Licht und Raum unter dem Dach. Wir planen und bauen Gauben in allen Formen.</p>
             </div>
             <div class="service-card">
+                <div class="service-card-image" style="background-image: url('img/werkstatt.png');"></div>
                 <div class="service-icon">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                 </div>
