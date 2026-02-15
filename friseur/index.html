@@ -337,6 +337,13 @@
             cursor: pointer;
         }
 
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            max-width: 100%;
+        }
+
         .gallery-item:nth-child(1) {
             grid-column: span 2;
             grid-row: span 2;
@@ -731,7 +738,7 @@
             </div>
         </div>
         <div class="hero-visual">
-            <div class="hero-image">Salon-Impression</div>
+            <img src="images/hero.png" alt="Salon Mustermann - Friseur" class="hero-image" style="max-width: 100%;">
             <div class="hero-accent">
                 <div class="hero-accent-number">15+</div>
                 <span>Jahre Erfahrung</span>
@@ -792,13 +799,16 @@
         </div>
         <div class="gallery-grid">
             <div class="gallery-item">
+                <img src="images/salon.png" alt="Salon Mustermann - Innenansicht">
+                <span class="gallery-item-label">Unser Salon</span>
+            </div>
+            <div class="gallery-item">
+                <img src="images/balayage.png" alt="Balayage Coloration">
                 <span class="gallery-item-label">Balayage Blonde</span>
             </div>
             <div class="gallery-item">
-                <span class="gallery-item-label">Classic Bob</span>
-            </div>
-            <div class="gallery-item">
-                <span class="gallery-item-label">Bridal Look</span>
+                <img src="images/styling.png" alt="Professionelles Styling">
+                <span class="gallery-item-label">Professional Styling</span>
             </div>
             <div class="gallery-item">
                 <span class="gallery-item-label">Copper Tones</span>

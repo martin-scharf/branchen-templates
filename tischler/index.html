@@ -301,6 +301,7 @@
             justify-content: center;
             color: var(--text-soft);
             font-size: 0.9rem;
+            object-fit: cover;
         }
 
         .about-image-float {
@@ -503,6 +504,15 @@
             padding: 1.5rem;
             position: relative;
             overflow: hidden;
+        }
+
+        .gallery-item img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            max-width: 100%;
         }
 
         .gallery-item::before {
@@ -752,7 +762,7 @@
 
     <section class="about" id="ueber-uns">
         <div class="about-image">
-            <img src="images/hero.png" alt="Tischler" class="about-image-main" style="object-fit: cover;">
+            <img src="images/werkstatt.png" alt="Tischlerwerkstatt - Handwerkskunst" class="about-image-main" style="object-fit: cover; max-width: 100%;">
             <div class="about-image-float">Detail-Aufnahme</div>
         </div>
         <div class="about-content">
@@ -848,12 +858,14 @@
         </div>
         <div class="gallery-scroll">
             <div class="gallery-item">
+                <img src="images/einbau.png" alt="Wohnzimmer-Einbau">
                 <div class="gallery-item-content">
                     <h4>Wohnzimmer-Einbau</h4>
                     <span>Eiche massiv, 2024</span>
                 </div>
             </div>
             <div class="gallery-item">
+                <img src="images/moebel.png" alt="Maßgefertigte Möbel">
                 <div class="gallery-item-content">
                     <h4>Küche Bergmann</h4>
                     <span>Nussbaum, 2024</span>

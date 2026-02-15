@@ -241,7 +241,7 @@
         }
 
         .hero-visual {
-            background: linear-gradient(135deg, var(--water) 0%, var(--water-deep) 100%);
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.9) 0%, rgba(2, 132, 199, 0.9) 100%), url('images/hero.png') center/cover no-repeat;
             display: flex;
             align-items: stretch;
             justify-content: stretch;
@@ -403,6 +403,39 @@
             padding: 2rem;
             transition: all 0.3s;
             border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card.with-image {
+            min-height: 320px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .service-card.with-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.5) 100%);
+            z-index: 0;
+        }
+
+        .service-card.with-image > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card.with-image h3,
+        .service-card.with-image p {
+            color: var(--white);
+        }
+
+        .service-card.with-image .service-icon {
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .service-card:hover {
@@ -844,14 +877,14 @@
             <p>Von der kleinen Reparatur bis zur kompletten Neuinstallation — wir sind Ihr kompetenter Partner.</p>
         </div>
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card with-image" style="background-image: url('images/bad.png');">
                 <div class="service-icon water">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
                 </div>
                 <h3>Badsanierung</h3>
                 <p>Komplette Badmodernisierung von der Planung bis zur Fertigstellung. Barrierefrei oder modern luxuriös.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card with-image" style="background-image: url('images/heizung.png');">
                 <div class="service-icon heat">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
                 </div>
@@ -865,7 +898,7 @@
                 <h3>Wärmepumpen</h3>
                 <p>Zukunftssichere Wärmeversorgung mit Luft-, Wasser- oder Erdwärmepumpen. Inklusive Förderberatung.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card with-image" style="background-image: url('images/badfertig.png');">
                 <div class="service-icon water">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                 </div>

@@ -417,6 +417,25 @@
             overflow: hidden;
         }
 
+        .service-card.with-image {
+            min-height: 280px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-card.with-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--midnight) 0%, rgba(10, 14, 26, 0.85) 100%);
+            z-index: 0;
+        }
+
+        .service-card.with-image > * {
+            position: relative;
+            z-index: 1;
+        }
+
         .service-card::before {
             content: '';
             position: absolute;
@@ -495,6 +514,14 @@
             color: var(--fog);
             font-size: 0.9rem;
             border: 1px solid rgba(0, 212, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            max-width: 100%;
         }
 
         .about-badge {
@@ -914,7 +941,7 @@
                 <h3>Elektroinstallation</h3>
                 <p>Neubau, Sanierung und Erweiterung von Elektroanlagen. Professionelle Installation nach VDE-Norm.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card with-image" style="background-image: url('images/smarthome.png');">
                 <div class="service-icon">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
                 </div>
@@ -928,7 +955,7 @@
                 <h3>Photovoltaik</h3>
                 <p>Planung und Installation von Solaranlagen. Eigenverbrauchsoptimierung und Speichersysteme.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card with-image" style="background-image: url('images/emobility.png');">
                 <div class="service-icon">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                 </div>
@@ -955,7 +982,9 @@
     <section class="about" id="ueber-uns">
         <div class="about-content">
             <div class="about-visual">
-                <div class="about-image">Team-Bild / Werkstatt</div>
+                <div class="about-image">
+                    <img src="images/installation.png" alt="Elektroinstallation - Professionelle Arbeit" style="max-width: 100%;">
+                </div>
                 <div class="about-badge">
                     <div class="about-badge-number">20+</div>
                     <span>Jahre Erfahrung</span>

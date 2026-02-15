@@ -454,6 +454,28 @@
             transition: all 0.4s;
         }
 
+        .service-card.with-image {
+            min-height: 320px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .service-card.with-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(20, 20, 22, 0.95) 0%, rgba(20, 20, 22, 0.6) 100%);
+            z-index: 0;
+        }
+
+        .service-card.with-image > * {
+            position: relative;
+            z-index: 1;
+        }
+
         .service-card::before {
             content: '';
             position: absolute;
@@ -1140,19 +1162,19 @@
             <p class="section-subtitle">Kompetente Betreuung fuer Ihr Fahrzeug - von der Inspektion bis zur Komplettreperatur.</p>
         </div>
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card with-image" style="background-image: url('images/werkstatt.png');">
                 <div class="service-icon">&#128736;</div>
                 <h3>Inspektion & Wartung</h3>
                 <p>Regelmaessige Inspektionen nach Herstellervorgaben. Wir erhalten den Wert Ihres Fahrzeugs.</p>
                 <a href="#kontakt" class="service-link">Termin buchen &#8594;</a>
             </div>
-            <div class="service-card">
+            <div class="service-card with-image" style="background-image: url('images/reparatur.png');">
                 <div class="service-icon">&#9881;</div>
                 <h3>Motor & Getriebe</h3>
                 <p>Diagnose und Reparatur von Motor- und Getriebeschaeden. Moderne Diagnosetechnik fuer alle Marken.</p>
                 <a href="#kontakt" class="service-link">Mehr erfahren &#8594;</a>
             </div>
-            <div class="service-card">
+            <div class="service-card with-image" style="background-image: url('images/diagnose.png');">
                 <div class="service-icon">&#128663;</div>
                 <h3>HU & AU (TUeV)</h3>
                 <p>Hauptuntersuchung und Abgasuntersuchung direkt bei uns. Keine langen Wartezeiten.</p>
