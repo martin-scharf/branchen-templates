@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schwarz Ernst Malergeschäft | Maler Biedenkopf-Breidenstein</title>
+    <meta name="description" content="Schwarz Ernst Malergeschäft - Ihr Maler in Biedenkopf-Breidenstein. Fassadenanstrich, Innenraumgestaltung, Tapezierarbeiten und mehr. Meisterqualität für Ihr Zuhause.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --paint: #2563EB;
+            --paint-dark: #1D4ED8;
+            --paint-light: #3B82F6;
+            --accent: #F59E0B;
+            --slate: #1E293B;
+            --slate-dark: #0F172A;
+            --slate-soft: #334155;
+            --gray: #64748B;
+            --cloud: #F1F5F9;
+            --snow: #F8FAFC;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--snow);
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 4rem;
+            background: var(--white);
+            border-bottom: 1px solid var(--cloud);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--slate);
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--paint) 0%, var(--paint-dark) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 26px;
+            height: 26px;
+            fill: var(--white);
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .logo-text span {
+            display: block;
+            font-weight: 400;
+            font-size: 0.7rem;
+            color: var(--gray);
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--slate-soft);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--paint); }
+
+        .nav-cta {
+            background: var(--paint);
+            color: var(--white) !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .nav-cta:hover { background: var(--paint-dark) !important; }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--slate);
+            margin: 5px 0;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-top: 5rem;
+        }
+
+        .hero-content {
+            padding: 6rem 4rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #EFF6FF;
+            color: var(--paint-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            width: fit-content;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--slate);
+        }
+
+        .hero h1 span { color: var(--paint); }
+
+        .hero-text {
+            font-size: 1.15rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+            font-weight: 400;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn svg { width: 18px; height: 18px; }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--paint) 0%, var(--paint-dark) 100%);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-outline {
+            background: var(--white);
+            color: var(--slate);
+            border: 2px solid var(--cloud);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--paint);
+            color: var(--paint);
+        }
+
+        .hero-visual {
+            background: linear-gradient(135deg, var(--paint) 0%, var(--paint-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background-image: url('img/fassade.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.85) 0%, rgba(29, 78, 216, 0.9) 100%);
+        }
+
+        .hero-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--slate);
+        }
+
+        .hero-services {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .hero-service {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--cloud);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .hero-service:hover {
+            background: var(--snow);
+            transform: translateX(5px);
+        }
+
+        .hero-service-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .hero-service-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--paint);
+        }
+
+        .hero-service span {
+            font-weight: 600;
+            color: var(--slate);
+        }
+
+        /* Features Strip */
+        .features-strip {
+            background: var(--slate);
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .features-strip-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .features-strip-item svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--paint-light);
+        }
+
+        /* Services */
+        .services {
+            padding: 6rem 4rem;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--paint);
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            color: var(--slate);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.05rem;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--snow);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card-image {
+            width: 100%;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 14px;
+            margin-bottom: 1.25rem;
+        }
+
+        .service-card:hover {
+            background: var(--white);
+            border-color: var(--cloud);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--paint) 0%, var(--paint-dark) 100%);
+        }
+
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--white);
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--slate);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* About */
+        .about {
+            padding: 6rem 4rem;
+            background: var(--snow);
+        }
+
+        .about-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--slate);
+        }
+
+        .about-content p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .about-feature-icon {
+            width: 40px;
+            height: 40px;
+            background: #EFF6FF;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .about-feature-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--paint);
+        }
+
+        .about-feature span {
+            font-weight: 500;
+            color: var(--slate);
+        }
+
+        .about-image {
+            background: url('img/innenraum.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 24px;
+            height: 500px;
+            position: relative;
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: -20px;
+            left: 30px;
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .about-badge-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--paint);
+        }
+
+        .about-badge-text {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.4;
+        }
+
+        /* Gallery */
+        .gallery {
+            padding: 6rem 4rem;
+            background: var(--white);
+        }
+
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover::after { opacity: 1; }
+
+        /* Contact */
+        .contact {
+            padding: 6rem 4rem;
+            background: linear-gradient(135deg, var(--paint) 0%, var(--paint-dark) 100%);
+        }
+
+        .contact-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-content h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .contact-content p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--white);
+        }
+
+        .contact-item-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-item-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--white);
+        }
+
+        .contact-item-text span {
+            display: block;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item-text strong {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-form {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem;
+        }
+
+        .contact-form h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--slate);
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--slate);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            font-family: inherit;
+            font-size: 0.95rem;
+            border: 2px solid var(--cloud);
+            border-radius: 10px;
+            transition: all 0.3s;
+            background: var(--snow);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--paint);
+            background: var(--white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--paint) 0%, var(--paint-dark) 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--slate-dark);
+            padding: 3rem 4rem 1.5rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--slate-soft);
+        }
+
+        .footer-brand .logo { margin-bottom: 1rem; }
+        .footer-brand .logo-text { color: var(--white); }
+
+        .footer-brand p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            max-width: 280px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-col a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover { color: var(--white); }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            nav { padding: 1rem 2rem; }
+            .hero { grid-template-columns: 1fr; min-height: auto; }
+            .hero-content { padding: 8rem 2rem 4rem; }
+            .hero-visual { min-height: 60vh; padding: 4rem 2rem; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .about-image { height: 350px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .menu-btn { display: block; }
+            .hero-content { padding: 7rem 1.5rem 3rem; }
+            .services { padding: 4rem 1.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .about { padding: 4rem 1.5rem; }
+            .gallery { padding: 4rem 1.5rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .contact { padding: 4rem 1.5rem; }
+            .contact-form { padding: 2rem 1.5rem; }
+            footer { padding: 3rem 1.5rem 1.5rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .features-strip { padding: 1rem; gap: 1.5rem; }
+            .features-strip-item { font-size: 0.8rem; }
+        }
+
+        /* Demo Banner */
+        .demo-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            z-index: 1000;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+        }
+
+        .demo-banner p {
+            font-size: 0.95rem;
+        }
+
+        .demo-banner a {
+            background: var(--paint);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .demo-banner a:hover {
+            background: var(--paint-light);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+        <p>🎨 <strong>Demo-Website</strong> — So könnte Ihre neue Webseite aussehen!</p>
+        <a href="mailto:info@heimatweb.de?subject=Interesse%20an%20Website">Kontakt aufnehmen</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.71 4.63l-1.34-1.34c-.37-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.04 0-1.41zM7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3z"/></svg>
+            </div>
+            <div class="logo-text">
+                Schwarz Ernst
+                <span>Malergeschäft</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+        </ul>
+        <button class="menu-btn"><span></span><span></span><span></span></button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                Malermeister in Biedenkopf-Breidenstein
+            </div>
+            <h1>Farbe für Ihr <span>Zuhause</span></h1>
+            <p class="hero-text">
+                Professionelle Malerarbeiten mit Liebe zum Detail. Von der Fassade bis zum Innenraum – wir bringen Farbe in Ihr Leben.
+            </p>
+            <div class="hero-actions">
+                <a href="#kontakt" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Jetzt anfragen
+                </a>
+                <a href="#leistungen" class="btn btn-outline">
+                    Unsere Leistungen
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-card">
+                <h3>Unsere Spezialitäten</h3>
+                <div class="hero-services">
+                    <div class="hero-service">
+                        <div class="hero-service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
+                        <span>Fassadenanstrich</span>
+                    </div>
+                    <div class="hero-service">
+                        <div class="hero-service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                        </div>
+                        <span>Innenraumgestaltung</span>
+                    </div>
+                    <div class="hero-service">
+                        <div class="hero-service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        </div>
+                        <span>Tapezierarbeiten</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Strip -->
+    <div class="features-strip">
+        <div class="features-strip-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Meisterqualität
+        </div>
+        <div class="features-strip-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Über 25 Jahre Erfahrung
+        </div>
+        <div class="features-strip-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Biedenkopf & Umgebung
+        </div>
+        <div class="features-strip-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            4.0 Sterne Bewertung
+        </div>
+    </div>
+
+    <!-- Services -->
+    <section class="services" id="leistungen">
+        <div class="section-header">
+            <span class="section-tag">Unsere Leistungen</span>
+            <h2>Malerarbeiten mit Perfektion</h2>
+            <p>Vom ersten Pinselstrich bis zum perfekten Finish – wir machen Ihre Wände zum Hingucker.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-card-image" style="background-image: url('img/fassade.png')"></div>
+                <h3>Fassadenanstrich</h3>
+                <p>Professionelle Fassadengestaltung mit hochwertigen, wetterbeständigen Farben für langanhaltenden Schutz.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card-image" style="background-image: url('img/innenraum.png')"></div>
+                <h3>Innenraumgestaltung</h3>
+                <p>Wände, Decken, Türen – wir gestalten Ihre Räume nach Ihren Wünschen mit Farbe und Technik.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card-image" style="background-image: url('img/kreativ.png')"></div>
+                <h3>Kreative Techniken</h3>
+                <p>Spachteltechnik, Wischtechnik, Strukturputz – wir setzen besondere Akzente in Ihren Räumen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="ueber-uns">
+        <div class="about-grid">
+            <div class="about-content">
+                <h2>Ihr Maler vor Ort</h2>
+                <p>
+                    Das Malergeschäft Schwarz Ernst steht seit über 25 Jahren für hochwertige Malerarbeiten in Biedenkopf-Breidenstein und der gesamten Region.
+                </p>
+                <p>
+                    Mit Sorgfalt, Präzision und einem Auge für Farben verwandeln wir Ihre Wände in echte Hingucker. Ob Renovierung, Neuanstrich oder kreative Gestaltung – wir sind Ihr Partner.
+                </p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                        <span>Saubere und pünktliche Arbeit</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                        </div>
+                        <span>Hochwertige Markenfarben</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <span>Kostenlose Beratung vor Ort</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="about-badge">
+                    <div class="about-badge-number">25+</div>
+                    <div class="about-badge-text">Jahre<br>Erfahrung</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" id="galerie">
+        <div class="section-header">
+            <span class="section-tag">Galerie</span>
+            <h2>Unsere Referenzen</h2>
+            <p>Ein Einblick in unsere abgeschlossenen Projekte.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" style="background-image: url('img/fassade.png')"></div>
+            <div class="gallery-item" style="background-image: url('img/innenraum.png')"></div>
+            <div class="gallery-item" style="background-image: url('img/kreativ.png')"></div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="kontakt">
+        <div class="contact-grid">
+            <div class="contact-content">
+                <h2>Lassen Sie uns Ihre Wände verschönern</h2>
+                <p>Kontaktieren Sie uns für ein unverbindliches Angebot. Wir beraten Sie gerne persönlich vor Ort.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div class="contact-item-text">
+                            <span>Adresse</span>
+                            <strong>Untere Haide 3A, 35216 Biedenkopf-Breidenstein</strong>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <div class="contact-item-text">
+                            <span>Telefon</span>
+                            <strong>Auf Anfrage</strong>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <div class="contact-item-text">
+                            <span>Öffnungszeiten</span>
+                            <strong>Mo–Fr nach Vereinbarung</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Kostenlose Anfrage</h3>
+                <form>
+                    <div class="form-group">
+                        <label>Ihr Name</label>
+                        <input type="text" placeholder="Max Mustermann">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon oder E-Mail</label>
+                        <input type="text" placeholder="Ihre Kontaktdaten">
+                    </div>
+                    <div class="form-group">
+                        <label>Ihre Nachricht</label>
+                        <textarea placeholder="Beschreiben Sie Ihr Projekt..."></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Anfrage senden</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.71 4.63l-1.34-1.34c-.37-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.04 0-1.41zM7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3z"/></svg>
+                    </div>
+                    <div class="logo-text">
+                        Schwarz Ernst
+                        <span>Malergeschäft</span>
+                    </div>
+                </a>
+                <p>Ihr Malermeisterbetrieb für professionelle Malerarbeiten in Biedenkopf und Umgebung.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Leistungen</h4>
+                <ul>
+                    <li><a href="#">Fassadenanstrich</a></li>
+                    <li><a href="#">Innenraumgestaltung</a></li>
+                    <li><a href="#">Tapezierarbeiten</a></li>
+                    <li><a href="#">Kreative Techniken</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontakt</h4>
+                <ul>
+                    <li><a href="#">Untere Haide 3A</a></li>
+                    <li><a href="#">35216 Biedenkopf-Breidenstein</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Rechtliches</h4>
+                <ul>
+                    <li><a href="#">Impressum</a></li>
+                    <li><a href="#">Datenschutz</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Schwarz Ernst Malergeschäft. Alle Rechte vorbehalten.</span>
+            <span>Website-Demo von Heimatweb</span>
+        </div>
+    </footer>
+</body>
+</html>
