@@ -3,33 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHK Mustermann | Sanitär, Heizung, Klima</title>
-    <meta name="description" content="Ihr Meisterbetrieb für Sanitär, Heizung und Klima. 24h Notdienst, Badsanierung, Heizungsmodernisierung und Klimaanlagen.">
+    <title>SHK Mustermann | Sanitär · Heizung · Klima</title>
+    <meta name="description" content="Ihr Meisterbetrieb für Sanitär, Heizung und Klima. 24h Notdienst, Badsanierung, Heizungsmodernisierung.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1e5a8a;
-            --primary-dark: #14405f;
-            --primary-light: #2d7ab8;
-            --accent: #e8650a;
-            --accent-light: #ff7a1f;
-            --dark: #0f172a;
-            --dark-light: #1e293b;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --gray-light: #e2e8f0;
-            --white: #ffffff;
-            --emergency: #dc2626;
+            --water: #0EA5E9;
+            --water-deep: #0284C7;
+            --water-light: #7DD3FC;
+            --heat: #F97316;
+            --heat-warm: #FB923C;
+            --slate: #0F172A;
+            --slate-mid: #1E293B;
+            --slate-soft: #334155;
+            --gray: #94A3B8;
+            --cloud: #F1F5F9;
+            --snow: #F8FAFC;
+            --white: #FFFFFF;
+            --danger: #EF4444;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
+        
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--dark);
-            background: var(--light);
+            font-family: 'Manrope', sans-serif;
+            background: var(--snow);
+            color: var(--slate);
             line-height: 1.7;
         }
 
@@ -38,45 +38,16 @@
             line-height: 1.2;
         }
 
-        /* Emergency Banner */
-        .emergency-banner {
-            background: linear-gradient(90deg, var(--emergency) 0%, #b91c1c 100%);
-            color: white;
-            padding: 0.75rem 1rem;
-            text-align: center;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .emergency-banner a {
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            background: rgba(255,255,255,0.2);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            margin-left: 0.5rem;
-        }
-
-        .emergency-banner a:hover {
-            background: rgba(255,255,255,0.3);
-        }
-
         /* Navigation */
-        .nav {
+        nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 1000;
-            background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            padding: 0.75rem 2rem;
-        }
-
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
+            z-index: 100;
+            padding: 1rem 4rem;
+            background: var(--white);
+            border-bottom: 1px solid var(--cloud);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -87,23 +58,23 @@
             align-items: center;
             gap: 0.75rem;
             text-decoration: none;
-            color: var(--dark);
+            color: var(--slate);
         }
 
         .logo-icon {
             width: 44px;
             height: 44px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 10px;
+            background: linear-gradient(135deg, var(--water) 0%, var(--water-deep) 100%);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .logo-icon svg {
-            width: 26px;
-            height: 26px;
-            color: white;
+            width: 24px;
+            height: 24px;
+            fill: var(--white);
         }
 
         .logo-text {
@@ -113,108 +84,87 @@
 
         .logo-text span {
             display: block;
+            font-weight: 400;
             font-size: 0.7rem;
-            font-weight: 500;
             color: var(--gray);
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
             align-items: center;
         }
 
         .nav-links a {
-            color: var(--dark);
+            color: var(--slate-soft);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
             transition: color 0.3s;
         }
 
-        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover { color: var(--water); }
 
-        .nav-cta {
-            background: var(--accent);
-            color: white !important;
-            padding: 0.6rem 1.2rem;
-            border-radius: 8px;
-            font-weight: 600 !important;
+        .nav-emergency {
             display: flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.5rem;
+            background: var(--danger);
+            color: var(--white) !important;
+            padding: 0.6rem 1.25rem;
+            border-radius: 10px;
+            font-weight: 600;
         }
 
-        .nav-cta:hover { background: var(--accent-light) !important; }
-
-        .nav-cta svg {
-            width: 18px;
-            height: 18px;
+        .nav-emergency svg {
+            width: 16px;
+            height: 16px;
         }
 
-        .nav-toggle {
+        .menu-btn {
             display: none;
             background: none;
             border: none;
             cursor: pointer;
         }
 
-        .nav-toggle span {
+        .menu-btn span {
             display: block;
-            width: 24px;
+            width: 22px;
             height: 2px;
-            background: var(--dark);
+            background: var(--slate);
             margin: 5px 0;
         }
 
         /* Hero */
         .hero {
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
-            position: relative;
-            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             padding-top: 5rem;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="0.5" opacity="0.05"/></svg>');
-            background-size: 60px 60px;
+        .hero-content {
+            padding: 6rem 4rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-
-        .hero-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-content { z-index: 1; }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(255,255,255,0.15);
-            color: white;
+            background: var(--cloud);
+            color: var(--water-deep);
             padding: 0.5rem 1rem;
             border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            font-size: 0.8rem;
+            font-weight: 600;
+            width: fit-content;
             margin-bottom: 1.5rem;
-            backdrop-filter: blur(10px);
         }
 
         .hero-badge svg {
@@ -223,247 +173,248 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.75rem);
-            color: white;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             margin-bottom: 1.5rem;
+            color: var(--slate);
         }
 
         .hero h1 span {
-            color: var(--accent);
+            background: linear-gradient(135deg, var(--water) 0%, var(--heat) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-text {
             font-size: 1.15rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 2rem;
-            max-width: 520px;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+            font-weight: 400;
         }
 
-        .hero-buttons {
+        .hero-actions {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
         }
 
         .btn {
+            padding: 1rem 2rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 1rem 2rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 10px;
-            transition: all 0.3s;
-            border: 2px solid transparent;
         }
 
         .btn svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
         }
 
         .btn-primary {
-            background: var(--accent);
-            color: white;
+            background: linear-gradient(135deg, var(--water) 0%, var(--water-deep) 100%);
+            color: var(--white);
         }
 
         .btn-primary:hover {
-            background: var(--accent-light);
             transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3);
         }
 
         .btn-outline {
-            border-color: rgba(255,255,255,0.4);
-            color: white;
-            background: transparent;
+            background: var(--white);
+            color: var(--slate);
+            border: 2px solid var(--cloud);
         }
 
         .btn-outline:hover {
-            border-color: white;
-            background: rgba(255,255,255,0.1);
+            border-color: var(--water);
+            color: var(--water);
         }
 
-        .hero-features {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2.5rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-feature {
+        .hero-visual {
+            background: linear-gradient(135deg, var(--water) 0%, var(--water-deep) 100%);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            color: rgba(255,255,255,0.9);
-            font-size: 0.9rem;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-feature svg {
-            width: 20px;
-            height: 20px;
-            color: var(--accent);
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
         }
 
-        /* Hero Cards */
-        .hero-visual {
-            z-index: 1;
+        @keyframes float {
+            0%, 100% { transform: translate(-30%, -30%); }
+            50% { transform: translate(-50%, -50%); }
+        }
+
+        .hero-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--slate);
+        }
+
+        .hero-services {
             display: flex;
             flex-direction: column;
             gap: 1rem;
         }
 
-        .hero-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 16px;
-            padding: 1.5rem;
+        .hero-service {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--cloud);
+            border-radius: 12px;
+            transition: all 0.3s;
         }
 
-        .hero-card-emergency {
-            background: linear-gradient(135deg, var(--emergency) 0%, #b91c1c 100%);
-            border: none;
+        .hero-service:hover {
+            background: var(--snow);
+            transform: translateX(5px);
         }
 
-        .hero-card h3 {
-            color: white;
-            font-size: 1rem;
-            margin-bottom: 1rem;
+        .hero-service-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .hero-service-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .hero-service-icon.water svg { stroke: var(--water); }
+        .hero-service-icon.heat svg { stroke: var(--heat); }
+
+        .hero-service span {
+            font-weight: 600;
+            color: var(--slate);
+        }
+
+        /* Emergency Strip */
+        .emergency-strip {
+            background: var(--slate);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .emergency-strip-item {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-        }
-
-        .hero-card h3 svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .hero-card-number {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .hero-card-number svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        .hero-card p {
-            color: rgba(255,255,255,0.8);
+            color: var(--white);
             font-size: 0.9rem;
-            margin-top: 0.5rem;
         }
 
-        .service-mini-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.75rem;
-        }
-
-        .service-mini-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: white;
-            font-size: 0.9rem;
-            padding: 0.5rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 8px;
-        }
-
-        .service-mini-item svg {
+        .emergency-strip-item svg {
             width: 18px;
             height: 18px;
-            color: var(--accent);
+            stroke: var(--water-light);
         }
 
-        /* Sections */
-        section { padding: 6rem 2rem; }
+        .emergency-strip a {
+            color: var(--water-light);
+            text-decoration: none;
+            font-weight: 600;
+        }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Services */
+        .services {
+            padding: 6rem 4rem;
+            background: var(--white);
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            max-width: 600px;
+            margin: 0 auto 4rem;
         }
 
-        .section-label {
+        .section-tag {
             display: inline-block;
-            color: var(--primary);
+            color: var(--water);
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
             margin-bottom: 0.75rem;
         }
 
         .section-header h2 {
             font-size: clamp(2rem, 4vw, 2.75rem);
-            color: var(--dark);
+            color: var(--slate);
             margin-bottom: 1rem;
         }
 
         .section-header p {
             color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
             font-size: 1.05rem;
         }
 
-        /* Services */
-        .services { background: white; }
-
         .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
         }
 
         .service-card {
-            background: var(--light);
-            border-radius: 16px;
+            background: var(--snow);
+            border-radius: 20px;
             padding: 2rem;
             transition: all 0.3s;
-            border: 1px solid var(--gray-light);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
-            opacity: 0;
-            transition: opacity 0.3s;
+            border: 1px solid transparent;
         }
 
         .service-card:hover {
+            background: var(--white);
+            border-color: var(--cloud);
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(30, 90, 138, 0.12);
-            border-color: transparent;
-        }
-
-        .service-card:hover::before {
-            opacity: 1;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
         }
 
         .service-icon {
             width: 56px;
             height: 56px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             border-radius: 14px;
             display: flex;
             align-items: center;
@@ -474,13 +425,21 @@
         .service-icon svg {
             width: 28px;
             height: 28px;
-            color: white;
+            stroke: var(--white);
+        }
+
+        .service-icon.water {
+            background: linear-gradient(135deg, var(--water) 0%, var(--water-deep) 100%);
+        }
+
+        .service-icon.heat {
+            background: linear-gradient(135deg, var(--heat) 0%, var(--heat-warm) 100%);
         }
 
         .service-card h3 {
             font-size: 1.2rem;
             margin-bottom: 0.75rem;
-            color: var(--dark);
+            color: var(--slate);
         }
 
         .service-card p {
@@ -488,44 +447,19 @@
             font-size: 0.95rem;
         }
 
-        /* Trust Section */
-        .trust {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            color: white;
-        }
-
-        .trust .section-label { color: var(--accent); }
-        .trust .section-header h2 { color: white; }
-        .trust .section-header p { color: rgba(255,255,255,0.8); }
-
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .trust-item {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .trust-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--accent);
-            line-height: 1;
-        }
-
-        .trust-label {
-            margin-top: 0.75rem;
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
         /* Process */
-        .process { background: var(--light); }
+        .process {
+            padding: 6rem 4rem;
+            background: var(--slate);
+        }
 
-        .process-grid {
+        .process .section-tag { color: var(--water-light); }
+        .process .section-header h2 { color: var(--white); }
+        .process .section-header p { color: var(--gray); }
+
+        .process-steps {
+            max-width: 1000px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
@@ -539,11 +473,11 @@
         .process-step::after {
             content: '';
             position: absolute;
-            top: 2rem;
+            top: 2.5rem;
             right: -1rem;
-            width: calc(100% - 4rem);
+            width: calc(100% - 5rem);
             height: 2px;
-            background: var(--gray-light);
+            background: var(--slate-soft);
         }
 
         .process-step:last-child::after { display: none; }
@@ -551,24 +485,24 @@
         .process-number {
             width: 64px;
             height: 64px;
-            background: white;
-            border: 3px solid var(--primary);
+            background: var(--slate-mid);
+            border: 2px solid var(--water);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 1.5rem;
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary);
-            margin: 0 auto 1.5rem;
+            color: var(--water);
             position: relative;
             z-index: 1;
         }
 
-        .process-step h3 {
-            font-size: 1.1rem;
+        .process-step h4 {
+            color: var(--white);
+            font-size: 1rem;
             margin-bottom: 0.5rem;
-            color: var(--dark);
         }
 
         .process-step p {
@@ -576,31 +510,75 @@
             font-size: 0.9rem;
         }
 
+        /* Stats */
+        .stats {
+            padding: 4rem;
+            background: var(--cloud);
+        }
+
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--water);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--slate-soft);
+            font-size: 0.9rem;
+        }
+
         /* Contact */
-        .contact { background: white; }
+        .contact {
+            padding: 6rem 4rem;
+            background: var(--white);
+        }
 
         .contact-grid {
+            max-width: 1100px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.3fr;
             gap: 4rem;
         }
 
-        .contact-info h3 {
-            font-size: 1.75rem;
+        .contact-info h2 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            color: var(--slate);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info > p {
+            color: var(--gray);
             margin-bottom: 2rem;
-            color: var(--dark);
+        }
+
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
         }
 
         .contact-item {
             display: flex;
+            align-items: center;
             gap: 1rem;
-            margin-bottom: 1.5rem;
         }
 
         .contact-item-icon {
-            width: 52px;
-            height: 52px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            width: 50px;
+            height: 50px;
+            background: var(--cloud);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -609,548 +587,470 @@
         }
 
         .contact-item-icon svg {
-            width: 24px;
-            height: 24px;
-            color: white;
+            width: 22px;
+            height: 22px;
+            stroke: var(--water);
         }
 
-        .contact-item strong {
+        .contact-item-text strong {
             display: block;
-            color: var(--dark);
-            margin-bottom: 0.25rem;
+            font-size: 0.8rem;
             font-weight: 600;
-        }
-
-        .contact-item span, .contact-item a {
             color: var(--gray);
-            text-decoration: none;
-            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
         }
 
-        .contact-item a:hover { color: var(--primary); }
+        .contact-item-text span,
+        .contact-item-text a {
+            color: var(--slate);
+            text-decoration: none;
+            font-weight: 500;
+        }
 
-        .emergency-card {
-            background: linear-gradient(135deg, var(--emergency) 0%, #b91c1c 100%);
+        .contact-item-text a:hover { color: var(--water); }
+
+        .contact-emergency {
+            background: linear-gradient(135deg, var(--danger) 0%, #DC2626 100%);
             border-radius: 16px;
             padding: 1.5rem;
-            color: white;
             margin-top: 2rem;
+            color: var(--white);
         }
 
-        .emergency-card h4 {
+        .contact-emergency h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 1rem;
-            margin-bottom: 0.75rem;
         }
 
-        .emergency-card h4 svg {
-            width: 20px;
-            height: 20px;
+        .contact-emergency h4 svg {
+            width: 18px;
+            height: 18px;
         }
 
-        .emergency-card a {
-            color: white;
+        .contact-emergency a {
+            color: var(--white);
             font-size: 1.5rem;
             font-weight: 700;
             text-decoration: none;
         }
 
-        .emergency-card p {
-            font-size: 0.9rem;
+        .contact-emergency p {
+            font-size: 0.85rem;
             opacity: 0.9;
             margin-top: 0.5rem;
         }
 
-        .map-placeholder {
-            background: var(--light);
-            border-radius: 16px;
-            height: 100%;
-            min-height: 400px;
+        .contact-map {
+            background: var(--cloud);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--gray);
-            border: 1px dashed var(--gray-light);
+            font-size: 0.9rem;
+            min-height: 400px;
         }
 
         /* Footer */
-        .footer {
-            background: var(--dark);
-            color: white;
-            padding: 4rem 2rem 2rem;
+        footer {
+            background: var(--slate);
+            color: var(--white);
+            padding: 4rem;
         }
 
-        .footer-inner {
-            max-width: 1200px;
+        .footer-content {
+            max-width: 1100px;
             margin: 0 auto;
-        }
-
-        .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 2rem;
-        }
-
-        .footer-brand .logo {
-            color: white;
         }
 
         .footer-brand p {
-            margin-top: 1rem;
-            opacity: 0.7;
+            color: var(--gray);
             font-size: 0.9rem;
-            max-width: 280px;
+            margin-top: 1rem;
+            max-width: 260px;
         }
 
-        .footer-links h4 {
-            font-size: 0.85rem;
+        .footer-col h4 {
+            color: var(--water-light);
+            font-size: 0.8rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
+            margin-bottom: 1.25rem;
         }
 
-        .footer-links a {
-            display: block;
-            color: rgba(255,255,255,0.7);
+        .footer-col ul { list-style: none; }
+
+        .footer-col a {
+            color: var(--gray);
             text-decoration: none;
-            padding: 0.35rem 0;
             font-size: 0.9rem;
+            display: block;
+            padding: 0.35rem 0;
             transition: color 0.3s;
         }
 
-        .footer-links a:hover { color: white; }
-
-        .footer-contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .footer-contact-item svg {
-            width: 18px;
-            height: 18px;
-            color: var(--accent);
-            flex-shrink: 0;
-            margin-top: 0.2rem;
-        }
-
-        .footer-contact-item a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-        }
-
-        .footer-contact-item a:hover { color: white; }
+        .footer-col a:hover { color: var(--white); }
 
         .footer-bottom {
+            max-width: 1100px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--slate-soft);
             display: flex;
             justify-content: space-between;
             font-size: 0.85rem;
-            opacity: 0.6;
+            color: var(--gray);
         }
 
-        .footer-bottom a {
-            color: white;
+        .footer-legal a {
+            color: var(--gray);
             text-decoration: none;
-            margin-left: 1.5rem;
+            margin-left: 2rem;
         }
+
+        .footer-legal a:hover { color: var(--white); }
 
         /* Mobile */
         @media (max-width: 1024px) {
-            .hero-inner { grid-template-columns: 1fr; text-align: center; }
-            .hero-text { margin: 0 auto 2rem; }
-            .hero-buttons { justify-content: center; }
-            .hero-features { justify-content: center; }
-            .hero-visual { max-width: 500px; margin: 2rem auto 0; }
-            .trust-grid { grid-template-columns: repeat(2, 1fr); }
-            .process-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+            nav { padding: 1rem 2rem; }
+            .hero { grid-template-columns: 1fr; }
+            .hero-content { padding: 6rem 2rem 4rem; }
+            .hero-visual { min-height: 50vh; padding: 4rem 2rem; }
+            
+            .services { padding: 4rem 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            
+            .process { padding: 4rem 2rem; }
+            .process-steps { grid-template-columns: 1fr 1fr; gap: 3rem; }
             .process-step::after { display: none; }
-            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            
+            .stats { padding: 3rem 2rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            
+            .contact { padding: 4rem 2rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+            
+            footer { padding: 3rem 2rem; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
-            .nav { padding: 0.75rem 1rem; }
-            .nav-links { 
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 1.5rem;
-                gap: 1rem;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            }
-            .nav-links.active { display: flex; }
-            .nav-toggle { display: block; }
-            .nav-cta { width: 100%; justify-content: center; }
+            .nav-links { display: none; }
+            .menu-btn { display: block; }
             
-            section { padding: 4rem 1.5rem; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .process-steps { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .stat-item h3 { font-size: 2.25rem; }
+            
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
             .footer-brand p { margin: 1rem auto; }
-            .footer-contact-item { justify-content: center; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-            .footer-bottom a { margin: 0 0.75rem; }
-        }
-
-        @media (max-width: 600px) {
-            .trust-grid, .process-grid { grid-template-columns: 1fr; }
-            .emergency-banner { font-size: 0.85rem; }
-            .emergency-banner a { display: block; margin: 0.5rem auto 0; }
+            .footer-legal a { margin: 0 1rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="#" class="logo">
-                <div class="logo-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                </div>
-                <div class="logo-text">
-                    SHK Mustermann
-                    <span>Sanitär | Heizung | Klima</span>
-                </div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#leistungen">Leistungen</a></li>
-                <li><a href="#ueber-uns">Über uns</a></li>
-                <li><a href="#ablauf">Ablauf</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
-                <li><a href="tel:+4912345678900" class="nav-cta">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                    Notdienst
-                </a></li>
-            </ul>
-            <button class="nav-toggle" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
-        </div>
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <div class="logo-text">
+                SHK Mustermann
+                <span>Sanitär · Heizung · Klima</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#ablauf">Ablauf</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="tel:+4912345678900" class="nav-emergency">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                24h Notdienst
+            </a></li>
+        </ul>
+        <button class="menu-btn" aria-label="Menü">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
-    <!-- Hero -->
     <section class="hero">
-        <div class="hero-inner">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    Meisterbetrieb mit 24h Notdienst
-                </div>
-                <h1>Wasser, Wärme, <span>Wohlbefinden</span></h1>
-                <p class="hero-text">Ihr zuverlässiger Partner für Sanitär, Heizung und Klimatechnik. Von der Badsanierung bis zur Wärmepumpe — kompetent, fair und termingerecht.</p>
-                <div class="hero-buttons">
-                    <a href="#kontakt" class="btn btn-primary">Kostenlose Beratung</a>
-                    <a href="tel:+4912345678900" class="btn btn-outline">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                        Jetzt anrufen
-                    </a>
-                </div>
-                <div class="hero-features">
-                    <div class="hero-feature">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        24h Notdienst
-                    </div>
-                    <div class="hero-feature">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        Festpreisgarantie
-                    </div>
-                    <div class="hero-feature">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                        Regional verwurzelt
-                    </div>
-                </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                Meisterbetrieb mit 24h Notdienst
             </div>
-            <div class="hero-visual">
-                <div class="hero-card hero-card-emergency">
-                    <h3>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                        Rohrbruch? Heizung aus?
-                    </h3>
-                    <div class="hero-card-number">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                        +49 12345 / 67890
+            <h1>Wasser, Wärme, <span>Wohlbefinden</span></h1>
+            <p class="hero-text">Ihr zuverlässiger Partner für Sanitär, Heizung und Klimatechnik. Von der Badsanierung bis zur Wärmepumpe — kompetent, fair und termingerecht.</p>
+            <div class="hero-actions">
+                <a href="#kontakt" class="btn btn-primary">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    Kostenlose Beratung
+                </a>
+                <a href="tel:+4912345678900" class="btn btn-outline">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    Jetzt anrufen
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-card">
+                <h3>Unsere Fachgebiete</h3>
+                <div class="hero-services">
+                    <div class="hero-service">
+                        <div class="hero-service-icon water">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        </div>
+                        <span>Sanitär & Badsanierung</span>
                     </div>
-                    <p>Schnelle Hilfe rund um die Uhr</p>
-                </div>
-                <div class="hero-card">
-                    <h3>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        Unsere Fachgebiete
-                    </h3>
-                    <div class="service-mini-grid">
-                        <div class="service-mini-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
-                            Badsanierung
+                    <div class="hero-service">
+                        <div class="hero-service-icon heat">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
                         </div>
-                        <div class="service-mini-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
-                            Heizung
+                        <span>Heizung & Wärmepumpen</span>
+                    </div>
+                    <div class="hero-service">
+                        <div class="hero-service-icon water">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                         </div>
-                        <div class="service-mini-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            Klimaanlage
-                        </div>
-                        <div class="service-mini-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
-                            Wärmepumpe
-                        </div>
+                        <span>Klimaanlagen & Lüftung</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Notdienst Banner -->
-    <div class="emergency-banner">
-        Sanitär-Notfall? Heizungsausfall? Wir sind 24/7 für Sie da:
-        <a href="tel:+4912345678900">+49 12345 / 67890</a>
+    <div class="emergency-strip">
+        <div class="emergency-strip-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            Rohrbruch? Heizungsausfall?
+        </div>
+        <div class="emergency-strip-item">
+            <a href="tel:+4912345678900">24h Notdienst: +49 (0) 12345 / 67890</a>
+        </div>
     </div>
 
-    <!-- Leistungen -->
     <section class="services" id="leistungen">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Unser Angebot</span>
-                <h2>Leistungen aus Meisterhand</h2>
-                <p>Von der kleinen Reparatur bis zur kompletten Neuinstallation — wir sind Ihr kompetenter Partner.</p>
+        <div class="section-header">
+            <span class="section-tag">Leistungen</span>
+            <h2>Alles aus einer Hand</h2>
+            <p>Von der kleinen Reparatur bis zur kompletten Neuinstallation — wir sind Ihr kompetenter Partner.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon water">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
+                </div>
+                <h3>Badsanierung</h3>
+                <p>Komplette Badmodernisierung von der Planung bis zur Fertigstellung. Barrierefrei oder modern luxuriös.</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
-                    </div>
-                    <h3>Badsanierung</h3>
-                    <p>Komplette Badmodernisierung von der Planung bis zur Fertigstellung. Barrierefrei, altersgerecht oder modern luxuriös.</p>
+            <div class="service-card">
+                <div class="service-icon heat">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
-                    </div>
-                    <h3>Heizungsmodernisierung</h3>
-                    <p>Effiziente Heizsysteme für Ihr Zuhause. Gasbrennwert, Wärmepumpe oder Pelletheizung — wir beraten Sie unabhängig.</p>
+                <h3>Heizungsmodernisierung</h3>
+                <p>Effiziente Heizsysteme für Ihr Zuhause. Gasbrennwert, Wärmepumpe oder Pelletheizung.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon heat">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
-                    </div>
-                    <h3>Wärmepumpen</h3>
-                    <p>Zukunftssichere Wärmeversorgung mit Luft-, Wasser- oder Erdwärmepumpen. Inklusive Förderberatung.</p>
+                <h3>Wärmepumpen</h3>
+                <p>Zukunftssichere Wärmeversorgung mit Luft-, Wasser- oder Erdwärmepumpen. Inklusive Förderberatung.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon water">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                    </div>
-                    <h3>Klimaanlagen</h3>
-                    <p>Angenehmes Raumklima das ganze Jahr. Split-Klimageräte, zentrale Lüftung und Wärmerückgewinnung.</p>
+                <h3>Klimaanlagen</h3>
+                <p>Angenehmes Raumklima das ganze Jahr. Split-Klimageräte und zentrale Lüftungsanlagen.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon water">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                    </div>
-                    <h3>Sanitärinstallation</h3>
-                    <p>Professionelle Installation von Waschtischen, WCs, Duschen und Badewannen. Markenprodukte und faire Preise.</p>
+                <h3>Sanitärinstallation</h3>
+                <p>Professionelle Installation von Waschtischen, WCs, Duschen und Badewannen.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon heat">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h3>24h Notdienst</h3>
-                    <p>Rohrbruch, verstopfte Leitung oder Heizungsausfall? Unser Notdienst ist rund um die Uhr für Sie erreichbar.</p>
-                </div>
+                <h3>24h Notdienst</h3>
+                <p>Rohrbruch, Heizungsausfall oder verstopfte Leitung? Unser Notdienst ist rund um die Uhr erreichbar.</p>
             </div>
         </div>
     </section>
 
-    <!-- Trust / Über uns -->
-    <section class="trust" id="ueber-uns">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Warum wir?</span>
-                <h2>Vertrauen durch Kompetenz</h2>
-                <p>Ein Meisterbetrieb mit Erfahrung, modernem Know-how und dem Anspruch, jede Arbeit perfekt zu erledigen.</p>
-            </div>
-            <div class="trust-grid">
-                <div class="trust-item">
-                    <div class="trust-number">25+</div>
-                    <div class="trust-label">Jahre Erfahrung</div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-number">3.000+</div>
-                    <div class="trust-label">Zufriedene Kunden</div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-number">24/7</div>
-                    <div class="trust-label">Notdienst</div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-number">100%</div>
-                    <div class="trust-label">Meisterqualität</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ablauf -->
     <section class="process" id="ablauf">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Zusammenarbeit</span>
-                <h2>So arbeiten wir</h2>
-                <p>Transparent, strukturiert und immer im Dialog mit Ihnen.</p>
+        <div class="section-header">
+            <span class="section-tag">Zusammenarbeit</span>
+            <h2>So arbeiten wir</h2>
+            <p>Transparent, strukturiert und immer im Dialog mit Ihnen.</p>
+        </div>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="process-number">1</div>
+                <h4>Erstgespräch</h4>
+                <p>Kostenlose Beratung bei Ihnen vor Ort</p>
             </div>
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="process-number">1</div>
-                    <h3>Erstgespräch</h3>
-                    <p>Kostenlose Beratung bei Ihnen vor Ort. Wir nehmen Ihre Wünsche auf.</p>
-                </div>
-                <div class="process-step">
-                    <div class="process-number">2</div>
-                    <h3>Angebot</h3>
-                    <p>Detailliertes Festpreisangebot ohne versteckte Kosten.</p>
-                </div>
-                <div class="process-step">
-                    <div class="process-number">3</div>
-                    <h3>Umsetzung</h3>
-                    <p>Termingerechte Ausführung durch unsere erfahrenen Fachleute.</p>
-                </div>
-                <div class="process-step">
-                    <div class="process-number">4</div>
-                    <h3>Abnahme</h3>
-                    <p>Gemeinsame Endkontrolle und Einweisung in Ihre neue Anlage.</p>
-                </div>
+            <div class="process-step">
+                <div class="process-number">2</div>
+                <h4>Angebot</h4>
+                <p>Detailliertes Festpreisangebot</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">3</div>
+                <h4>Umsetzung</h4>
+                <p>Termingerechte Ausführung</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">4</div>
+                <h4>Abnahme</h4>
+                <p>Gemeinsame Endkontrolle</p>
             </div>
         </div>
     </section>
 
-    <!-- Kontakt -->
-    <section class="contact" id="kontakt">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Kontakt</span>
-                <h2>Wir sind für Sie da</h2>
-                <p>Rufen Sie an oder schreiben Sie uns — wir melden uns schnellstmöglich.</p>
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>25+</h3>
+                <p>Jahre Erfahrung</p>
             </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>So erreichen Sie uns</h3>
+            <div class="stat-item">
+                <h3>3.000+</h3>
+                <p>Zufriedene Kunden</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Notdienst</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Festpreisgarantie</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="kontakt">
+        <div class="section-header">
+            <span class="section-tag">Kontakt</span>
+            <h2>Wir sind für Sie da</h2>
+            <p>Rufen Sie an oder schreiben Sie uns — wir melden uns schnellstmöglich.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-items">
                     <div class="contact-item">
                         <div class="contact-item-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                         </div>
-                        <div>
+                        <div class="contact-item-text">
                             <strong>Adresse</strong>
                             <span>Musterstraße 123, 12345 Musterstadt</span>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                         </div>
-                        <div>
+                        <div class="contact-item-text">
                             <strong>Telefon</strong>
-                            <span><a href="tel:+4912345678900">+49 (0) 12345 / 67890</a></span>
+                            <a href="tel:+4912345678900">+49 (0) 12345 / 67890</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                         </div>
-                        <div>
+                        <div class="contact-item-text">
                             <strong>E-Mail</strong>
-                            <span><a href="mailto:info@shk-mustermann.de">info@shk-mustermann.de</a></span>
+                            <a href="mailto:info@shk-mustermann.de">info@shk-mustermann.de</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         </div>
-                        <div>
+                        <div class="contact-item-text">
                             <strong>Öffnungszeiten</strong>
-                            <span>Mo — Fr: 7:00 — 17:00 Uhr<br>Notdienst: 24/7</span>
+                            <span>Mo – Fr: 7:00 – 17:00 | Notdienst 24/7</span>
                         </div>
-                    </div>
-                    <div class="emergency-card">
-                        <h4>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                            24h Notdienst
-                        </h4>
-                        <a href="tel:+4912345678900">+49 (0) 12345 / 67890</a>
-                        <p>Rohrbruch, Heizungsausfall, verstopfte Leitung — wir helfen sofort!</p>
                     </div>
                 </div>
-                <div class="map-placeholder">Google Maps Einbettung</div>
+                <div class="contact-emergency">
+                    <h4>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                        24h Notdienst
+                    </h4>
+                    <a href="tel:+4912345678900">+49 (0) 12345 / 67890</a>
+                    <p>Rohrbruch, Heizungsausfall — wir helfen sofort!</p>
+                </div>
             </div>
+            <div class="contact-map">Google Maps Einbettung</div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <div class="logo-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                        </div>
-                        <div class="logo-text">SHK Mustermann</div>
-                    </a>
-                    <p>Ihr Meisterbetrieb für Sanitär, Heizung und Klimatechnik. Zuverlässig, kompetent und immer erreichbar.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Navigation</h4>
-                    <a href="#leistungen">Leistungen</a>
-                    <a href="#ueber-uns">Über uns</a>
-                    <a href="#ablauf">Ablauf</a>
-                    <a href="#kontakt">Kontakt</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Rechtliches</h4>
-                    <a href="impressum.html">Impressum</a>
-                    <a href="datenschutz.html">Datenschutz</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Kontakt</h4>
-                    <div class="footer-contact-item">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                        <a href="tel:+4912345678900">+49 12345 / 67890</a>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                     </div>
-                    <div class="footer-contact-item">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                        <a href="mailto:info@shk-mustermann.de">info@shk-mustermann.de</a>
-                    </div>
-                </div>
+                    <div class="logo-text">SHK Mustermann</div>
+                </a>
+                <p>Ihr Meisterbetrieb für Sanitär, Heizung und Klima. Zuverlässig, kompetent und immer erreichbar.</p>
             </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 SHK Mustermann. Alle Rechte vorbehalten.</span>
-                <div>
-                    <a href="impressum.html">Impressum</a>
-                    <a href="datenschutz.html">Datenschutz</a>
-                </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#leistungen">Leistungen</a></li>
+                    <li><a href="#ablauf">Ablauf</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Leistungen</h4>
+                <ul>
+                    <li><a href="#">Badsanierung</a></li>
+                    <li><a href="#">Heizung</a></li>
+                    <li><a href="#">Klimaanlage</a></li>
+                    <li><a href="#">Notdienst</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Rechtliches</h4>
+                <ul>
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="datenschutz.html">Datenschutz</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 SHK Mustermann. Alle Rechte vorbehalten.</span>
+            <div class="footer-legal">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
             </div>
         </div>
     </footer>
 
     <script>
-        document.querySelector('.nav-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    document.querySelector('.nav-links').classList.remove('active');
                 }
             });
         });

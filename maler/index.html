@@ -3,61 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malerbetrieb Mustermann | Farbe bekennen</title>
+    <title>Maler Mustermann | Farbe bekennen</title>
     <meta name="description" content="Ihr kreativer Malerbetrieb für Innenräume, Fassaden und dekorative Gestaltung. Meisterqualität mit Liebe zum Detail.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --coral: #e85d4c;
-            --coral-dark: #d14a3a;
-            --teal: #2a9d8f;
-            --teal-dark: #1f7a6e;
-            --mustard: #e9c46a;
-            --navy: #1d3557;
-            --navy-light: #264773;
-            --cream: #faf8f5;
-            --white: #ffffff;
-            --gray: #6b7280;
-            --gray-light: #f3f4f6;
-            --text: #1a1a2e;
+            --terracotta: #C2410C;
+            --terracotta-light: #EA580C;
+            --sage: #65A30D;
+            --sage-light: #84CC16;
+            --indigo: #4338CA;
+            --indigo-light: #6366F1;
+            --ochre: #D97706;
+            --ochre-light: #F59E0B;
+            --charcoal: #18181B;
+            --slate: #3F3F46;
+            --zinc: #71717A;
+            --stone: #D4D4D8;
+            --cream: #FAFAF9;
+            --white: #FFFFFF;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
+        
         body {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--text);
+            font-family: 'Sora', sans-serif;
             background: var(--cream);
+            color: var(--charcoal);
             line-height: 1.7;
         }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
+        h1, h2, h3, h4 {
+            font-weight: 600;
             line-height: 1.2;
         }
 
+        /* Paint splashes decoration */
+        .paint-splash {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
         /* Navigation */
-        .nav {
+        nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
+            z-index: 100;
+            padding: 1rem 4rem;
+            background: var(--white);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid var(--stone);
         }
 
         .logo {
@@ -65,272 +68,322 @@
             align-items: center;
             gap: 0.75rem;
             text-decoration: none;
-            color: var(--navy);
+            color: var(--charcoal);
         }
 
-        .logo-brush {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--coral) 0%, var(--teal) 50%, var(--mustard) 100%);
-            border-radius: 10px;
+        .logo-colors {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            gap: 0.25rem;
         }
 
-        .logo-brush svg {
-            width: 24px;
-            height: 24px;
-            color: white;
+        .logo-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
         }
+
+        .logo-dot:nth-child(1) { background: var(--terracotta); }
+        .logo-dot:nth-child(2) { background: var(--sage); }
+        .logo-dot:nth-child(3) { background: var(--indigo); }
+        .logo-dot:nth-child(4) { background: var(--ochre); }
 
         .logo-text {
-            font-family: 'Playfair Display', serif;
             font-weight: 700;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
             align-items: center;
         }
 
         .nav-links a {
-            color: var(--navy);
+            color: var(--slate);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
             transition: color 0.3s;
         }
 
-        .nav-links a:hover { color: var(--coral); }
+        .nav-links a:hover { color: var(--terracotta); }
 
         .nav-cta {
-            background: var(--coral);
-            color: white !important;
+            background: var(--charcoal);
+            color: var(--white) !important;
             padding: 0.7rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600 !important;
+            border-radius: 8px;
+            font-weight: 600;
         }
 
-        .nav-cta:hover { background: var(--coral-dark) !important; }
+        .nav-cta:hover { background: var(--terracotta) !important; }
 
-        .nav-toggle {
+        .menu-btn {
             display: none;
             background: none;
             border: none;
             cursor: pointer;
         }
 
-        .nav-toggle span {
+        .menu-btn span {
             display: block;
-            width: 24px;
+            width: 22px;
             height: 2px;
-            background: var(--navy);
+            background: var(--charcoal);
             margin: 5px 0;
         }
 
         /* Hero */
         .hero {
             min-height: 100vh;
+            padding: 8rem 4rem 4rem;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-            padding-top: 4rem;
         }
 
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(3, 1fr);
+        .hero .paint-splash:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            background: var(--terracotta);
+            top: 10%;
+            right: 5%;
         }
 
-        .hero-bg-block {
-            opacity: 0.15;
+        .hero .paint-splash:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            background: var(--sage);
+            bottom: 20%;
+            right: 20%;
         }
 
-        .hero-bg-block:nth-child(1) { background: var(--coral); }
-        .hero-bg-block:nth-child(2) { background: var(--teal); }
-        .hero-bg-block:nth-child(3) { background: var(--mustard); }
-        .hero-bg-block:nth-child(4) { background: var(--navy); }
-        .hero-bg-block:nth-child(5) { background: var(--mustard); }
-        .hero-bg-block:nth-child(6) { background: var(--coral); }
-        .hero-bg-block:nth-child(7) { background: var(--navy); }
-        .hero-bg-block:nth-child(8) { background: var(--teal); }
-        .hero-bg-block:nth-child(9) { background: var(--teal); }
-        .hero-bg-block:nth-child(10) { background: var(--navy); }
-        .hero-bg-block:nth-child(11) { background: var(--coral); }
-        .hero-bg-block:nth-child(12) { background: var(--mustard); }
+        .hero .paint-splash:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            background: var(--indigo);
+            top: 40%;
+            left: 5%;
+        }
 
         .hero-content {
-            position: relative;
-            z-index: 1;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 2rem;
-            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
-        .hero-badge {
+        .hero-tag {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: white;
-            color: var(--navy);
-            padding: 0.6rem 1.25rem;
-            border-radius: 50px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-tag-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--terracotta);
+            border-radius: 50%;
+        }
+
+        .hero-tag span {
             font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            color: var(--slate);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 7vw, 5rem);
-            color: var(--navy);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             margin-bottom: 1.5rem;
             line-height: 1.1;
         }
 
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--coral) 0%, var(--teal) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .hero h1 .color-word {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 .color-word::after {
+            content: '';
+            position: absolute;
+            bottom: 0.1em;
+            left: 0;
+            width: 100%;
+            height: 0.35em;
+            background: var(--ochre-light);
+            z-index: -1;
+            opacity: 0.4;
         }
 
         .hero-text {
-            font-size: 1.2rem;
-            color: var(--gray);
+            font-size: 1.15rem;
+            color: var(--zinc);
             margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            font-weight: 400;
         }
 
-        .hero-buttons {
+        .hero-actions {
             display: flex;
             gap: 1rem;
-            justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
             padding: 1rem 2rem;
-            font-size: 0.95rem;
+            font-family: inherit;
+            font-size: 0.9rem;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s;
-            border: 2px solid transparent;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-primary {
-            background: var(--coral);
-            color: white;
+            background: var(--charcoal);
+            color: var(--white);
         }
 
         .btn-primary:hover {
-            background: var(--coral-dark);
+            background: var(--terracotta);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(232, 93, 76, 0.3);
         }
 
         .btn-outline {
-            border-color: var(--navy);
-            color: var(--navy);
-            background: white;
+            background: var(--white);
+            color: var(--charcoal);
+            border: 2px solid var(--stone);
         }
 
         .btn-outline:hover {
-            background: var(--navy);
-            color: white;
+            border-color: var(--charcoal);
         }
 
-        /* Color Swatches */
+        /* Hero Visual - Color Swatches */
+        .hero-visual {
+            position: relative;
+        }
+
         .color-swatches {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
         }
 
-        .swatch {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        .color-swatch {
+            aspect-ratio: 1;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.85rem;
+            position: relative;
+            overflow: hidden;
             transition: transform 0.3s;
         }
 
-        .swatch:hover { transform: scale(1.1); }
+        .color-swatch:hover {
+            transform: scale(1.03);
+        }
 
-        .swatch-1 { background: var(--coral); }
-        .swatch-2 { background: var(--teal); }
-        .swatch-3 { background: var(--mustard); }
-        .swatch-4 { background: var(--navy); }
-        .swatch-5 { background: #a8dadc; }
+        .color-swatch:nth-child(1) {
+            background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-light) 100%);
+        }
 
-        /* Sections */
-        section { padding: 6rem 2rem; }
+        .color-swatch:nth-child(2) {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-light) 100%);
+        }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .color-swatch:nth-child(3) {
+            background: linear-gradient(135deg, var(--indigo) 0%, var(--indigo-light) 100%);
+        }
+
+        .color-swatch:nth-child(4) {
+            background: linear-gradient(135deg, var(--ochre) 0%, var(--ochre-light) 100%);
+        }
+
+        .swatch-label {
+            opacity: 0.9;
+            font-size: 0.75rem;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Services */
+        .services {
+            padding: 6rem 4rem;
+            background: var(--white);
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            max-width: 600px;
+            margin: 0 auto 4rem;
         }
 
-        .section-label {
-            display: inline-block;
-            color: var(--coral);
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 0.75rem;
-        }
-
-        .section-header h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--navy);
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             margin-bottom: 1rem;
         }
 
-        .section-header p {
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.05rem;
+        .section-tag-dots {
+            display: flex;
+            gap: 0.25rem;
         }
 
-        /* Services */
-        .services { background: white; }
+        .section-tag-dots span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .section-tag-dots span:nth-child(1) { background: var(--terracotta); }
+        .section-tag-dots span:nth-child(2) { background: var(--sage); }
+        .section-tag-dots span:nth-child(3) { background: var(--indigo); }
+
+        .section-tag p {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--zinc);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-header > p {
+            color: var(--zinc);
+        }
 
         .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
         }
 
         .service-card {
             background: var(--cream);
-            border-radius: 20px;
-            padding: 2.5rem;
+            border-radius: 16px;
+            padding: 2rem;
             position: relative;
             overflow: hidden;
             transition: all 0.3s;
@@ -341,27 +394,32 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 6px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--coral) 0%, var(--teal) 100%);
-            transform: scaleY(0);
-            transition: transform 0.3s;
-            transform-origin: bottom;
+            width: 4px;
+            height: 0;
+            transition: height 0.3s;
         }
 
+        .service-card:nth-child(1)::before,
+        .service-card:nth-child(4)::before { background: var(--terracotta); }
+        .service-card:nth-child(2)::before,
+        .service-card:nth-child(5)::before { background: var(--sage); }
+        .service-card:nth-child(3)::before,
+        .service-card:nth-child(6)::before { background: var(--indigo); }
+
         .service-card:hover {
+            background: var(--white);
+            box-shadow: 0 20px 50px rgba(24, 24, 27, 0.08);
             transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
         }
 
         .service-card:hover::before {
-            transform: scaleY(1);
+            height: 100%;
         }
 
         .service-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -369,106 +427,132 @@
         }
 
         .service-icon svg {
-            width: 30px;
-            height: 30px;
-            color: white;
+            width: 26px;
+            height: 26px;
+            stroke: var(--white);
         }
 
-        .service-icon-coral { background: var(--coral); }
-        .service-icon-teal { background: var(--teal); }
-        .service-icon-mustard { background: var(--mustard); }
-        .service-icon-navy { background: var(--navy); }
+        .service-card:nth-child(1) .service-icon,
+        .service-card:nth-child(4) .service-icon { background: var(--terracotta); }
+        .service-card:nth-child(2) .service-icon,
+        .service-card:nth-child(5) .service-icon { background: var(--sage); }
+        .service-card:nth-child(3) .service-icon,
+        .service-card:nth-child(6) .service-icon { background: var(--indigo); }
 
         .service-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 0.75rem;
-            color: var(--navy);
         }
 
         .service-card p {
-            color: var(--gray);
+            color: var(--zinc);
             font-size: 0.95rem;
         }
 
         /* Portfolio */
-        .portfolio { background: var(--navy); }
+        .portfolio {
+            padding: 6rem 4rem;
+            background: var(--charcoal);
+            position: relative;
+            overflow: hidden;
+        }
 
-        .portfolio .section-label { color: var(--mustard); }
-        .portfolio .section-header h2 { color: white; }
-        .portfolio .section-header p { color: rgba(255,255,255,0.7); }
+        .portfolio .paint-splash:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            background: var(--terracotta);
+            top: 10%;
+            left: 5%;
+            opacity: 0.15;
+        }
+
+        .portfolio .paint-splash:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            background: var(--sage);
+            bottom: 10%;
+            right: 10%;
+            opacity: 0.1;
+        }
+
+        .portfolio .section-tag p { color: var(--stone); }
+        .portfolio .section-header h2 { color: var(--white); }
+        .portfolio .section-header > p { color: var(--zinc); }
 
         .portfolio-grid {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .portfolio-item {
             aspect-ratio: 4/3;
-            background: var(--navy-light);
             border-radius: 16px;
-            overflow: hidden;
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255,255,255,0.5);
-            font-size: 0.9rem;
-            transition: all 0.3s;
+            overflow: hidden;
             cursor: pointer;
         }
 
-        .portfolio-item:nth-child(1) { grid-row: span 2; aspect-ratio: auto; }
+        .portfolio-item:first-child {
+            grid-row: span 2;
+            aspect-ratio: auto;
+        }
 
-        .portfolio-item::after {
-            content: '';
+        .portfolio-item-bg {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, var(--coral) 0%, var(--teal) 100%);
-            opacity: 0;
-            transition: opacity 0.3s;
+            transition: transform 0.5s;
         }
 
-        .portfolio-item:hover::after {
-            opacity: 0.15;
+        .portfolio-item:nth-child(1) .portfolio-item-bg { background: linear-gradient(135deg, var(--terracotta) 0%, var(--ochre) 100%); }
+        .portfolio-item:nth-child(2) .portfolio-item-bg { background: linear-gradient(135deg, var(--sage) 0%, #22C55E 100%); }
+        .portfolio-item:nth-child(3) .portfolio-item-bg { background: linear-gradient(135deg, var(--indigo) 0%, #8B5CF6 100%); }
+        .portfolio-item:nth-child(4) .portfolio-item-bg { background: linear-gradient(135deg, var(--ochre) 0%, #EF4444 100%); }
+        .portfolio-item:nth-child(5) .portfolio-item-bg { background: linear-gradient(135deg, #0EA5E9 0%, var(--indigo) 100%); }
+
+        .portfolio-item:hover .portfolio-item-bg {
+            transform: scale(1.1);
         }
 
-        .portfolio-item:hover {
-            transform: scale(1.02);
-        }
-
-        .portfolio-overlay {
+        .portfolio-item-content {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
             padding: 1.5rem;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+            color: var(--white);
             transform: translateY(100%);
             transition: transform 0.3s;
         }
 
-        .portfolio-item:hover .portfolio-overlay {
+        .portfolio-item:hover .portfolio-item-content {
             transform: translateY(0);
         }
 
-        .portfolio-overlay h4 {
+        .portfolio-item h4 {
             font-size: 1.1rem;
             margin-bottom: 0.25rem;
         }
 
-        .portfolio-overlay span {
+        .portfolio-item span {
             font-size: 0.85rem;
             opacity: 0.8;
         }
 
         /* About */
         .about {
+            padding: 6rem 4rem;
             background: var(--cream);
         }
 
-        .about-grid {
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
@@ -476,89 +560,126 @@
         }
 
         .about-image {
-            background: linear-gradient(135deg, var(--coral) 0%, var(--teal) 50%, var(--mustard) 100%);
-            border-radius: 20px;
+            position: relative;
+        }
+
+        .about-image-main {
             aspect-ratio: 4/3;
+            background: var(--stone);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--zinc);
             font-size: 0.9rem;
         }
 
-        .about-content h2 {
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            color: var(--navy);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-content p {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-        }
-
         .about-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--gray-light);
+            position: absolute;
+            bottom: -2rem;
+            left: -2rem;
+            display: flex;
+            gap: 1rem;
         }
 
         .about-stat {
+            background: var(--white);
+            padding: 1.25rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             text-align: center;
         }
 
         .about-stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--coral);
             line-height: 1;
         }
 
-        .about-stat-label {
-            font-size: 0.85rem;
-            color: var(--gray);
-            margin-top: 0.5rem;
+        .about-stat:nth-child(1) .about-stat-number { color: var(--terracotta); }
+        .about-stat:nth-child(2) .about-stat-number { color: var(--sage); }
+        .about-stat:nth-child(3) .about-stat-number { color: var(--indigo); }
+
+        .about-stat span {
+            font-size: 0.8rem;
+            color: var(--zinc);
+        }
+
+        .about-text h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--zinc);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .about-feature svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--sage);
+        }
+
+        .about-feature span {
+            font-weight: 500;
+            font-size: 0.95rem;
         }
 
         /* Contact */
-        .contact { background: white; }
+        .contact {
+            padding: 6rem 4rem;
+            background: var(--white);
+        }
 
-        .contact-wrapper {
+        .contact-grid {
+            max-width: 1100px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
+            grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            background: var(--cream);
-            border-radius: 24px;
-            padding: 3rem;
         }
 
-        .contact-info h3 {
-            font-size: 1.75rem;
-            margin-bottom: 1.5rem;
-            color: var(--navy);
+        .contact-info h2 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            margin-bottom: 1rem;
         }
 
-        .contact-info p {
-            color: var(--gray);
+        .contact-info > p {
+            color: var(--zinc);
             margin-bottom: 2rem;
+        }
+
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
         }
 
         .contact-item {
             display: flex;
+            align-items: center;
             gap: 1rem;
-            margin-bottom: 1.25rem;
-            align-items: flex-start;
         }
 
         .contact-item-icon {
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, var(--coral) 0%, var(--teal) 100%);
+            background: var(--cream);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -569,430 +690,470 @@
         .contact-item-icon svg {
             width: 22px;
             height: 22px;
-            color: white;
+            stroke: var(--terracotta);
         }
 
-        .contact-item strong {
+        .contact-item-text strong {
             display: block;
-            color: var(--navy);
-            margin-bottom: 0.25rem;
+            font-size: 0.8rem;
             font-weight: 600;
+            color: var(--zinc);
+            margin-bottom: 0.2rem;
         }
 
-        .contact-item span, .contact-item a {
-            color: var(--gray);
+        .contact-item-text span,
+        .contact-item-text a {
+            color: var(--charcoal);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-weight: 500;
         }
 
-        .contact-item a:hover { color: var(--coral); }
+        .contact-item-text a:hover { color: var(--terracotta); }
 
-        .map-placeholder {
-            background: white;
-            border-radius: 16px;
-            height: 100%;
-            min-height: 350px;
+        .contact-map {
+            background: var(--cream);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--gray);
-            border: 2px dashed var(--gray-light);
+            color: var(--zinc);
+            font-size: 0.9rem;
+            min-height: 400px;
         }
 
         /* Footer */
-        .footer {
-            background: var(--navy);
-            color: white;
-            padding: 4rem 2rem 2rem;
+        footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 4rem;
         }
 
-        .footer-inner {
-            max-width: 1200px;
+        .footer-content {
+            max-width: 1100px;
             margin: 0 auto;
-        }
-
-        .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 2rem;
         }
 
-        .footer-brand .logo {
-            color: white;
-        }
-
-        .footer-brand .logo-text {
-            color: white;
-        }
+        .footer-brand .logo { color: var(--white); }
 
         .footer-brand p {
-            margin-top: 1rem;
-            opacity: 0.7;
+            color: var(--zinc);
             font-size: 0.9rem;
-            max-width: 300px;
+            margin-top: 1rem;
+            max-width: 260px;
         }
 
-        .footer-links h4 {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.85rem;
+        .footer-col h4 {
+            font-size: 0.8rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: 1.5rem;
-            color: var(--mustard);
+            margin-bottom: 1.25rem;
+            color: var(--stone);
         }
 
-        .footer-links a {
-            display: block;
-            color: rgba(255,255,255,0.7);
+        .footer-col ul { list-style: none; }
+
+        .footer-col a {
+            color: var(--zinc);
             text-decoration: none;
-            padding: 0.35rem 0;
             font-size: 0.9rem;
+            display: block;
+            padding: 0.35rem 0;
             transition: color 0.3s;
         }
 
-        .footer-links a:hover { color: white; }
+        .footer-col a:hover { color: var(--white); }
 
         .footer-bottom {
+            max-width: 1100px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--slate);
             display: flex;
             justify-content: space-between;
             font-size: 0.85rem;
-            opacity: 0.6;
+            color: var(--zinc);
         }
 
-        .footer-bottom a {
-            color: white;
+        .footer-legal a {
+            color: var(--zinc);
             text-decoration: none;
-            margin-left: 1.5rem;
+            margin-left: 2rem;
         }
+
+        .footer-legal a:hover { color: var(--white); }
 
         /* Mobile */
         @media (max-width: 1024px) {
-            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-            .portfolio-item:nth-child(1) { grid-row: span 1; aspect-ratio: 4/3; }
-            .about-grid { grid-template-columns: 1fr; }
-            .about-image { order: -1; }
+            nav { padding: 1rem 2rem; }
+            .hero { padding: 6rem 2rem 4rem; }
+            .hero-content { grid-template-columns: 1fr; }
+            .color-swatches { max-width: 400px; margin: 0 auto; }
+            
+            .services { padding: 4rem 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            
+            .portfolio { padding: 4rem 2rem; }
+            .portfolio-grid { grid-template-columns: 1fr 1fr; }
+            .portfolio-item:first-child { grid-row: span 1; aspect-ratio: 4/3; }
+            
+            .about { padding: 4rem 2rem; }
+            .about-content { grid-template-columns: 1fr; }
+            .about-stats { position: relative; bottom: 0; left: 0; margin-top: 1rem; }
+            
+            .contact { padding: 4rem 2rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+            
+            footer { padding: 3rem 2rem; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
-            .nav { padding: 0.75rem 1rem; }
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 1.5rem;
-                gap: 1rem;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            }
-            .nav-links.active { display: flex; }
-            .nav-toggle { display: block; }
-
-            section { padding: 4rem 1.5rem; }
-            .hero-bg { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(6, 1fr); }
+            .nav-links { display: none; }
+            .menu-btn { display: block; }
+            
             .portfolio-grid { grid-template-columns: 1fr; }
-            .contact-wrapper { grid-template-columns: 1fr; padding: 2rem; }
-            .about-stats { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .about-stats { flex-wrap: wrap; }
+            .about-features { grid-template-columns: 1fr; }
+            
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
             .footer-brand p { margin: 1rem auto; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-            .footer-bottom a { margin: 0 0.75rem; }
+            .footer-legal a { margin: 0 1rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="#" class="logo">
-                <div class="logo-brush">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
-                </div>
-                <span class="logo-text">Maler Mustermann</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#leistungen">Leistungen</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#ueber-uns">Über uns</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
-                <li><a href="#kontakt" class="nav-cta">Anfrage senden</a></li>
-            </ul>
-            <button class="nav-toggle" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
-        </div>
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-colors">
+                <span class="logo-dot"></span>
+                <span class="logo-dot"></span>
+                <span class="logo-dot"></span>
+                <span class="logo-dot"></span>
+            </div>
+            <span class="logo-text">Maler Mustermann</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#arbeiten">Arbeiten</a></li>
+            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+        </ul>
+        <button class="menu-btn" aria-label="Menü">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
-    <!-- Hero -->
     <section class="hero">
-        <div class="hero-bg">
-            <div class="hero-bg-block"></div>
-            <div class="hero-bg-block"></div>
-            <div class="hero-bg-block"></div>
-            <div class="hero-bg-block"></div>
-            <div class="hero-bg-block"></div>
-            <div class="hero-bg-block"></div>
-            <div class="hero-bg-block"></div>
-            <div class="hero-bg-block"></div>
-            <div class="hero-bg-block"></div>
-            <div class="hero-bg-block"></div>
-            <div class="hero-bg-block"></div>
-            <div class="hero-bg-block"></div>
-        </div>
+        <div class="paint-splash"></div>
+        <div class="paint-splash"></div>
+        <div class="paint-splash"></div>
         <div class="hero-content">
-            <div class="hero-badge">Meisterbetrieb aus Ihrer Region</div>
-            <h1>Wir bringen <span>Farbe</span> in Ihr Leben</h1>
-            <p class="hero-text">Kreative Wandgestaltung, professionelle Fassadenarbeit und dekorative Techniken. Mit Leidenschaft für Farbe und Präzision im Detail.</p>
-            <div class="hero-buttons">
-                <a href="#kontakt" class="btn btn-primary">Kostenlose Beratung</a>
-                <a href="#portfolio" class="btn btn-outline">Unsere Arbeiten</a>
+            <div class="hero-text">
+                <div class="hero-tag">
+                    <span class="hero-tag-dot"></span>
+                    <span>Meisterbetrieb</span>
+                </div>
+                <h1>Wir bringen <span class="color-word">Farbe</span> in Ihr Leben</h1>
+                <p class="hero-text">Kreative Wandgestaltung, professionelle Fassadenarbeit und dekorative Techniken. Mit Leidenschaft für Farbe und Präzision im Detail.</p>
+                <div class="hero-actions">
+                    <a href="#kontakt" class="btn btn-primary">Kostenlose Beratung</a>
+                    <a href="#arbeiten" class="btn btn-outline">Arbeiten ansehen</a>
+                </div>
             </div>
-            <div class="color-swatches">
-                <div class="swatch swatch-1"></div>
-                <div class="swatch swatch-2"></div>
-                <div class="swatch swatch-3"></div>
-                <div class="swatch swatch-4"></div>
-                <div class="swatch swatch-5"></div>
+            <div class="hero-visual">
+                <div class="color-swatches">
+                    <div class="color-swatch">
+                        <span class="swatch-label">Terracotta</span>
+                        Innenräume
+                    </div>
+                    <div class="color-swatch">
+                        <span class="swatch-label">Salbei</span>
+                        Fassaden
+                    </div>
+                    <div class="color-swatch">
+                        <span class="swatch-label">Indigo</span>
+                        Akzente
+                    </div>
+                    <div class="color-swatch">
+                        <span class="swatch-label">Ocker</span>
+                        Kreativ
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Leistungen -->
     <section class="services" id="leistungen">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Was wir tun</span>
-                <h2>Unsere Leistungen</h2>
-                <p>Von klassisch elegant bis modern experimentell — wir setzen Ihre Vorstellungen professionell um.</p>
+        <div class="section-header">
+            <div class="section-tag">
+                <div class="section-tag-dots">
+                    <span></span><span></span><span></span>
+                </div>
+                <p>Was wir tun</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon service-icon-coral">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-                    </div>
-                    <h3>Innenraumgestaltung</h3>
-                    <p>Wände, Decken und Böden in neuem Glanz. Farbberatung, Vorbereitung und professionelle Ausführung — sauber und termingerecht.</p>
+            <h2>Unsere Leistungen</h2>
+            <p>Von klassisch elegant bis modern experimentell — wir setzen Ihre Vorstellungen professionell um.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon service-icon-teal">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                    </div>
-                    <h3>Fassadengestaltung</h3>
-                    <p>Schutz und Verschönerung für Ihr Gebäude. Moderne Fassadenfarben, Wärmedämmung und langlebige Beschichtungen.</p>
+                <h3>Innenraumgestaltung</h3>
+                <p>Wände, Decken und Böden in neuem Glanz. Farbberatung und professionelle Ausführung.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon service-icon-mustard">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                    </div>
-                    <h3>Kreative Techniken</h3>
-                    <p>Spachteltechnik, Wischtechnik, Stucco Lustro und mehr. Individuelle Oberflächen mit Charakter für besondere Räume.</p>
+                <h3>Fassadengestaltung</h3>
+                <p>Schutz und Verschönerung für Ihr Gebäude. Moderne Farben und Wärmedämmung.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon service-icon-navy">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                    </div>
-                    <h3>Tapezierarbeiten</h3>
-                    <p>Von klassischer Raufaser bis zur exklusiven Designtapete. Präzise Verarbeitung für ein perfektes Ergebnis.</p>
+                <h3>Kreative Techniken</h3>
+                <p>Spachteltechnik, Wischtechnik, Stucco Lustro. Individuelle Oberflächen mit Charakter.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon service-icon-coral">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
-                    </div>
-                    <h3>Lackierarbeiten</h3>
-                    <p>Türen, Fenster, Möbel und Heizkörper. Hochwertige Lacke für strapazierfähige und edle Oberflächen.</p>
+                <h3>Tapezierarbeiten</h3>
+                <p>Von klassischer Raufaser bis zur exklusiven Designtapete. Präzise Verarbeitung.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon service-icon-teal">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
-                    </div>
-                    <h3>Schimmel & Sanierung</h3>
-                    <p>Fachgerechte Schimmelbehandlung und Feuchtigkeitssanierung. Nachhaltige Lösungen für ein gesundes Raumklima.</p>
+                <h3>Lackierarbeiten</h3>
+                <p>Türen, Fenster, Möbel und Heizkörper. Hochwertige Lacke für edle Oberflächen.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
+                </div>
+                <h3>Sanierung</h3>
+                <p>Schimmelbehandlung und Feuchtigkeitssanierung für ein gesundes Raumklima.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="arbeiten">
+        <div class="paint-splash"></div>
+        <div class="paint-splash"></div>
+        <div class="section-header">
+            <div class="section-tag">
+                <div class="section-tag-dots">
+                    <span></span><span></span><span></span>
+                </div>
+                <p>Portfolio</p>
+            </div>
+            <h2>Unsere Arbeiten</h2>
+            <p>Ein Auszug aus unseren realisierten Projekten.</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-item-bg"></div>
+                <div class="portfolio-item-content">
+                    <h4>Loft-Wohnung Berlin</h4>
+                    <span>Innenraumgestaltung</span>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-item-bg"></div>
+                <div class="portfolio-item-content">
+                    <h4>Altbau-Sanierung</h4>
+                    <span>Komplettrenovierung</span>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-item-bg"></div>
+                <div class="portfolio-item-content">
+                    <h4>Restaurant Goldene Zeit</h4>
+                    <span>Kreative Wandgestaltung</span>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-item-bg"></div>
+                <div class="portfolio-item-content">
+                    <h4>Einfamilienhaus</h4>
+                    <span>Fassadengestaltung</span>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-item-bg"></div>
+                <div class="portfolio-item-content">
+                    <h4>Büroräume</h4>
+                    <span>Gewerbliche Gestaltung</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Referenzen</span>
-                <h2>Unsere Arbeiten</h2>
-                <p>Ein Auszug aus unseren realisierten Projekten — von privat bis gewerblich.</p>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    Projekt-Bild
-                    <div class="portfolio-overlay">
-                        <h4>Loft-Wohnung Berlin</h4>
-                        <span>Innenraumgestaltung</span>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    Projekt-Bild
-                    <div class="portfolio-overlay">
-                        <h4>Altbau-Sanierung</h4>
-                        <span>Komplettrenovierung</span>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    Projekt-Bild
-                    <div class="portfolio-overlay">
-                        <h4>Restaurant Goldene Zeit</h4>
-                        <span>Kreative Wandgestaltung</span>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    Projekt-Bild
-                    <div class="portfolio-overlay">
-                        <h4>Einfamilienhaus</h4>
-                        <span>Fassadengestaltung</span>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    Projekt-Bild
-                    <div class="portfolio-overlay">
-                        <h4>Büroräume München</h4>
-                        <span>Gewerbliche Gestaltung</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Über uns -->
     <section class="about" id="ueber-uns">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image">Team-Bild</div>
-                <div class="about-content">
-                    <h2>Farbe ist unsere Leidenschaft</h2>
-                    <p>Seit über zwei Jahrzehnten verwandeln wir Räume und Fassaden. Was als kleiner Familienbetrieb begann, ist heute ein Team aus erfahrenen Fachleuten, die alle eines verbindet: die Liebe zum Handwerk.</p>
-                    <p>Wir beraten Sie ehrlich, arbeiten sauber und liefern Qualität, die überzeugt. Ob kleines Zimmer oder großes Gewerbeobjekt — bei uns sind Sie in guten Händen.</p>
-                    <div class="about-stats">
-                        <div class="about-stat">
-                            <div class="about-stat-number">20+</div>
-                            <div class="about-stat-label">Jahre Erfahrung</div>
-                        </div>
-                        <div class="about-stat">
-                            <div class="about-stat-number">800+</div>
-                            <div class="about-stat-label">Projekte</div>
-                        </div>
-                        <div class="about-stat">
-                            <div class="about-stat-number">6</div>
-                            <div class="about-stat-label">Fachleute im Team</div>
-                        </div>
+        <div class="about-content">
+            <div class="about-image">
+                <div class="about-image-main">Team-Bild</div>
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <div class="about-stat-number">20+</div>
+                        <span>Jahre</span>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-number">800+</div>
+                        <span>Projekte</span>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-number">6</div>
+                        <span>Experten</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-text">
+                <h2>Farbe ist unsere Leidenschaft</h2>
+                <p>Seit über zwei Jahrzehnten verwandeln wir Räume und Fassaden. Was als kleiner Familienbetrieb begann, ist heute ein Team aus erfahrenen Fachleuten.</p>
+                <p>Wir beraten Sie ehrlich, arbeiten sauber und liefern Qualität, die überzeugt.</p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                        <span>Meisterbetrieb</span>
+                    </div>
+                    <div class="about-feature">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                        <span>Kostenvoranschlag</span>
+                    </div>
+                    <div class="about-feature">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                        <span>Farbberatung</span>
+                    </div>
+                    <div class="about-feature">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                        <span>Termintreue</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
     <section class="contact" id="kontakt">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Kontakt</span>
-                <h2>Lassen Sie uns sprechen</h2>
-                <p>Kostenlose Beratung und unverbindliches Angebot für Ihr Projekt.</p>
+        <div class="section-header">
+            <div class="section-tag">
+                <div class="section-tag-dots">
+                    <span></span><span></span><span></span>
+                </div>
+                <p>Kontakt</p>
             </div>
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <h3>So erreichen Sie uns</h3>
-                    <p>Wir freuen uns auf Ihre Anfrage — ob telefonisch, per E-Mail oder persönlich vor Ort.</p>
+            <h2>Lassen Sie uns sprechen</h2>
+            <p>Kostenlose Beratung und unverbindliches Angebot.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-items">
                     <div class="contact-item">
                         <div class="contact-item-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                         </div>
-                        <div>
+                        <div class="contact-item-text">
                             <strong>Adresse</strong>
-                            <span>Musterstraße 123<br>12345 Musterstadt</span>
+                            <span>Musterstraße 123, 12345 Musterstadt</span>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                         </div>
-                        <div>
+                        <div class="contact-item-text">
                             <strong>Telefon</strong>
-                            <span><a href="tel:+4912345678900">+49 (0) 12345 / 67890</a></span>
+                            <a href="tel:+4912345678900">+49 (0) 12345 / 67890</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                         </div>
-                        <div>
+                        <div class="contact-item-text">
                             <strong>E-Mail</strong>
-                            <span><a href="mailto:info@maler-mustermann.de">info@maler-mustermann.de</a></span>
+                            <a href="mailto:info@maler-mustermann.de">info@maler-mustermann.de</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         </div>
-                        <div>
+                        <div class="contact-item-text">
                             <strong>Öffnungszeiten</strong>
-                            <span>Mo — Fr: 7:30 — 17:00 Uhr</span>
+                            <span>Mo – Fr: 7:30 – 17:00 Uhr</span>
                         </div>
                     </div>
                 </div>
-                <div class="map-placeholder">Google Maps Einbettung</div>
             </div>
+            <div class="contact-map">Google Maps Einbettung</div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <div class="logo-brush">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
-                        </div>
-                        <span class="logo-text">Maler Mustermann</span>
-                    </a>
-                    <p>Ihr kreativer Malerbetrieb für Innenräume, Fassaden und dekorative Gestaltung. Meisterqualität mit Liebe zum Detail.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Navigation</h4>
-                    <a href="#leistungen">Leistungen</a>
-                    <a href="#portfolio">Portfolio</a>
-                    <a href="#ueber-uns">Über uns</a>
-                    <a href="#kontakt">Kontakt</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Rechtliches</h4>
-                    <a href="impressum.html">Impressum</a>
-                    <a href="datenschutz.html">Datenschutz</a>
-                </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-colors">
+                        <span class="logo-dot"></span>
+                        <span class="logo-dot"></span>
+                        <span class="logo-dot"></span>
+                        <span class="logo-dot"></span>
+                    </div>
+                    <span class="logo-text">Maler Mustermann</span>
+                </a>
+                <p>Ihr kreativer Malerbetrieb für Innenräume, Fassaden und dekorative Gestaltung.</p>
             </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 Maler Mustermann. Alle Rechte vorbehalten.</span>
-                <div>
-                    <a href="impressum.html">Impressum</a>
-                    <a href="datenschutz.html">Datenschutz</a>
-                </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#leistungen">Leistungen</a></li>
+                    <li><a href="#arbeiten">Arbeiten</a></li>
+                    <li><a href="#ueber-uns">Über uns</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Leistungen</h4>
+                <ul>
+                    <li><a href="#">Innenräume</a></li>
+                    <li><a href="#">Fassaden</a></li>
+                    <li><a href="#">Kreativtechniken</a></li>
+                    <li><a href="#">Lackierung</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Rechtliches</h4>
+                <ul>
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="datenschutz.html">Datenschutz</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Maler Mustermann. Alle Rechte vorbehalten.</span>
+            <div class="footer-legal">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
             </div>
         </div>
     </footer>
 
     <script>
-        document.querySelector('.nav-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    document.querySelector('.nav-links').classList.remove('active');
                 }
             });
         });
