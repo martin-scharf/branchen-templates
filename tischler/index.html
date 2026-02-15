@@ -3,52 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tischlerei Mustermann | Meisterbetrieb für Maßarbeit</title>
-    <meta name="description" content="Ihre Tischlerei für Möbel nach Maß, Innenausbau und Holzarbeiten aller Art. Meisterbetrieb mit Tradition.">
+    <title>Tischlerei Mustermann | Meisterhafte Holzarbeiten seit 1985</title>
+    <meta name="description" content="Ihre Tischlerei in der Region. Maßmöbel, Einbauschränke & Innenausbau vom Meisterbetrieb. Kostenlose Beratung & faire Preise.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --oak: #8B5A2B;
-            --oak-dark: #5D3A1A;
-            --oak-light: #C4956A;
-            --walnut: #4A3728;
-            --cream: #FAF6F0;
-            --cream-warm: #F5EDE0;
-            --paper: #FFFEF9;
-            --charcoal: #2D2A26;
-            --text: #3D3833;
-            --text-soft: #6B6560;
+            --color-bg: #FAFAF8;
+            --color-surface: #FFFFFF;
+            --color-text: #1A1A1A;
+            --color-text-muted: #5A5A5A;
+            --color-accent: #D97706;
+            --color-accent-light: #FEF3C7;
+            --color-accent-dark: #B45309;
+            --color-dark: #18181B;
+            --color-border: #E5E5E5;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'DM Sans', system-ui, sans-serif;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+            --shadow-glow: 0 0 40px rgba(217,119,6,0.15);
+            --radius: 12px;
+            --radius-lg: 20px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html { scroll-behavior: smooth; }
         
         body {
-            font-family: 'Source Sans 3', sans-serif;
-            color: var(--text);
-            background: var(--cream);
-            line-height: 1.7;
-            font-weight: 400;
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3 {
-            font-family: 'Fraunces', serif;
+        /* Typography */
+        h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.15; }
+        h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 600; }
+
+        /* Utilities */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .accent { color: var(--color-accent); }
+        .text-muted { color: var(--color-text-muted); }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            font-family: var(--font-body);
+            font-size: 1rem;
             font-weight: 600;
-            line-height: 1.2;
-            color: var(--walnut);
+            text-decoration: none;
+            border-radius: 60px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        /* Grain texture overlay */
-        .grain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            opacity: 0.03;
-            z-index: 9999;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        .btn-primary {
+            background: var(--color-accent);
+            color: white;
+            box-shadow: var(--shadow-md), var(--shadow-glow);
+        }
+        .btn-primary:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg), 0 0 60px rgba(217,119,6,0.25);
+        }
+        .btn-secondary {
+            background: var(--color-surface);
+            color: var(--color-text);
+            border: 2px solid var(--color-border);
+        }
+        .btn-secondary:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+        .btn-dark {
+            background: var(--color-dark);
+            color: white;
+        }
+        .btn-dark:hover {
+            background: #2D2D30;
+            transform: translateY(-2px);
         }
 
         /* Navigation */
@@ -57,64 +101,46 @@
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
-            padding: 1.5rem 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(to bottom, var(--cream) 0%, transparent 100%);
-            transition: all 0.4s ease;
+            z-index: 1000;
+            background: rgba(250,250,248,0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
-
         nav.scrolled {
-            background: var(--cream);
-            box-shadow: 0 2px 20px rgba(74, 55, 40, 0.08);
-            padding: 1rem 3rem;
+            background: rgba(255,255,255,0.95);
+            box-shadow: var(--shadow-sm);
         }
-
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
         .logo {
-            font-family: 'Fraunces', serif;
+            font-family: var(--font-display);
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--walnut);
+            color: var(--color-text);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
         }
-
-        .logo-mark {
-            width: 42px;
-            height: 42px;
-            background: var(--oak);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transform: rotate(-3deg);
-        }
-
-        .logo-mark svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--cream);
-        }
-
+        .logo span { color: var(--color-accent); }
         .nav-links {
             display: flex;
-            gap: 3rem;
+            gap: 40px;
             list-style: none;
         }
-
         .nav-links a {
-            color: var(--text);
+            color: var(--color-text);
             text-decoration: none;
-            font-size: 0.95rem;
             font-weight: 500;
+            font-size: 0.95rem;
             position: relative;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
-
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -122,1028 +148,1127 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--oak);
+            background: var(--color-accent);
             transition: width 0.3s ease;
         }
-
-        .nav-links a:hover { color: var(--oak); }
+        .nav-links a:hover { color: var(--color-accent); }
         .nav-links a:hover::after { width: 100%; }
-
-        .nav-cta {
-            background: var(--walnut);
-            color: var(--cream) !important;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
+        .nav-cta { display: flex; gap: 12px; align-items: center; }
+        .nav-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-text);
+            text-decoration: none;
+            font-weight: 600;
         }
-
-        .nav-cta::after { display: none !important; }
-        .nav-cta:hover { background: var(--oak) !important; }
-
-        .menu-toggle {
+        .mobile-toggle {
             display: none;
             flex-direction: column;
             gap: 5px;
             background: none;
             border: none;
             cursor: pointer;
-            padding: 0.5rem;
+            padding: 8px;
         }
-
-        .menu-toggle span {
+        .mobile-toggle span {
             width: 24px;
             height: 2px;
-            background: var(--walnut);
-            transition: 0.3s;
+            background: var(--color-text);
+            transition: all 0.3s ease;
         }
 
         /* Hero */
         .hero {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding-top: 6rem;
-        }
-
-        .hero-content {
-            padding: 6rem 4rem 4rem 6rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .hero-tag {
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--oak);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
-
-        .hero h1 em {
-            font-style: italic;
-            color: var(--oak);
-        }
-
-        .hero-text {
-            font-size: 1.15rem;
-            color: var(--text-soft);
-            margin-bottom: 2.5rem;
-            max-width: 480px;
-            font-weight: 300;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            font-family: inherit;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--walnut);
-            color: var(--cream);
-        }
-
-        .btn-primary:hover {
-            background: var(--oak);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--walnut);
-            border: 2px solid var(--walnut);
-        }
-
-        .btn-secondary:hover {
-            background: var(--walnut);
-            color: var(--cream);
-        }
-
-        .hero-visual {
             position: relative;
-            background: var(--cream-warm);
+            min-height: 100vh;
             display: flex;
-            align-items: stretch;
-            justify-content: stretch;
+            align-items: center;
+            padding: 120px 0 80px;
             overflow: hidden;
         }
-
-        .hero-image {
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .hero-bg img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
         }
-
-        .hero-badge {
+        .hero-overlay {
             position: absolute;
-            bottom: 3rem;
-            left: -2rem;
-            background: var(--paper);
-            padding: 1.5rem 2rem;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(74, 55, 40, 0.15);
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0.4) 100%);
         }
-
-        .hero-badge-number {
-            font-family: 'Fraunces', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--oak);
-            line-height: 1;
-        }
-
-        .hero-badge span {
-            font-size: 0.85rem;
-            color: var(--text-soft);
-        }
-
-        /* Karriere Section */
-        .karriere {
-            background: linear-gradient(135deg, var(--oak) 0%, var(--walnut) 100%);
-            padding: 5rem 4rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .karriere::before {
-            content: '🔨';
-            position: absolute;
-            font-size: 15rem;
-            opacity: 0.1;
-            right: -2rem;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .karriere-content {
+        .hero-content {
             position: relative;
             z-index: 1;
             max-width: 800px;
-            margin: 0 auto;
         }
-
-        .karriere-badge {
+        .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: rgba(255,255,255,0.2);
-            color: var(--cream);
-            padding: 0.5rem 1.25rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            animation: pulse-badge 2s infinite;
-        }
-
-        @keyframes pulse-badge {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
-            50% { box-shadow: 0 0 0 15px rgba(255,255,255,0); }
-        }
-
-        .karriere-badge svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .karriere h2 {
-            color: var(--cream);
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            margin-bottom: 1rem;
-        }
-
-        .karriere-text {
-            color: rgba(250, 246, 240, 0.9);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .karriere-benefits {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 2.5rem;
-        }
-
-        .karriere-benefit {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255,255,255,0.15);
-            padding: 0.75rem 1.25rem;
-            border-radius: 10px;
-            color: var(--cream);
-            font-weight: 500;
-            font-size: 0.9rem;
+            gap: 8px;
+            background: rgba(217,119,6,0.15);
             backdrop-filter: blur(10px);
-        }
-
-        .karriere-benefit-icon {
-            font-size: 1.25rem;
-        }
-
-        .btn-karriere {
-            background: var(--cream);
-            color: var(--walnut);
-            padding: 1rem 2rem;
-            border-radius: 8px;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
             font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
+            color: var(--color-accent-light);
+            margin-bottom: 24px;
+            border: 1px solid rgba(217,119,6,0.3);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        .hero h1 {
+            color: white;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease 0.1s forwards;
+            opacity: 0;
+        }
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 40px;
+            max-width: 600px;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+            opacity: 0;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            opacity: 0;
+        }
+        .stat-item { text-align: left; }
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+        .stat-label {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 4px;
         }
 
-        .btn-karriere:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 768px) {
-            .karriere { padding: 3rem 1.5rem; }
-            .karriere-benefits { gap: 0.75rem; }
-            .karriere-benefit { padding: 0.5rem 1rem; font-size: 0.8rem; }
+        /* Section Styles */
+        section { padding: 100px 0; }
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+        }
+        .section-header p {
+            color: var(--color-text-muted);
+            font-size: 1.125rem;
+            margin-top: 16px;
         }
 
-        /* About Section */
-        .about {
-            padding: 8rem 6rem;
+        /* Services */
+        .services { background: var(--color-surface); }
+        .services-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 6rem;
-            align-items: center;
-            background: var(--paper);
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
         }
-
-        .about-image {
+        .service-card {
             position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--color-bg);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .about-image-main {
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        .service-image {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+        }
+        .service-image img {
             width: 100%;
-            aspect-ratio: 4/3;
-            background: var(--cream-warm);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-soft);
-            font-size: 0.9rem;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.6s ease;
         }
-
-        .about-image-float {
-            position: absolute;
-            bottom: -2rem;
-            right: -2rem;
-            width: 180px;
-            height: 180px;
-            background: var(--oak);
-            border-radius: 12px;
+        .service-card:hover .service-image img {
+            transform: scale(1.08);
+        }
+        .service-content {
+            padding: 32px;
+        }
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--color-accent-light);
+            border-radius: var(--radius);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--cream);
-            font-size: 0.8rem;
-            box-shadow: 0 20px 60px rgba(139, 90, 43, 0.3);
+            margin-bottom: 20px;
         }
-
-        .about-content h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1.5rem;
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--color-accent);
         }
+        .service-content h3 { margin-bottom: 12px; }
+        .service-content p { color: var(--color-text-muted); }
 
-        .about-content p {
-            color: var(--text-soft);
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
+        /* About */
+        .about {
+            background: var(--color-dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
-
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(217,119,6,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .about-content { position: relative; z-index: 1; }
+        .about .section-label { color: var(--color-accent); }
+        .about h2 { color: white; margin-bottom: 24px; }
+        .about-text {
+            color: rgba(255,255,255,0.75);
+            font-size: 1.125rem;
+            margin-bottom: 32px;
+        }
         .about-features {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 2.5rem;
+            gap: 20px;
+            margin-bottom: 40px;
         }
-
         .about-feature {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
+            gap: 16px;
         }
-
         .about-feature-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--cream-warm);
+            width: 40px;
+            height: 40px;
+            background: rgba(217,119,6,0.2);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
         }
-
         .about-feature-icon svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--oak);
+            width: 20px;
+            height: 20px;
+            color: var(--color-accent);
         }
-
         .about-feature h4 {
-            font-family: 'Source Sans 3', sans-serif;
             font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 0.25rem;
+            margin-bottom: 4px;
         }
-
         .about-feature p {
             font-size: 0.9rem;
-            color: var(--text-soft);
-            margin: 0;
+            color: rgba(255,255,255,0.6);
         }
-
-        /* Services */
-        .services {
-            padding: 8rem 6rem;
-            background: var(--cream);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-tag {
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--oak);
-            margin-bottom: 1rem;
-        }
-
-        .section-header h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--text-soft);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--paper);
-            padding: 2.5rem;
-            border-radius: 16px;
-            transition: all 0.4s ease;
+        .about-image {
             position: relative;
+            border-radius: var(--radius-lg);
             overflow: hidden;
         }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        .about-image img {
             width: 100%;
-            height: 4px;
-            background: var(--oak);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
+            height: auto;
+            display: block;
         }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(74, 55, 40, 0.12);
+        .about-image-badge {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 28px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
         }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-number {
-            font-family: 'Fraunces', serif;
-            font-size: 3rem;
+        .about-image-badge .number {
+            font-family: var(--font-display);
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--cream-warm);
-            line-height: 1;
-            margin-bottom: 1rem;
+            color: var(--color-accent);
+        }
+        .about-image-badge .label {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
         }
 
-        .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            color: var(--text-soft);
-            font-size: 0.95rem;
-        }
-
-        /* Gallery */
-        .gallery {
-            padding: 8rem 0;
-            background: var(--walnut);
-            overflow: hidden;
-        }
-
-        .gallery .section-header {
-            padding: 0 6rem;
-            text-align: left;
-            margin-bottom: 3rem;
-        }
-
-        .gallery .section-header h2 {
-            color: var(--cream);
-        }
-
-        .gallery .section-header p {
-            color: rgba(250, 246, 240, 0.7);
-        }
-
-        .gallery-scroll {
-            display: flex;
-            gap: 1.5rem;
-            padding: 0 6rem;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-        }
-
-        .gallery-scroll::-webkit-scrollbar { display: none; }
-
-        .gallery-item {
-            flex: 0 0 350px;
-            aspect-ratio: 3/4;
-            background: var(--oak);
-            border-radius: 16px;
-            scroll-snap-align: start;
-            display: flex;
-            align-items: flex-end;
-            padding: 1.5rem;
+        /* Jobs CTA */
+        .jobs {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            color: white;
             position: relative;
             overflow: hidden;
         }
-
-        .gallery-item img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            max-width: 100%;
-        }
-
-        .gallery-item::before {
+        .jobs::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(45, 42, 38, 0.8) 0%, transparent 50%);
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
         }
-
-        .gallery-item-content {
+        .jobs-content {
             position: relative;
             z-index: 1;
-            color: var(--cream);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .jobs-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .jobs h2 { margin-bottom: 20px; }
+        .jobs p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+        .jobs-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .benefit-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .benefit-tag svg {
+            width: 18px;
+            height: 18px;
         }
 
-        .gallery-item h4 {
-            font-size: 1.2rem;
-            color: var(--cream);
-            margin-bottom: 0.25rem;
+        /* Reviews */
+        .reviews { background: var(--color-bg); }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
         }
-
-        .gallery-item span {
-            font-size: 0.85rem;
-            opacity: 0.8;
+        .review-card {
+            background: var(--color-surface);
+            padding: 36px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        .review-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+        .review-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 20px;
+        }
+        .review-stars svg {
+            width: 20px;
+            height: 20px;
+            color: var(--color-accent);
+            fill: var(--color-accent);
+        }
+        .review-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--color-text);
+            margin-bottom: 24px;
+        }
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .review-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--color-accent-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+        .review-name {
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .review-date {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
         }
 
         /* Contact */
-        .contact {
-            padding: 8rem 6rem;
+        .contact { background: var(--color-surface); }
+        .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            background: var(--cream);
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
         }
-
-        .contact-content h2 {
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            margin-bottom: 1.5rem;
+        .contact-info h2 { margin-bottom: 20px; }
+        .contact-info > p {
+            color: var(--color-text-muted);
+            margin-bottom: 40px;
         }
-
-        .contact-content > p {
-            color: var(--text-soft);
-            margin-bottom: 3rem;
-            font-size: 1.05rem;
+        .contact-methods {
+            display: grid;
+            gap: 24px;
         }
-
-        .contact-info {
+        .contact-method {
             display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            align-items: flex-start;
+            gap: 16px;
         }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .contact-item-icon {
-            width: 52px;
-            height: 52px;
-            background: var(--cream-warm);
-            border-radius: 12px;
+        .contact-method-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-accent-light);
+            border-radius: var(--radius);
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
-
-        .contact-item-icon svg {
+        .contact-method-icon svg {
             width: 24px;
             height: 24px;
-            stroke: var(--oak);
+            color: var(--color-accent);
         }
-
-        .contact-item-text strong {
-            display: block;
-            font-size: 0.85rem;
+        .contact-method h4 {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-text-muted);
+            margin-bottom: 4px;
+        }
+        .contact-method a, .contact-method p {
+            font-size: 1.1rem;
             font-weight: 600;
-            color: var(--text-soft);
-            margin-bottom: 0.25rem;
-        }
-
-        .contact-item-text span,
-        .contact-item-text a {
-            font-size: 1rem;
-            color: var(--walnut);
+            color: var(--color-text);
             text-decoration: none;
         }
-
-        .contact-item-text a:hover {
-            color: var(--oak);
+        .contact-method a:hover { color: var(--color-accent); }
+        .contact-form-wrapper {
+            background: var(--color-bg);
+            padding: 48px;
+            border-radius: var(--radius-lg);
         }
+        .contact-form { display: grid; gap: 24px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            padding: 14px 18px;
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--color-surface);
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 4px var(--color-accent-light);
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
 
-        .contact-map {
-            background: var(--cream-warm);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-soft);
-            font-size: 0.9rem;
-            min-height: 400px;
+        /* Map */
+        .map-section { padding: 0; }
+        .map-container {
+            height: 450px;
+            background: var(--color-dark);
+            position: relative;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(100%) contrast(1.1);
         }
 
         /* Footer */
         footer {
-            background: var(--charcoal);
-            color: var(--cream);
-            padding: 4rem 6rem 2rem;
+            background: var(--color-dark);
+            color: white;
+            padding: 80px 0 40px;
         }
-
-        .footer-top {
+        .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid rgba(250, 246, 240, 0.1);
+            gap: 60px;
+            margin-bottom: 60px;
         }
-
         .footer-brand p {
-            color: rgba(250, 246, 240, 0.6);
-            margin-top: 1rem;
-            font-size: 0.95rem;
-            max-width: 280px;
+            color: rgba(255,255,255,0.6);
+            margin-top: 20px;
+            max-width: 300px;
         }
-
         .footer-col h4 {
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+            font-weight: 700;
             text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            color: var(--oak-light);
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+            color: rgba(255,255,255,0.5);
         }
-
         .footer-col ul {
             list-style: none;
+            display: grid;
+            gap: 12px;
         }
-
         .footer-col a {
-            color: rgba(250, 246, 240, 0.7);
+            color: rgba(255,255,255,0.75);
             text-decoration: none;
-            font-size: 0.95rem;
-            display: block;
-            padding: 0.4rem 0;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
-
-        .footer-col a:hover {
-            color: var(--cream);
-        }
-
+        .footer-col a:hover { color: var(--color-accent); }
         .footer-bottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 2rem;
-            font-size: 0.9rem;
-            color: rgba(250, 246, 240, 0.5);
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
-
-        .footer-legal a {
-            color: rgba(250, 246, 240, 0.5);
-            text-decoration: none;
-            margin-left: 2rem;
+        .footer-bottom p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
         }
-
-        .footer-legal a:hover {
-            color: var(--cream);
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .footer-social a:hover {
+            background: var(--color-accent);
+            transform: translateY(-3px);
         }
 
         /* Mobile */
         @media (max-width: 1024px) {
-            nav { padding: 1rem 2rem; }
-            .hero { grid-template-columns: 1fr; }
-            .hero-content { padding: 8rem 2rem 4rem; text-align: center; }
-            .hero-text { margin: 0 auto 2.5rem; }
-            .hero-actions { justify-content: center; }
-            .hero-visual { min-height: 60vh; padding: 4rem 2rem; }
-            .hero-badge { left: 50%; transform: translateX(-50%); bottom: 2rem; }
-            
-            .about { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
-            .services { padding: 4rem 2rem; }
+            .nav-links { display: none; }
+            .mobile-toggle { display: flex; }
+            .about-grid { grid-template-columns: 1fr; gap: 48px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            section { padding: 70px 0; }
+            .hero { min-height: auto; padding: 140px 0 80px; }
+            .hero-stats { flex-wrap: wrap; gap: 32px; }
             .services-grid { grid-template-columns: 1fr; }
-            .gallery .section-header { padding: 0 2rem; }
-            .gallery-scroll { padding: 0 2rem; }
-            .gallery-item { flex: 0 0 280px; }
-            
-            .contact { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
-            
-            footer { padding: 3rem 2rem 1.5rem; }
-            .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-brand p { margin: 20px auto 0; }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+            .contact-form-wrapper { padding: 32px 24px; }
         }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .menu-toggle { display: flex; }
-            
-            .hero h1 { font-size: 2.2rem; }
-            .about-features { grid-template-columns: 1fr; }
-            .footer-top { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-            .footer-legal a { margin: 0 1rem; }
+        /* Animations on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Nav */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26,26,26,0.98);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        .mobile-nav.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .mobile-nav ul {
+            list-style: none;
+            text-align: center;
+        }
+        .mobile-nav li {
+            margin: 24px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+        .mobile-nav.active li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .mobile-nav a {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .mobile-nav a:hover { color: var(--color-accent); }
+        .mobile-nav-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="grain"></div>
-
+    <!-- Navigation -->
     <nav>
-        <a href="#" class="logo">
-            <div class="logo-mark">
-                <svg viewBox="0 0 24 24"><path d="M12 3L4 9v12h16V9l-8-6zm0 2.5L18 10v9H6v-9l6-4.5z"/></svg>
+        <div class="nav-inner">
+            <a href="#" class="logo">Tischlerei <span>Mustermann</span></a>
+            <ul class="nav-links">
+                <li><a href="#leistungen">Leistungen</a></li>
+                <li><a href="#ueber-uns">Über uns</a></li>
+                <li><a href="#karriere">Karriere</a></li>
+                <li><a href="#bewertungen">Bewertungen</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="tel:+4915112345678" class="nav-phone">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    0151 12345678
+                </a>
+                <a href="#kontakt" class="btn btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">Angebot anfragen</a>
             </div>
-            Tischlerei Mustermann
-        </a>
-        <ul class="nav-links">
-            <li><a href="#leistungen">Leistungen</a></li>
-            <li><a href="#ueber-uns">Über uns</a></li>
-            <li><a href="#arbeiten">Arbeiten</a></li>
-            <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
-        </ul>
-        <button class="menu-toggle" aria-label="Menü">
-            <span></span><span></span><span></span>
-        </button>
+            <button class="mobile-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </nav>
 
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <button class="mobile-nav-close" aria-label="Close">&times;</button>
+        <ul>
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="#karriere">Karriere</a></li>
+            <li><a href="#bewertungen">Bewertungen</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <p class="hero-tag">Meisterbetrieb seit 1985</p>
-            <h1>Möbel, die Geschichten <em>erzählen</em></h1>
-            <p class="hero-text">Wir fertigen Möbel und Einrichtungen nach Maß — individuell geplant, von Hand gefertigt und mit Liebe zum Detail vollendet.</p>
-            <div class="hero-actions">
-                <a href="#kontakt" class="btn btn-primary">Projekt besprechen</a>
-                <a href="#arbeiten" class="btn btn-secondary">Arbeiten ansehen</a>
-            </div>
+        <div class="hero-bg">
+            <img src="images/hero.png" alt="Tischlerei Werkstatt">
+            <div class="hero-overlay"></div>
         </div>
-        <div class="hero-visual">
-            <img src="images/hero.png" alt="Tischler - Professionelle Arbeit" class="hero-image">
-            <div class="hero-badge">
-                <div class="hero-badge-number">35+</div>
-                <span>Jahre Erfahrung</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Karriere / Jobs Sektion -->
-    <section class="karriere" id="jobs">
-        <div class="karriere-content">
-            <div class="karriere-badge">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                Verstärkung gesucht
-            </div>
-            <h2>Tischler & Schreiner (m/w/d) gesucht!</h2>
-            <p class="karriere-text">Du liebst Holz und echtes Handwerk? Werde Teil unseres Teams und arbeite an spannenden Projekten — vom Einzelmöbel bis zum kompletten Innenausbau.</p>
-            <div class="karriere-benefits">
-                <div class="karriere-benefit">
-                    <span class="karriere-benefit-icon">💰</span>
-                    <span>Übertarifliche Bezahlung</span>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    Meisterbetrieb seit 1985
                 </div>
-                <div class="karriere-benefit">
-                    <span class="karriere-benefit-icon">👥</span>
-                    <span>Familiäres Team</span>
+                <h1>Holz ist unsere <span class="accent">Leidenschaft</span></h1>
+                <p class="hero-subtitle">Individuelle Maßmöbel und hochwertiger Innenausbau aus unserer Meisterwerkstatt. Wir verwandeln Ihre Ideen in zeitlose Handwerkskunst.</p>
+                <div class="hero-cta">
+                    <a href="#kontakt" class="btn btn-primary">
+                        Kostenlose Beratung
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    <a href="tel:+4915112345678" class="btn btn-secondary" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: white;">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                        Jetzt anrufen
+                    </a>
                 </div>
-                <div class="karriere-benefit">
-                    <span class="karriere-benefit-icon">📚</span>
-                    <span>Weiterbildung</span>
-                </div>
-                <div class="karriere-benefit">
-                    <span class="karriere-benefit-icon">🛠️</span>
-                    <span>Moderne Werkstatt</span>
-                </div>
-            </div>
-            <a href="tel:+4912345678900" class="btn btn-karriere">Jetzt bewerben: +49 12345 / 67890</a>
-        </div>
-    </section>
-
-    <section class="about" id="ueber-uns">
-        <div class="about-image">
-            <img src="images/werkstatt.png" alt="Tischlerwerkstatt - Handwerkskunst" class="about-image-main" style="object-fit: cover; max-width: 100%;">
-            <div class="about-image-float">Detail-Aufnahme</div>
-        </div>
-        <div class="about-content">
-            <h2>Handwerk trifft Leidenschaft</h2>
-            <p>Seit über drei Jahrzehnten verbinden wir traditionelle Handwerkskunst mit zeitgemäßem Design. Jedes Stück, das unsere Werkstatt verlässt, trägt unsere Handschrift — und die Gewissheit, dass Qualität keine Kompromisse kennt.</p>
-            <p>Vom ersten Entwurf bis zur fertigen Montage begleiten wir Sie persönlich. Denn gute Möbel entstehen nicht am Fließband, sondern im Dialog.</p>
-            <div class="about-features">
-                <div class="about-feature">
-                    <div class="about-feature-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">38+</div>
+                        <div class="stat-label">Jahre Erfahrung</div>
                     </div>
-                    <div>
-                        <h4>100% Maßarbeit</h4>
-                        <p>Jedes Projekt einzigartig</p>
+                    <div class="stat-item">
+                        <div class="stat-number">2.500+</div>
+                        <div class="stat-label">Zufriedene Kunden</div>
                     </div>
-                </div>
-                <div class="about-feature">
-                    <div class="about-feature-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    </div>
-                    <div>
-                        <h4>Regional verwurzelt</h4>
-                        <p>Holz aus der Region</p>
-                    </div>
-                </div>
-                <div class="about-feature">
-                    <div class="about-feature-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <div>
-                        <h4>Termintreu</h4>
-                        <p>Verbindliche Zusagen</p>
-                    </div>
-                </div>
-                <div class="about-feature">
-                    <div class="about-feature-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                    </div>
-                    <div>
-                        <h4>Mit Herz</h4>
-                        <p>Familienbetrieb in 2. Gen.</p>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Maßanfertigung</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Services -->
     <section class="services" id="leistungen">
-        <div class="section-header">
-            <p class="section-tag">Was wir tun</p>
-            <h2>Unsere Leistungen</h2>
-            <p>Von der Idee bis zur Montage — alles aus einer Hand.</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-number">01</div>
-                <h3>Möbel nach Maß</h3>
-                <p>Individuelle Schränke, Regale, Tische und Sitzgelegenheiten — perfekt auf Ihre Räume und Wünsche abgestimmt.</p>
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Unsere Leistungen</span>
+                <h2>Meisterhafte Holzarbeiten für Ihr Zuhause</h2>
+                <p>Von der ersten Skizze bis zur finalen Montage – wir begleiten Sie mit Expertise und Leidenschaft durch Ihr gesamtes Projekt.</p>
             </div>
-            <div class="service-card">
-                <div class="service-number">02</div>
-                <h3>Küchen</h3>
-                <p>Maßgefertigte Küchen aus Massivholz oder modernen Materialien — funktional, langlebig und zeitlos schön.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-number">03</div>
-                <h3>Innenausbau</h3>
-                <p>Kompletter Innenausbau von der Deckenverkleidung bis zum Einbauschrank. Wohnräume, Büros und Geschäfte.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-number">04</div>
-                <h3>Fenster & Türen</h3>
-                <p>Holzfenster und Haustüren in traditioneller Handwerkskunst. Energieeffizient, sicher und langlebig.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-number">05</div>
-                <h3>Restaurierung</h3>
-                <p>Restaurierung antiker Möbel und Reparatur von beschädigten Holzarbeiten aller Art — mit Respekt vor der Geschichte.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-number">06</div>
-                <h3>Beratung</h3>
-                <p>Kostenlose Erstberatung bei Ihnen vor Ort. 3D-Visualisierung und detaillierte Angebote inklusive.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="gallery" id="arbeiten">
-        <div class="section-header">
-            <p class="section-tag">Portfolio</p>
-            <h2>Ausgewählte Arbeiten</h2>
-            <p>Ein Auszug aus unseren realisierten Projekten.</p>
-        </div>
-        <div class="gallery-scroll">
-            <div class="gallery-item">
-                <img src="images/einbau.png" alt="Wohnzimmer-Einbau">
-                <div class="gallery-item-content">
-                    <h4>Wohnzimmer-Einbau</h4>
-                    <span>Eiche massiv, 2024</span>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-image">
+                        <img src="images/moebel.png" alt="Maßmöbel">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="1"/><path d="M7 8V6a2 2 0 012-2h6a2 2 0 012 2v2"/></svg>
+                        </div>
+                        <h3>Maßmöbel</h3>
+                        <p>Einzigartige Möbelstücke, perfekt auf Ihre Räume und Wünsche abgestimmt. Jedes Stück ein Unikat aus unserer Werkstatt.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/moebel.png" alt="Maßgefertigte Möbel">
-                <div class="gallery-item-content">
-                    <h4>Küche Bergmann</h4>
-                    <span>Nussbaum, 2024</span>
+                <div class="service-card reveal">
+                    <div class="service-image">
+                        <img src="images/einbau.png" alt="Einbauschränke">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 12h16M12 4v16"/></svg>
+                        </div>
+                        <h3>Einbauschränke</h3>
+                        <p>Maximale Raumnutzung durch millimetergenaue Einbaulösungen. Begehbare Kleiderschränke, Garderoben und mehr.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-item-content">
-                    <h4>Homeoffice</h4>
-                    <span>Esche geölt, 2023</span>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-item-content">
-                    <h4>Esszimmer-Tisch</h4>
-                    <span>Eiche geräuchert, 2023</span>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-item-content">
-                    <h4>Garderobe</h4>
-                    <span>Lärche natur, 2023</span>
+                <div class="service-card reveal">
+                    <div class="service-image">
+                        <img src="images/werkstatt.png" alt="Innenausbau">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+                        </div>
+                        <h3>Innenausbau</h3>
+                        <p>Kompletter Innenausbau aus einer Hand: Türen, Treppen, Wandverkleidungen und Deckengestaltung.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="contact" id="kontakt">
-        <div class="contact-content">
-            <h2>Lassen Sie uns sprechen</h2>
-            <p>Sie haben ein Projekt im Kopf? Wir freuen uns auf Ihre Anfrage — ob telefonisch, per E-Mail oder persönlich in unserer Werkstatt.</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-item-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+    <!-- About -->
+    <section class="about" id="ueber-uns">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content reveal">
+                    <span class="section-label">Über uns</span>
+                    <h2>Tradition trifft Innovation</h2>
+                    <p class="about-text">Seit 1985 verbinden wir traditionelles Handwerk mit modernster Technik. In unserer Meisterwerkstatt entstehen individuelle Lösungen, die Generationen überdauern.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4>Meisterqualität garantiert</h4>
+                                <p>Jedes Werkstück durchläuft strenge Qualitätskontrollen</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4>Termintreue</h4>
+                                <p>Verbindliche Zeitpläne, auf die Sie sich verlassen können</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4>Nachhaltige Materialien</h4>
+                                <p>Holz aus zertifizierter, regionaler Forstwirtschaft</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="contact-item-text">
-                        <strong>Adresse</strong>
-                        <span>Musterstraße 123, 12345 Musterstadt</span>
-                    </div>
+                    <a href="#kontakt" class="btn btn-primary">Projekt besprechen</a>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-item-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                    </div>
-                    <div class="contact-item-text">
-                        <strong>Telefon</strong>
-                        <a href="tel:+4912345678900">+49 (0) 12345 / 67890</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-item-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                    </div>
-                    <div class="contact-item-text">
-                        <strong>E-Mail</strong>
-                        <a href="mailto:info@tischlerei-mustermann.de">info@tischlerei-mustermann.de</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-item-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <div class="contact-item-text">
-                        <strong>Öffnungszeiten</strong>
-                        <span>Mo – Fr: 7:00 – 17:00 Uhr</span>
+                <div class="about-image reveal">
+                    <img src="images/werkstatt.png" alt="Unsere Werkstatt">
+                    <div class="about-image-badge">
+                        <div class="number">38</div>
+                        <div class="label">Jahre Meisterbetrieb</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="contact-map">Google Maps Einbettung</div>
     </section>
 
-    <footer>
-        <div class="footer-top">
-            <div class="footer-brand">
-                <a href="#" class="logo">
-                    <div class="logo-mark">
-                        <svg viewBox="0 0 24 24"><path d="M12 3L4 9v12h16V9l-8-6zm0 2.5L18 10v9H6v-9l6-4.5z"/></svg>
+    <!-- Jobs -->
+    <section class="jobs" id="karriere">
+        <div class="container">
+            <div class="jobs-content reveal">
+                <div class="jobs-badge">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"/><path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"/></svg>
+                    Wir suchen Verstärkung
+                </div>
+                <h2>Werde Teil unseres Teams</h2>
+                <p>Du liebst Holz und möchtest in einem modernen Meisterbetrieb arbeiten? Wir freuen uns auf deine Bewerbung – ob als Geselle oder Azubi.</p>
+                <div class="jobs-benefits">
+                    <div class="benefit-tag">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        Top Gehalt + Bonus
                     </div>
-                    Tischlerei Mustermann
+                    <div class="benefit-tag">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        4-Tage-Woche möglich
+                    </div>
+                    <div class="benefit-tag">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                        Moderne Werkstatt
+                    </div>
+                    <div class="benefit-tag">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Familiäres Team
+                    </div>
+                    <div class="benefit-tag">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                        Weiterbildung
+                    </div>
+                </div>
+                <a href="#kontakt" class="btn btn-dark">
+                    Jetzt bewerben
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
-                <p>Meisterbetrieb für Möbel nach Maß, Innenausbau und Holzarbeiten aller Art. Qualität seit 1985.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="#leistungen">Leistungen</a></li>
-                    <li><a href="#ueber-uns">Über uns</a></li>
-                    <li><a href="#arbeiten">Arbeiten</a></li>
-                    <li><a href="#kontakt">Kontakt</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Leistungen</h4>
-                <ul>
-                    <li><a href="#">Möbel nach Maß</a></li>
-                    <li><a href="#">Küchen</a></li>
-                    <li><a href="#">Innenausbau</a></li>
-                    <li><a href="#">Restaurierung</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Rechtliches</h4>
-                <ul>
-                    <li><a href="impressum.html">Impressum</a></li>
-                    <li><a href="datenschutz.html">Datenschutz</a></li>
-                </ul>
             </div>
         </div>
-        <div class="footer-bottom">
-            <span>© 2026 Tischlerei Mustermann. Alle Rechte vorbehalten.</span>
-            <div class="footer-legal">
-                <a href="impressum.html">Impressum</a>
-                <a href="datenschutz.html">Datenschutz</a>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews" id="bewertungen">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Kundenstimmen</span>
+                <h2>Das sagen unsere Kunden</h2>
+                <p>Über 2.500 zufriedene Kunden vertrauen auf unsere Arbeit. Lesen Sie, was sie über uns sagen.</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card reveal">
+                    <div class="review-stars">
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="review-text">"Unser begehbarer Kleiderschrank ist ein Traum! Die Beratung war exzellent und die Handwerker absolut professionell. Jeder Zentimeter wurde optimal genutzt."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">SK</div>
+                        <div>
+                            <div class="review-name">Sandra K.</div>
+                            <div class="review-date">Einbauschrank • November 2024</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card reveal">
+                    <div class="review-stars">
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="review-text">"Von der Planung bis zur Montage alles top! Unser Esstisch aus massiver Eiche ist das Herzstück unseres Wohnzimmers geworden. Echtes Handwerk, das man spürt."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">MH</div>
+                        <div>
+                            <div class="review-name">Michael H.</div>
+                            <div class="review-date">Maßmöbel • Oktober 2024</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card reveal">
+                    <div class="review-stars">
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="review-text">"Die neue Treppe ist ein echtes Highlight! Moderne Optik, perfekte Verarbeitung und pünktlich geliefert. So wünscht man sich das. Klare Empfehlung!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">AW</div>
+                        <div>
+                            <div class="review-name">Andrea W.</div>
+                            <div class="review-date">Innenausbau • Januar 2025</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="kontakt">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <span class="section-label">Kontakt</span>
+                    <h2>Starten Sie Ihr Projekt</h2>
+                    <p>Lassen Sie uns über Ihre Ideen sprechen. Wir beraten Sie kostenlos und unverbindlich – ob vor Ort oder telefonisch.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                            </div>
+                            <div>
+                                <h4>Telefon</h4>
+                                <a href="tel:+4915112345678">0151 12345678</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div>
+                                <h4>E-Mail</h4>
+                                <a href="mailto:info@tischlerei-mustermann.de">info@tischlerei-mustermann.de</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4>Adresse</h4>
+                                <p>Musterstraße 42, 12345 Musterstadt</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4>Öffnungszeiten</h4>
+                                <p>Mo–Fr: 7:00 – 17:00 Uhr</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper reveal">
+                    <form class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Ihr Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="Max Mustermann">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefon</label>
+                                <input type="tel" id="phone" name="phone" placeholder="0151 12345678">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail *</label>
+                            <input type="email" id="email" name="email" required placeholder="max@beispiel.de">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Gewünschte Leistung</label>
+                            <select id="service" name="service">
+                                <option value="">Bitte wählen...</option>
+                                <option value="massmoebel">Maßmöbel</option>
+                                <option value="einbauschrank">Einbauschränke</option>
+                                <option value="innenausbau">Innenausbau</option>
+                                <option value="sonstiges">Sonstiges</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Ihre Nachricht *</label>
+                            <textarea id="message" name="message" required placeholder="Beschreiben Sie Ihr Projekt..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            Nachricht senden
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map -->
+    <section class="map-section">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.4!2d13.404954!3d52.520008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDMxJzEyLjAiTiAxM8KwMjQnMTcuOCJF!5e0!3m2!1sde!2sde!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">Tischlerei <span>Mustermann</span></a>
+                    <p>Meisterhafte Holzarbeiten seit 1985. Individuelle Möbel und Innenausbau aus Leidenschaft zum Handwerk.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Leistungen</h4>
+                    <ul>
+                        <li><a href="#leistungen">Maßmöbel</a></li>
+                        <li><a href="#leistungen">Einbauschränke</a></li>
+                        <li><a href="#leistungen">Innenausbau</a></li>
+                        <li><a href="#leistungen">Restauration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Unternehmen</h4>
+                    <ul>
+                        <li><a href="#ueber-uns">Über uns</a></li>
+                        <li><a href="#karriere">Karriere</a></li>
+                        <li><a href="#bewertungen">Referenzen</a></li>
+                        <li><a href="#kontakt">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Rechtliches</h4>
+                    <ul>
+                        <li><a href="#">Impressum</a></li>
+                        <li><a href="#">Datenschutz</a></li>
+                        <li><a href="#">AGB</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Tischlerei Mustermann. Alle Rechte vorbehalten.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Scroll-based nav styling
+        // Navigation scroll effect
+        const nav = document.querySelector('nav');
         window.addEventListener('scroll', () => {
-            document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
+            nav.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Mobile navigation
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const mobileNavClose = document.querySelector('.mobile-nav-close');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+
+        mobileToggle.addEventListener('click', () => mobileNav.classList.add('active'));
+        mobileNavClose.addEventListener('click', () => mobileNav.classList.remove('active'));
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => mobileNav.classList.remove('active'));
+        });
+
+        // Scroll reveal animation
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('active');
                 }
             });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Vielen Dank für Ihre Nachricht! Wir melden uns zeitnah bei Ihnen.');
         });
     </script>
 </body>
