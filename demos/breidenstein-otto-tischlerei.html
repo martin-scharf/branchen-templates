@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breidenstein Otto u. Sohn OHG | Tischlerei Biedenkopf</title>
-    <meta name="description" content="Breidenstein Otto u. Sohn OHG - Ihre Tischlerei in Biedenkopf. Möbel nach Maß, Einbauschränke, Restaurierung und mehr. Meisterbetrieb mit Tradition.">
+    <title>Breidenstein Otto u. Sohn OHG | Tischlerei & Bestattungen Biedenkopf</title>
+    <meta name="description" content="Breidenstein Otto u. Sohn OHG - Tischlerei und Bestattungsinstitut in Biedenkopf. Möbel nach Maß, Särge aus eigener Werkstatt, würdevolle Bestattungen. Familienbetrieb seit Generationen.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* Tischlerei Farben */
             --wood: #8B4513;
             --wood-dark: #654321;
             --wood-light: #A0522D;
+            
+            /* Bestattungen Farben - dezent und würdevoll */
+            --memorial: #4A5568;
+            --memorial-dark: #2D3748;
+            --memorial-light: #718096;
+            --memorial-soft: #A0AEC0;
+            
+            /* Neutrale Farben */
             --slate: #1E293B;
             --slate-dark: #0F172A;
             --slate-soft: #334155;
@@ -20,6 +29,7 @@
             --snow: #F8FAFC;
             --white: #FFFFFF;
             --cream: #FDF8F3;
+            --memorial-cream: #F7F7F5;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,9 +50,12 @@
             left: 0;
             right: 0;
             z-index: 100;
-            padding: 1rem 4rem;
             background: var(--white);
             border-bottom: 1px solid var(--cloud);
+        }
+
+        .nav-container {
+            padding: 1rem 4rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -87,7 +100,7 @@
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
             align-items: center;
         }
@@ -102,6 +115,12 @@
 
         .nav-links a:hover { color: var(--wood); }
 
+        .nav-divider {
+            width: 1px;
+            height: 24px;
+            background: var(--cloud);
+        }
+
         .nav-cta {
             background: var(--wood);
             color: var(--white) !important;
@@ -111,6 +130,42 @@
         }
 
         .nav-cta:hover { background: var(--wood-dark) !important; }
+
+        /* Bereichs-Tabs */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            background: var(--cloud);
+            padding: 0;
+        }
+
+        .nav-tab {
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--slate-soft);
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-tab:hover {
+            color: var(--slate);
+            background: var(--snow);
+        }
+
+        .nav-tab.active-tischlerei {
+            color: var(--wood);
+            border-color: var(--wood);
+            background: var(--white);
+        }
+
+        .nav-tab.active-bestattungen {
+            color: var(--memorial);
+            border-color: var(--memorial);
+            background: var(--white);
+        }
 
         .menu-btn {
             display: none;
@@ -132,7 +187,7 @@
             min-height: 100vh;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            padding-top: 5rem;
+            padding-top: 7rem;
         }
 
         .hero-content {
@@ -295,6 +350,91 @@
             color: var(--slate);
         }
 
+        /* Bereichswahl-Banner */
+        .bereiche-banner {
+            background: var(--slate);
+            padding: 4rem 4rem;
+        }
+
+        .bereiche-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .bereich-card {
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bereich-card-tischlerei {
+            background: linear-gradient(135deg, var(--wood) 0%, var(--wood-dark) 100%);
+        }
+
+        .bereich-card-bestattungen {
+            background: linear-gradient(135deg, var(--memorial) 0%, var(--memorial-dark) 100%);
+        }
+
+        .bereich-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .bereich-card-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .bereich-card-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--white);
+            fill: none;
+        }
+
+        .bereich-card h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .bereich-card p {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .bereich-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .bereich-card-link svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s;
+        }
+
+        .bereich-card:hover .bereich-card-link svg {
+            transform: translateX(5px);
+        }
+
         /* Karriere Section */
         .karriere {
             background: linear-gradient(135deg, var(--wood) 0%, var(--wood-dark) 100%);
@@ -401,12 +541,6 @@
         .btn-karriere:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        @media (max-width: 768px) {
-            .karriere { padding: 3rem 1.5rem; }
-            .karriere-benefits { gap: 0.75rem; }
-            .karriere-benefit { padding: 0.5rem 1rem; font-size: 0.8rem; }
         }
 
         /* Features Strip */
@@ -661,6 +795,330 @@
 
         .gallery-item:hover::after { opacity: 1; }
 
+        /* ==================== BESTATTUNGEN BEREICH ==================== */
+        
+        .bestattungen-section {
+            background: var(--memorial-cream);
+        }
+
+        /* Bestattungen Hero */
+        .bestattungen-hero {
+            padding: 8rem 4rem 5rem;
+            background: linear-gradient(135deg, var(--memorial) 0%, var(--memorial-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bestattungen-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('img/bestattung-ambiente.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+        }
+
+        .bestattungen-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bestattungen-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.15);
+            color: var(--white);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .bestattungen-hero h2 {
+            color: var(--white);
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .bestattungen-hero p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .bestattungen-hero-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .bestattungen-hero-contact a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .bestattungen-hero-contact a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .bestattungen-hero-contact svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* USP Banner - Särge aus eigener Werkstatt */
+        .usp-banner {
+            background: var(--white);
+            padding: 4rem 4rem;
+            border-bottom: 1px solid var(--cloud);
+        }
+
+        .usp-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .usp-image {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 400px;
+            background: url('img/sarg-werkstatt.png');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .usp-content {
+            padding: 1rem 0;
+        }
+
+        .usp-tag {
+            display: inline-block;
+            color: var(--memorial);
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .usp-content h3 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            color: var(--slate);
+            margin-bottom: 1.5rem;
+        }
+
+        .usp-content p {
+            color: var(--gray);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .usp-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .usp-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .usp-feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--memorial-cream);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .usp-feature-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--memorial);
+        }
+
+        .usp-feature span {
+            font-weight: 500;
+            color: var(--slate);
+        }
+
+        /* Bestattungen Services */
+        .bestattungen-services {
+            padding: 5rem 4rem;
+            background: var(--memorial-cream);
+        }
+
+        .bestattungen-services .section-tag {
+            color: var(--memorial);
+        }
+
+        .bestattungen-services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .bestattungen-service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            text-align: center;
+        }
+
+        .bestattungen-service-card:hover {
+            border-color: var(--memorial-soft);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(45, 55, 72, 0.08);
+        }
+
+        .bestattungen-service-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1.5rem;
+            background: var(--memorial-cream);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bestattungen-service-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--memorial);
+        }
+
+        .bestattungen-service-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            color: var(--slate);
+        }
+
+        .bestattungen-service-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Trauerbegleitung Section */
+        .trauerbegleitung {
+            padding: 5rem 4rem;
+            background: var(--white);
+        }
+
+        .trauerbegleitung-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .trauerbegleitung-content h3 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            color: var(--slate);
+            margin-bottom: 1.5rem;
+        }
+
+        .trauerbegleitung-content p {
+            color: var(--gray);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .trauerbegleitung-image {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 400px;
+            background: url('img/trauerbegleitung.png');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 24h Erreichbarkeit */
+        .erreichbarkeit {
+            background: var(--memorial);
+            padding: 3rem 4rem;
+            text-align: center;
+        }
+
+        .erreichbarkeit-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .erreichbarkeit h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .erreichbarkeit p {
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 1.5rem;
+        }
+
+        .erreichbarkeit-tel {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--white);
+            color: var(--memorial-dark);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.25rem;
+            transition: all 0.3s;
+        }
+
+        .erreichbarkeit-tel:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .erreichbarkeit-tel svg {
+            width: 24px;
+            height: 24px;
+        }
+
         /* Contact */
         .contact {
             padding: 6rem 4rem;
@@ -755,7 +1213,8 @@
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 0.9rem 1rem;
             font-family: inherit;
@@ -767,7 +1226,8 @@
         }
 
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: var(--wood);
             background: var(--white);
@@ -857,34 +1317,53 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            nav { padding: 1rem 2rem; }
+            .nav-container { padding: 1rem 2rem; }
             .hero { grid-template-columns: 1fr; min-height: auto; }
             .hero-content { padding: 8rem 2rem 4rem; }
             .hero-visual { min-height: 60vh; padding: 4rem 2rem; }
+            .bereiche-grid { grid-template-columns: 1fr; }
             .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .bestattungen-services-grid { grid-template-columns: repeat(2, 1fr); }
             .about-grid { grid-template-columns: 1fr; gap: 3rem; }
             .about-image { height: 350px; }
+            .usp-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .usp-image { height: 300px; }
+            .trauerbegleitung-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .trauerbegleitung-image { height: 300px; order: -1; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
             .contact-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
-            nav { padding: 1rem 1.5rem; }
+            .nav-container { padding: 1rem 1.5rem; }
             .nav-links { display: none; }
+            .nav-tabs { flex-wrap: wrap; }
+            .nav-tab { flex: 1; text-align: center; padding: 0.75rem 1rem; font-size: 0.8rem; }
             .menu-btn { display: block; }
-            .hero-content { padding: 7rem 1.5rem 3rem; }
+            .hero-content { padding: 9rem 1.5rem 3rem; }
+            .bereiche-banner { padding: 3rem 1.5rem; }
             .services { padding: 4rem 1.5rem; }
             .services-grid { grid-template-columns: 1fr; }
+            .bestattungen-services-grid { grid-template-columns: 1fr; }
             .about { padding: 4rem 1.5rem; }
+            .bestattungen-hero { padding: 6rem 1.5rem 4rem; }
+            .usp-banner { padding: 3rem 1.5rem; }
+            .bestattungen-services { padding: 3rem 1.5rem; }
+            .trauerbegleitung { padding: 3rem 1.5rem; }
+            .erreichbarkeit { padding: 2rem 1.5rem; }
             .gallery { padding: 4rem 1.5rem; }
             .gallery-grid { grid-template-columns: 1fr; }
             .contact { padding: 4rem 1.5rem; }
             .contact-form { padding: 2rem 1.5rem; }
+            .karriere { padding: 3rem 1.5rem; }
+            .karriere-benefits { gap: 0.75rem; }
+            .karriere-benefit { padding: 0.5rem 1rem; font-size: 0.8rem; }
             footer { padding: 3rem 1.5rem 1.5rem; }
             .footer-grid { grid-template-columns: 1fr; }
             .features-strip { padding: 1rem; gap: 1.5rem; }
             .features-strip-item { font-size: 0.8rem; }
+            .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
         }
 
         /* Demo Banner */
@@ -923,6 +1402,25 @@
             background: var(--wood-light);
             transform: translateY(-2px);
         }
+
+        @media (max-width: 600px) {
+            .demo-banner {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            .demo-banner p { font-size: 0.85rem; text-align: center; }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scroll padding for fixed nav */
+        section[id] {
+            scroll-margin-top: 120px;
+        }
     </style>
 </head>
 <body>
@@ -934,71 +1432,108 @@
 
     <!-- Navigation -->
     <nav>
-        <a href="#" class="logo">
-            <div class="logo-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h1v7c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h1c.55 0 .83-.67.45-1.05l-9.39-9.68c-.39-.4-1.02-.4-1.41 0L1.55 11.95c-.38.38-.1 1.05.45 1.05z"/></svg>
-            </div>
-            <div class="logo-text">
-                Breidenstein Otto u. Sohn
-                <span>Tischlerei seit Generationen</span>
-            </div>
-        </a>
-        <ul class="nav-links">
-            <li><a href="#leistungen">Leistungen</a></li>
-            <li><a href="#ueber-uns">Über uns</a></li>
-            <li><a href="#galerie">Galerie</a></li>
-            <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
-        </ul>
-        <button class="menu-btn"><span></span><span></span><span></span></button>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h1v7c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h1c.55 0 .83-.67.45-1.05l-9.39-9.68c-.39-.4-1.02-.4-1.41 0L1.55 11.95c-.38.38-.1 1.05.45 1.05z"/></svg>
+                </div>
+                <div class="logo-text">
+                    Breidenstein Otto u. Sohn
+                    <span>Tischlerei & Bestattungen</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#tischlerei">Tischlerei</a></li>
+                <li><a href="#bestattungen">Bestattungen</a></li>
+                <div class="nav-divider"></div>
+                <li><a href="#ueber-uns">Über uns</a></li>
+                <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+            </ul>
+            <button class="menu-btn"><span></span><span></span><span></span></button>
+        </div>
+        <div class="nav-tabs">
+            <a href="#tischlerei" class="nav-tab active-tischlerei">🪵 Tischlerei</a>
+            <a href="#bestattungen" class="nav-tab">🕯️ Bestattungen</a>
+        </div>
     </nav>
 
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero" id="start">
         <div class="hero-content">
             <div class="hero-badge">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-                Meisterbetrieb in Biedenkopf
+                Familienbetrieb seit Generationen
             </div>
-            <h1>Holz ist unsere <span>Leidenschaft</span></h1>
+            <h1>Tradition. <span>Handwerk.</span> Vertrauen.</h1>
             <p class="hero-text">
-                Seit Generationen fertigen wir hochwertige Möbel und Einbauten nach Maß. Ihr Tischlermeisterbetrieb für individuelle Lösungen in Biedenkopf und Umgebung.
+                Breidenstein Otto u. Sohn – Ihre Tischlerei und Ihr Bestattungsinstitut in Biedenkopf. Qualität und Würde in allen Lebenslagen, seit Generationen.
             </p>
             <div class="hero-actions">
                 <a href="#kontakt" class="btn btn-primary">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    Jetzt anfragen
+                    06461 2173
                 </a>
-                <a href="#leistungen" class="btn btn-outline">
+                <a href="#bereiche" class="btn btn-outline">
                     Unsere Leistungen
                 </a>
             </div>
         </div>
         <div class="hero-visual">
             <div class="hero-card">
-                <h3>Unsere Spezialitäten</h3>
+                <h3>Zwei Bereiche – ein Versprechen</h3>
                 <div class="hero-services">
-                    <div class="hero-service">
+                    <a href="#tischlerei" class="hero-service">
                         <div class="hero-service-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
                         </div>
-                        <span>Möbel nach Maß</span>
-                    </div>
+                        <span>Tischlerei & Möbelbau</span>
+                    </a>
+                    <a href="#bestattungen" class="hero-service">
+                        <div class="hero-service-icon" style="background: var(--memorial-cream);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="stroke: var(--memorial);"><path d="M12 2C12 2 12 8 12 10C12 12 14 14 14 14L12 22L10 14C10 14 12 12 12 10C12 8 12 2 12 2Z"/><path d="M9 6C7 6 5 7 5 9C5 11 7 13 9 13"/><path d="M15 6C17 6 19 7 19 9C19 11 17 13 15 13"/></svg>
+                        </div>
+                        <span>Bestattungsinstitut</span>
+                    </a>
                     <div class="hero-service">
                         <div class="hero-service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                         </div>
-                        <span>Einbauschränke</span>
-                    </div>
-                    <div class="hero-service">
-                        <div class="hero-service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                        </div>
-                        <span>Restaurierung</span>
+                        <span>Särge aus eigener Fertigung</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Bereiche Auswahl -->
+    <section class="bereiche-banner" id="bereiche">
+        <div class="bereiche-grid">
+            <a href="#tischlerei" class="bereich-card bereich-card-tischlerei">
+                <div class="bereich-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                </div>
+                <h3>Tischlerei</h3>
+                <p>Möbel nach Maß, Einbauschränke, Restaurierung und mehr. Meisterhafte Handwerkskunst für Ihr Zuhause.</p>
+                <span class="bereich-card-link">
+                    Mehr erfahren
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </span>
+            </a>
+            <a href="#bestattungen" class="bereich-card bereich-card-bestattungen">
+                <div class="bereich-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C12 2 12 8 12 10C12 12 14 14 14 14L12 22L10 14C10 14 12 12 12 10C12 8 12 2 12 2Z"/><path d="M9 6C7 6 5 7 5 9C5 11 7 13 9 13"/><path d="M15 6C17 6 19 7 19 9C19 11 17 13 15 13"/></svg>
+                </div>
+                <h3>Bestattungen</h3>
+                <p>Würdevolle Begleitung in schweren Stunden. Bestattungsvorsorge, Trauerbegleitung und Särge aus eigener Werkstatt.</p>
+                <span class="bereich-card-link">
+                    Mehr erfahren
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==================== TISCHLEREI BEREICH ==================== -->
 
     <!-- Karriere / Jobs Sektion -->
     <section class="karriere" id="jobs">
@@ -1008,7 +1543,7 @@
                 Verstärkung gesucht
             </div>
             <h2>Tischler (m/w/d) gesucht!</h2>
-            <p class="karriere-text">Du liebst Holzarbeit und Präzision? Breidenstein Otto u. Sohn sucht Verstärkung für Möbelbau, Einbauschränke und Restaurierungen!</p>
+            <p class="karriere-text">Du liebst Holzarbeit und Präzision? Breidenstein Otto u. Sohn sucht Verstärkung für Möbelbau, Einbauschränke und mehr!</p>
             <div class="karriere-benefits">
                 <div class="karriere-benefit">
                     <span class="karriere-benefit-icon">💰</span>
@@ -1046,15 +1581,15 @@
             Biedenkopf & Umgebung
         </div>
         <div class="features-strip-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            5.0 Sterne Bewertung
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Inhaber: Jens & Björn Breidenstein
         </div>
     </div>
 
-    <!-- Services -->
-    <section class="services" id="leistungen">
+    <!-- Tischlerei Services -->
+    <section class="services" id="tischlerei">
         <div class="section-header">
-            <span class="section-tag">Unsere Leistungen</span>
+            <span class="section-tag">Tischlerei</span>
             <h2>Handwerk mit Herz und Verstand</h2>
             <p>Von der ersten Skizze bis zur fertigen Einrichtung – wir begleiten Sie bei jedem Schritt.</p>
         </div>
@@ -1083,7 +1618,7 @@
             <div class="about-content">
                 <h2>Tischlerkunst aus Tradition</h2>
                 <p>
-                    Seit Generationen steht der Name Breidenstein für erstklassiges Tischlerhandwerk in Biedenkopf. Unser Familienbetrieb verbindet traditionelle Handwerkskunst mit modernen Techniken.
+                    Seit Generationen steht der Name Breidenstein für erstklassiges Tischlerhandwerk in Biedenkopf. Unser Familienbetrieb – heute geführt von Jens und Björn Breidenstein – verbindet traditionelle Handwerkskunst mit modernen Techniken.
                 </p>
                 <p>
                     In unserer Werkstatt in der Hospitalstraße entstehen Unikate, die Generationen überdauern. Wir beraten Sie persönlich und setzen Ihre Vorstellungen mit Präzision und Leidenschaft um.
@@ -1132,12 +1667,180 @@
         </div>
     </section>
 
+    <!-- ==================== BESTATTUNGEN BEREICH ==================== -->
+
+    <div class="bestattungen-section" id="bestattungen">
+        <!-- Bestattungen Hero -->
+        <section class="bestattungen-hero">
+            <div class="bestattungen-hero-content">
+                <div class="bestattungen-hero-badge">
+                    🕯️ Würdevolle Begleitung in schweren Stunden
+                </div>
+                <h2>Bestattungsinstitut Breidenstein</h2>
+                <p>
+                    In Zeiten des Abschieds stehen wir Ihnen mit Einfühlungsvermögen und Fachkompetenz zur Seite. Wir begleiten Sie bei allen Fragen rund um die Bestattung – persönlich, würdevoll und nach Ihren Wünschen.
+                </p>
+                <div class="bestattungen-hero-contact">
+                    <a href="tel:064612173">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        06461 2173
+                    </a>
+                    <a href="#kontakt">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Hospitalstr. 28a, Biedenkopf
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- USP: Särge aus eigener Werkstatt -->
+        <section class="usp-banner">
+            <div class="usp-grid">
+                <div class="usp-image"></div>
+                <div class="usp-content">
+                    <span class="usp-tag">Unser Besonderes</span>
+                    <h3>Särge aus eigener Tischlerei</h3>
+                    <p>
+                        Als Tischlerei und Bestattungsinstitut in einem fertigen wir Särge in unserer eigenen Werkstatt – ein Handwerk mit langer Tradition. Jedes Stück wird mit der gleichen Sorgfalt und Hingabe gefertigt, die unsere Familie seit Generationen auszeichnet.
+                    </p>
+                    <p>
+                        Sie können aus verschiedenen Holzarten, Ausführungen und Ausstattungen wählen. Auf Wunsch fertigen wir auch individuelle Sonderanfertigungen.
+                    </p>
+                    <div class="usp-features">
+                        <div class="usp-feature">
+                            <div class="usp-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                            <span>Handgefertigte Qualität aus Meisterhand</span>
+                        </div>
+                        <div class="usp-feature">
+                            <div class="usp-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                            </div>
+                            <span>Regionale Hölzer, nachhaltig bezogen</span>
+                        </div>
+                        <div class="usp-feature">
+                            <div class="usp-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            </div>
+                            <span>Individuelle Sonderanfertigungen möglich</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bestattungen Services -->
+        <section class="bestattungen-services">
+            <div class="section-header">
+                <span class="section-tag">Unsere Leistungen</span>
+                <h2>Umfassende Bestattungsvorsorge</h2>
+                <p>Wir stehen Ihnen in allen Belangen zur Seite – einfühlsam und kompetent.</p>
+            </div>
+            <div class="bestattungen-services-grid">
+                <div class="bestattungen-service-card">
+                    <div class="bestattungen-service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <h3>Bestattungsvorsorge</h3>
+                    <p>Planen Sie voraus und entlasten Sie Ihre Angehörigen. Wir beraten Sie umfassend zu allen Möglichkeiten der Vorsorge.</p>
+                </div>
+                <div class="bestattungen-service-card">
+                    <div class="bestattungen-service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <h3>Trauerbegleitung</h3>
+                    <p>Wir sind für Sie da – vor, während und nach der Bestattung. Einfühlsame Begleitung in einer schweren Zeit.</p>
+                </div>
+                <div class="bestattungen-service-card">
+                    <div class="bestattungen-service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <h3>Erdbestattung</h3>
+                    <p>Die traditionelle Form des Abschieds. Wir organisieren alle Formalitäten und begleiten Sie bei der Gestaltung.</p>
+                </div>
+                <div class="bestattungen-service-card">
+                    <div class="bestattungen-service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C12 2 12 8 12 10C12 12 14 14 14 14L12 22L10 14C10 14 12 12 12 10C12 8 12 2 12 2Z"/></svg>
+                    </div>
+                    <h3>Feuerbestattung</h3>
+                    <p>Eine Alternative zur Erdbestattung mit verschiedenen Möglichkeiten der Urnenbeisetzung.</p>
+                </div>
+                <div class="bestattungen-service-card">
+                    <div class="bestattungen-service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <h3>Überführungen</h3>
+                    <p>Nationale und internationale Überführungen – wir kümmern uns um alle Formalitäten und den würdevollen Transport.</p>
+                </div>
+                <div class="bestattungen-service-card">
+                    <div class="bestattungen-service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                    </div>
+                    <h3>Särge & Urnen</h3>
+                    <p>Särge aus eigener Werkstatt und eine Auswahl würdevoller Urnen – individuell nach Ihren Wünschen.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trauerbegleitung -->
+        <section class="trauerbegleitung">
+            <div class="trauerbegleitung-grid">
+                <div class="trauerbegleitung-content">
+                    <h3>Einfühlsame Trauerbegleitung</h3>
+                    <p>
+                        Der Verlust eines geliebten Menschen ist eine der schwersten Erfahrungen im Leben. Wir verstehen das und nehmen uns Zeit für Sie und Ihre Familie.
+                    </p>
+                    <p>
+                        Bei Breidenstein werden Sie nicht von wechselnden Mitarbeitern betreut – als Familienbetrieb sind wir persönlich für Sie da. Von der ersten Beratung bis zur Beisetzung und darüber hinaus.
+                    </p>
+                    <p>
+                        Wir unterstützen Sie bei:
+                    </p>
+                    <div class="usp-features" style="margin-top: 1rem;">
+                        <div class="usp-feature">
+                            <div class="usp-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                            <span>Behördengänge und Formalitäten</span>
+                        </div>
+                        <div class="usp-feature">
+                            <div class="usp-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                            <span>Gestaltung der Trauerfeier</span>
+                        </div>
+                        <div class="usp-feature">
+                            <div class="usp-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                            <span>Auswahl von Sarg, Blumen, Musik</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trauerbegleitung-image"></div>
+            </div>
+        </section>
+
+        <!-- 24h Erreichbarkeit -->
+        <section class="erreichbarkeit">
+            <div class="erreichbarkeit-content">
+                <h3>Wir sind für Sie da</h3>
+                <p>Im Trauerfall erreichen Sie uns jederzeit – auch außerhalb der Geschäftszeiten.</p>
+                <a href="tel:064612173" class="erreichbarkeit-tel">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    06461 2173
+                </a>
+            </div>
+        </section>
+    </div>
+
     <!-- Contact -->
     <section class="contact" id="kontakt">
         <div class="contact-grid">
             <div class="contact-content">
                 <h2>Sprechen Sie uns an</h2>
-                <p>Wir freuen uns auf Ihre Anfrage. Vereinbaren Sie einen Beratungstermin – wir nehmen uns Zeit für Ihre Wünsche.</p>
+                <p>Ob Tischlerarbeiten oder Bestattungsfragen – wir sind persönlich für Sie da. Rufen Sie uns an oder besuchen Sie uns.</p>
                 <div class="contact-info">
                     <div class="contact-item">
                         <div class="contact-item-icon">
@@ -1162,8 +1865,17 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                         </div>
                         <div class="contact-item-text">
-                            <span>Öffnungszeiten</span>
+                            <span>Öffnungszeiten Tischlerei</span>
                             <strong>Mo–Fr 7:00–17:00 Uhr</strong>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div class="contact-item-text">
+                            <span>Inhaber</span>
+                            <strong>Jens & Björn Breidenstein</strong>
                         </div>
                     </div>
                 </div>
@@ -1180,8 +1892,16 @@
                         <input type="text" placeholder="Ihre Kontaktdaten">
                     </div>
                     <div class="form-group">
+                        <label>Bereich</label>
+                        <select>
+                            <option value="">Bitte wählen...</option>
+                            <option value="tischlerei">Tischlerei</option>
+                            <option value="bestattungen">Bestattungen</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label>Ihre Nachricht</label>
-                        <textarea placeholder="Beschreiben Sie Ihr Projekt..."></textarea>
+                        <textarea placeholder="Wie können wir Ihnen helfen?"></textarea>
                     </div>
                     <button type="submit" class="form-submit">Anfrage senden</button>
                 </form>
@@ -1199,18 +1919,25 @@
                     </div>
                     <div class="logo-text">
                         Breidenstein Otto u. Sohn
-                        <span>Tischlerei seit Generationen</span>
+                        <span>Tischlerei & Bestattungen</span>
                     </div>
                 </a>
-                <p>Ihr Meisterbetrieb für individuelle Tischlerlösungen in Biedenkopf und Umgebung.</p>
+                <p>Ihr Familienbetrieb für Tischlerei und Bestattungen in Biedenkopf – seit Generationen.</p>
             </div>
             <div class="footer-col">
-                <h4>Leistungen</h4>
+                <h4>Tischlerei</h4>
                 <ul>
-                    <li><a href="#">Möbel nach Maß</a></li>
-                    <li><a href="#">Einbauschränke</a></li>
-                    <li><a href="#">Restaurierung</a></li>
-                    <li><a href="#">Beratung</a></li>
+                    <li><a href="#tischlerei">Möbel nach Maß</a></li>
+                    <li><a href="#tischlerei">Einbauschränke</a></li>
+                    <li><a href="#tischlerei">Restaurierung</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Bestattungen</h4>
+                <ul>
+                    <li><a href="#bestattungen">Bestattungsvorsorge</a></li>
+                    <li><a href="#bestattungen">Trauerbegleitung</a></li>
+                    <li><a href="#bestattungen">Särge & Urnen</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -1219,13 +1946,6 @@
                     <li><a href="#">Hospitalstr. 28a</a></li>
                     <li><a href="#">35216 Biedenkopf</a></li>
                     <li><a href="tel:064612173">06461 2173</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Rechtliches</h4>
-                <ul>
-                    <li><a href="#">Impressum</a></li>
-                    <li><a href="#">Datenschutz</a></li>
                 </ul>
             </div>
         </div>
