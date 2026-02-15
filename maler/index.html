@@ -334,6 +334,128 @@
             margin-bottom: 0.25rem;
         }
 
+        /* Karriere Section */
+        .karriere {
+            background: var(--charcoal);
+            padding: 5rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .karriere-splash {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+        }
+
+        .karriere-splash-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--terracotta);
+            top: -50px;
+            left: 10%;
+        }
+
+        .karriere-splash-2 {
+            width: 250px;
+            height: 250px;
+            background: var(--sage);
+            bottom: -30px;
+            right: 15%;
+        }
+
+        .karriere-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .karriere-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.15);
+            color: var(--white);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: pulse-karriere 2s infinite;
+        }
+
+        @keyframes pulse-karriere {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.3); }
+            50% { box-shadow: 0 0 0 15px rgba(255,255,255,0); }
+        }
+
+        .karriere h2 {
+            color: var(--white);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .karriere-text {
+            color: var(--zinc);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .karriere-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .karriere-benefit {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 10px;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .karriere-benefit-icon {
+            font-size: 1.25rem;
+        }
+
+        .btn-karriere {
+            background: var(--white);
+            color: var(--charcoal);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .btn-karriere:hover {
+            background: var(--terracotta);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .karriere { padding: 3rem 1.5rem; }
+            .karriere-benefits { gap: 0.75rem; }
+            .karriere-benefit { padding: 0.5rem 1rem; font-size: 0.8rem; }
+        }
+
         /* Services */
         .services {
             padding: 6rem 4rem;
@@ -925,6 +1047,39 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Karriere / Jobs Sektion -->
+    <section class="karriere" id="jobs">
+        <div class="karriere-splash karriere-splash-1"></div>
+        <div class="karriere-splash karriere-splash-2"></div>
+        <div class="karriere-content">
+            <div class="karriere-badge">
+                <span>🎨</span>
+                Verstärkung gesucht
+            </div>
+            <h2>Maler & Lackierer (m/w/d) gesucht!</h2>
+            <p class="karriere-text">Bringe Farbe in dein Berufsleben! Werde Teil unseres kreativen Teams und arbeite an spannenden Projekten — von der Fassade bis zur Designwand.</p>
+            <div class="karriere-benefits">
+                <div class="karriere-benefit" style="background: var(--terracotta);">
+                    <span class="karriere-benefit-icon">💰</span>
+                    <span>Faire Bezahlung</span>
+                </div>
+                <div class="karriere-benefit" style="background: var(--sage);">
+                    <span class="karriere-benefit-icon">👥</span>
+                    <span>Tolles Team</span>
+                </div>
+                <div class="karriere-benefit" style="background: var(--indigo);">
+                    <span class="karriere-benefit-icon">🎨</span>
+                    <span>Kreative Projekte</span>
+                </div>
+                <div class="karriere-benefit" style="background: var(--ochre);">
+                    <span class="karriere-benefit-icon">📚</span>
+                    <span>Weiterbildung</span>
+                </div>
+            </div>
+            <a href="tel:+4912345678900" class="btn btn-karriere">Jetzt bewerben: +49 12345 / 67890</a>
         </div>
     </section>
 

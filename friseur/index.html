@@ -229,6 +229,119 @@
             margin-top: 0.5rem;
         }
 
+        /* Karriere Section */
+        .karriere {
+            background: linear-gradient(135deg, var(--plum) 0%, var(--espresso) 100%);
+            padding: 5rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .karriere::before {
+            content: '✂️';
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.1;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .karriere-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .karriere-badge {
+            display: inline-block;
+            background: var(--blush);
+            color: var(--plum);
+            padding: 0.5rem 1.25rem;
+            font-family: 'Instrument Serif', serif;
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            animation: pulse-karriere 2s infinite;
+        }
+
+        @keyframes pulse-karriere {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(249, 228, 228, 0.5); }
+            50% { box-shadow: 0 0 0 15px rgba(249, 228, 228, 0); }
+        }
+
+        .karriere h2 {
+            font-family: 'Instrument Serif', serif;
+            color: var(--silk);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .karriere-text {
+            color: var(--mauve);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        .karriere-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .karriere-benefit {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.75rem 1.25rem;
+            color: var(--silk);
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .karriere-benefit-icon {
+            font-size: 1.1rem;
+        }
+
+        .btn-karriere {
+            background: var(--blush);
+            color: var(--plum);
+            padding: 1rem 2rem;
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .btn-karriere:hover {
+            background: var(--silk);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .karriere { padding: 3rem 1.5rem; }
+            .karriere-benefits { gap: 0.75rem; }
+            .karriere-benefit { padding: 0.5rem 1rem; font-size: 0.8rem; }
+        }
+
         /* Services Intro */
         .services-intro {
             padding: 8rem 6rem;
@@ -743,6 +856,34 @@
                 <div class="hero-accent-number">15+</div>
                 <span>Jahre Erfahrung</span>
             </div>
+        </div>
+    </section>
+
+    <!-- Karriere / Jobs Sektion -->
+    <section class="karriere" id="jobs">
+        <div class="karriere-content">
+            <div class="karriere-badge">✨ Verstärkung gesucht</div>
+            <h2>Friseur / Stylist (m/w/d) gesucht!</h2>
+            <p class="karriere-text">Du liebst es, Menschen zu verschönern? Werde Teil unseres Teams und arbeite in einem modernen Salon mit tollen Kollegen und kreativer Freiheit.</p>
+            <div class="karriere-benefits">
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">💇</span>
+                    <span>Kreative Freiheit</span>
+                </div>
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">💶</span>
+                    <span>Faire Bezahlung</span>
+                </div>
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">📚</span>
+                    <span>Weiterbildungen</span>
+                </div>
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">☕</span>
+                    <span>Tolles Arbeitsklima</span>
+                </div>
+            </div>
+            <a href="tel:+4912345678900" class="btn btn-karriere">Jetzt bewerben: +49 12345 / 67890</a>
         </div>
     </section>
 

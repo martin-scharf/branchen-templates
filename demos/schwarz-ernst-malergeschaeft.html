@@ -295,6 +295,115 @@
             color: var(--slate);
         }
 
+        /* Karriere Section */
+        .karriere {
+            background: linear-gradient(135deg, var(--paint) 0%, var(--paint-dark) 100%);
+            padding: 5rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .karriere::before {
+            content: '🖌️';
+            position: absolute;
+            font-size: 12rem;
+            opacity: 0.1;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .karriere-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .karriere-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            color: var(--white);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: pulse-karriere 2s infinite;
+        }
+
+        @keyframes pulse-karriere {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(255,255,255,0); }
+        }
+
+        .karriere h2 {
+            color: var(--white);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .karriere-text {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .karriere-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .karriere-benefit {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.15);
+            padding: 0.75rem 1.25rem;
+            border-radius: 10px;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .karriere-benefit-icon {
+            font-size: 1.25rem;
+        }
+
+        .btn-karriere {
+            background: var(--white);
+            color: var(--paint-dark);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .btn-karriere:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .karriere { padding: 3rem 1.5rem; }
+            .karriere-benefits { gap: 0.75rem; }
+            .karriere-benefit { padding: 0.5rem 1rem; font-size: 0.8rem; }
+        }
+
         /* Features Strip */
         .features-strip {
             background: var(--slate);
@@ -883,6 +992,37 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Karriere / Jobs Sektion -->
+    <section class="karriere" id="jobs">
+        <div class="karriere-content">
+            <div class="karriere-badge">
+                <span>🎨</span>
+                Verstärkung gesucht
+            </div>
+            <h2>Maler & Lackierer (m/w/d) gesucht!</h2>
+            <p class="karriere-text">Du hast ein Händchen für Farbe? Das Malergeschäft Schwarz Ernst sucht Verstärkung für Fassaden, Innenräume und kreative Techniken!</p>
+            <div class="karriere-benefits">
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">💶</span>
+                    <span>Gute Bezahlung</span>
+                </div>
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">👥</span>
+                    <span>Nettes Team</span>
+                </div>
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">🏡</span>
+                    <span>Regionale Aufträge</span>
+                </div>
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">🎨</span>
+                    <span>Kreative Projekte</span>
+                </div>
+            </div>
+            <a href="#kontakt" class="btn btn-karriere">Jetzt bewerben</a>
         </div>
     </section>
 

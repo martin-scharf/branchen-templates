@@ -297,6 +297,120 @@
             color: var(--text-soft);
         }
 
+        /* Karriere Section */
+        .karriere {
+            background: linear-gradient(135deg, var(--oak) 0%, var(--walnut) 100%);
+            padding: 5rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .karriere::before {
+            content: '🏠';
+            position: absolute;
+            font-size: 12rem;
+            opacity: 0.1;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .karriere-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .karriere-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            color: var(--cream);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: pulse-badge 2s infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(255,255,255,0); }
+        }
+
+        .karriere-badge svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .karriere h2 {
+            color: var(--cream);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .karriere-text {
+            color: rgba(250, 246, 240, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .karriere-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .karriere-benefit {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.15);
+            padding: 0.75rem 1.25rem;
+            border-radius: 10px;
+            color: var(--cream);
+            font-weight: 500;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .karriere-benefit-icon {
+            font-size: 1.25rem;
+        }
+
+        .btn-karriere {
+            background: var(--cream);
+            color: var(--walnut);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .btn-karriere:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .karriere { padding: 3rem 1.5rem; }
+            .karriere-benefits { gap: 0.75rem; }
+            .karriere-benefit { padding: 0.5rem 1rem; font-size: 0.8rem; }
+        }
+
         /* About Section */
         .about {
             padding: 8rem 6rem;
@@ -815,6 +929,37 @@
                 <div class="hero-badge-number">30+</div>
                 <span>Jahre Erfahrung</span>
             </div>
+        </div>
+    </section>
+
+    <!-- Karriere / Jobs Sektion -->
+    <section class="karriere" id="jobs">
+        <div class="karriere-content">
+            <div class="karriere-badge">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                Verstärkung gesucht
+            </div>
+            <h2>Zimmerer (m/w/d) für Biedenkopf gesucht!</h2>
+            <p class="karriere-text">Du liebst Holz und willst in einem erfahrenen Team arbeiten? Die Zimmerei Schmidt sucht Verstärkung für Dachstühle, Gauben und Holzrahmenbau!</p>
+            <div class="karriere-benefits">
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">💰</span>
+                    <span>Faire Bezahlung</span>
+                </div>
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">👥</span>
+                    <span>Familienbetrieb</span>
+                </div>
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">🏠</span>
+                    <span>Regionale Projekte</span>
+                </div>
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">📈</span>
+                    <span>Weiterbildung</span>
+                </div>
+            </div>
+            <a href="tel:+4964618415" class="btn btn-karriere">Jetzt bewerben: 06461 / 8415</a>
         </div>
     </section>
 

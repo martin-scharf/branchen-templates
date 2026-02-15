@@ -334,6 +334,123 @@
             font-weight: 700;
         }
 
+        /* Karriere Section */
+        .karriere {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 5rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 3px solid var(--electric);
+            border-bottom: 3px solid var(--electric);
+        }
+
+        .karriere-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .karriere-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .karriere-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--electric);
+            color: var(--midnight);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            animation: pulse-karriere 2s infinite;
+        }
+
+        @keyframes pulse-karriere {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.5); }
+            50% { box-shadow: 0 0 0 15px rgba(0, 212, 255, 0); }
+        }
+
+        .karriere-badge svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .karriere h2 {
+            color: var(--white);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .karriere-text {
+            color: var(--fog);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .karriere-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .karriere-benefit {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--steel);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 0.75rem 1.25rem;
+            border-radius: 10px;
+            color: var(--cloud);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .karriere-benefit-icon {
+            font-size: 1.25rem;
+        }
+
+        .btn-karriere {
+            background: linear-gradient(135deg, var(--electric) 0%, var(--electric-dim) 100%);
+            color: var(--midnight);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .btn-karriere:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .karriere { padding: 3rem 1.5rem; }
+            .karriere-benefits { gap: 0.75rem; }
+            .karriere-benefit { padding: 0.5rem 1rem; font-size: 0.8rem; }
+        }
+
         /* Stats */
         .stats {
             background: var(--slate);
@@ -905,6 +1022,38 @@
     <div class="emergency-bar">
         ⚡ Stromausfall? Elektro-Notfall? Wir sind rund um die Uhr für Sie da: <a href="tel:+4912345678900">+49 (0) 12345 / 67890</a>
     </div>
+
+    <!-- Karriere / Jobs Sektion -->
+    <section class="karriere" id="jobs">
+        <div class="karriere-glow"></div>
+        <div class="karriere-content">
+            <div class="karriere-badge">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                Wir suchen Verstärkung
+            </div>
+            <h2>Elektriker & Elektroniker (m/w/d) gesucht!</h2>
+            <p class="karriere-text">Spannung garantiert! Werde Teil unseres Teams und arbeite an modernen Elektroinstallationen, Smart Home Projekten und Photovoltaik-Anlagen.</p>
+            <div class="karriere-benefits">
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">⚡</span>
+                    <span>Top-Gehalt</span>
+                </div>
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">🚐</span>
+                    <span>Firmenwagen möglich</span>
+                </div>
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">📱</span>
+                    <span>Moderne Technik</span>
+                </div>
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">🎓</span>
+                    <span>Weiterbildung</span>
+                </div>
+            </div>
+            <a href="tel:+4912345678900" class="btn btn-karriere">Jetzt bewerben: +49 12345 / 67890</a>
+        </div>
+    </section>
 
     <section class="stats">
         <div class="stats-grid">

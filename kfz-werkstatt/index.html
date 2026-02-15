@@ -356,6 +356,135 @@
             color: var(--silver);
         }
 
+        /* Karriere Section */
+        .karriere {
+            background: var(--charcoal);
+            padding: 5rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid var(--red);
+            border-bottom: 4px solid var(--red);
+        }
+
+        .karriere-stripes {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100%;
+            background: repeating-linear-gradient(
+                -45deg,
+                var(--yellow) 0px,
+                var(--yellow) 10px,
+                var(--black) 10px,
+                var(--black) 20px
+            );
+            opacity: 0.3;
+        }
+
+        .karriere-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .karriere-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--red);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+            animation: pulse-karriere 2s infinite;
+        }
+
+        @keyframes pulse-karriere {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.5); }
+            50% { box-shadow: 0 0 0 15px rgba(230, 57, 70, 0); }
+        }
+
+        .karriere h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            color: var(--white);
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .karriere h2 span {
+            color: var(--red);
+        }
+
+        .karriere-text {
+            color: var(--silver);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .karriere-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .karriere-benefit {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--steel);
+            border-left: 3px solid var(--red);
+            padding: 0.75rem 1.25rem;
+            color: var(--light);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .karriere-benefit-icon {
+            font-size: 1.25rem;
+        }
+
+        .btn-karriere {
+            background: var(--red);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            font-family: 'Barlow', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+            transition: all 0.3s;
+        }
+
+        .btn-karriere:hover {
+            background: var(--red-dark);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .karriere { padding: 3rem 1.5rem; }
+            .karriere-benefits { gap: 0.75rem; }
+            .karriere-benefit { padding: 0.5rem 1rem; font-size: 0.8rem; }
+            .karriere-stripes { width: 100px; }
+        }
+
         /* Stats Bar */
         .stats-bar {
             background: var(--charcoal);
@@ -1128,6 +1257,38 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Karriere / Jobs Sektion -->
+    <section class="karriere" id="jobs">
+        <div class="karriere-stripes"></div>
+        <div class="karriere-content">
+            <div class="karriere-badge">
+                <span>🔧</span>
+                VERSTÄRKUNG GESUCHT
+            </div>
+            <h2>KFZ-Mechatroniker (m/w/d) gesucht!</h2>
+            <p class="karriere-text">Du schraubst leidenschaftlich gern? Werde Teil unseres Teams! Moderne Diagnosetechnik, faire Bezahlung und ein kollegiales Arbeitsklima warten auf dich.</p>
+            <div class="karriere-benefits">
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">💰</span>
+                    <span>Top-Gehalt</span>
+                </div>
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">🏆</span>
+                    <span>Meisterbetrieb</span>
+                </div>
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">🛠️</span>
+                    <span>Moderne Werkstatt</span>
+                </div>
+                <div class="karriere-benefit">
+                    <span class="karriere-benefit-icon">📈</span>
+                    <span>Weiterbildung</span>
+                </div>
+            </div>
+            <a href="tel:+491234567890" class="btn btn-karriere">JETZT BEWERBEN: 0123 456 7890</a>
         </div>
     </section>
 
