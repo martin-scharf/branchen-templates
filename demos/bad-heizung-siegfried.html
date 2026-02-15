@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bad & Heizung Siegfried | Badsanierung & Heizungstechnik Biedenkopf-Kombach</title>
+    <meta name="description" content="Bad und Heizung Siegfried in Biedenkopf-Kombach - Badsanierung, Heizungsmodernisierung, Pelletanlagen und Solaranlagen. Ihr Meisterbetrieb fürs Hinterland.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0d6e6e;
+            --primary-dark: #095555;
+            --primary-light: #15a3a3;
+            --accent: #ff6b35;
+            --accent-light: #ff8c5a;
+            --cream: #f7f9f9;
+            --paper: #ffffff;
+            --charcoal: #1a2c2c;
+            --text: #2d4040;
+            --text-soft: #6b8080;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text);
+            background: var(--cream);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--charcoal);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 30px rgba(13, 110, 110, 0.05);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 26px;
+            height: 26px;
+            fill: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .nav-cta {
+            background: var(--accent);
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+        }
+
+        .nav-cta:hover { background: var(--accent-light) !important; }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--charcoal);
+            margin: 5px 0;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 3rem 4rem;
+            background: linear-gradient(135deg, #e8f4f4 0%, #f0f7f7 50%, #fff5f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            right: -10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 80%;
+            background: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 30px 0 0 30px;
+            box-shadow: -30px 0 60px rgba(13, 110, 110, 0.1);
+        }
+
+        .hero-content {
+            max-width: 550px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(13, 110, 110, 0.1);
+        }
+
+        .hero-badge svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--accent);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-soft);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 8px 25px rgba(13, 110, 110, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(13, 110, 110, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--charcoal);
+            border: 2px solid var(--charcoal);
+        }
+
+        .btn-outline:hover {
+            background: var(--charcoal);
+            color: white;
+        }
+
+        /* Services */
+        .services {
+            padding: 6rem 3rem;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-soft);
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(13, 110, 110, 0.12);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(13, 110, 110, 0.1);
+        }
+
+        .service-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--primary);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--text-soft);
+            font-size: 0.95rem;
+        }
+
+        /* About */
+        .about {
+            padding: 6rem 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--accent);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .about-badge-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .about-badge-text {
+            font-size: 0.85rem;
+        }
+
+        .about h2 {
+            color: white;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .about p {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .about-feature svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent);
+        }
+
+        /* Jobs */
+        .jobs {
+            padding: 6rem 3rem;
+            background: linear-gradient(135deg, #fff5f0 0%, #f7f9f9 100%);
+        }
+
+        .jobs-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .job-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent);
+        }
+
+        .job-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .job-tag {
+            background: var(--cream);
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--text-soft);
+        }
+
+        .job-tag.urgent {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Gallery */
+        .gallery {
+            padding: 6rem 3rem;
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+        }
+
+        .gallery-item-overlay h4 {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 6rem 3rem;
+            background: var(--cream);
+        }
+
+        .contact-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 25px;
+        }
+
+        .contact-info h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: white;
+        }
+
+        .contact-text h4 {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 0.3rem;
+            font-weight: 400;
+        }
+
+        .contact-text p, .contact-text a {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .contact-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e8f4f4;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 4rem 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand p {
+            opacity: 0.7;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: white;
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover { opacity: 1; }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Demo Banner */
+        .demo-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+            z-index: 1000;
+            font-weight: 500;
+        }
+
+        .demo-banner a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .menu-toggle { display: block; }
+            
+            .hero { padding: 6rem 1.5rem 4rem; }
+            .hero::after { display: none; }
+            
+            .about-container { grid-template-columns: 1fr; }
+            .contact-container { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .about-features { grid-template-columns: 1fr; }
+            .job-card { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8zm0 18c-3.35 0-6-2.57-6-6.2 0-2.34 1.95-5.44 6-9.14 4.05 3.7 6 6.79 6 9.14 0 3.63-2.65 6.2-6 6.2z"/></svg>
+            </div>
+            Bad & Heizung Siegfried
+        </a>
+        <ul class="nav-links">
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="#galerie">Referenzen</a></li>
+            <li><a href="#jobs">Jobs</a></li>
+            <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+        </ul>
+        <button class="menu-toggle">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Meisterbetrieb aus Biedenkopf-Kombach
+            </div>
+            <h1>Ihr Traumbad <span>aus einer Hand</span></h1>
+            <p>Von der barrierefreien Badsanierung bis zur modernen Heizungstechnik – wir verwandeln Ihre Vorstellungen in Realität. Persönlich, kompetent und zuverlässig.</p>
+            <div class="hero-buttons">
+                <a href="#kontakt" class="btn btn-primary">Kostenlose Beratung</a>
+                <a href="tel:064619894818" class="btn btn-outline">☎ 06461 989 48 18</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="leistungen">
+        <div class="section-header">
+            <span class="section-tag">Unsere Leistungen</span>
+            <h2>Alles aus einer Hand</h2>
+            <p>Wir koordinieren alle Gewerke für Sie – Elektriker, Maler, Fliesen- und Bodenleger arbeiten Hand in Hand.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21 10H7V7l-4 3.99L7 15v-3h14v-2zm-6 6H3v2h12v3l4-4.01L15 13v3z"/></svg>
+                </div>
+                <h3>Badsanierung</h3>
+                <p>Teil- und Komplettsanierung Ihres Badezimmers, barrierefrei und individuell nach Ihren Wünschen geplant.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17.66 11.2c-.23-.3-.51-.56-.77-.82-.67-.6-1.43-1.03-2.07-1.66C13.33 7.26 13 4.85 13.95 3c-.95.23-1.78.75-2.49 1.32-2.59 2.08-3.61 5.75-2.39 8.9.04.1.08.2.08.33 0 .22-.15.42-.35.5-.23.1-.47.04-.66-.12a.58.58 0 0 1-.14-.17c-1.13-1.43-1.31-3.48-.55-5.12C5.78 10 4.87 12.3 5 14.47c.06.5.12 1 .29 1.5.14.6.41 1.2.71 1.73 1.08 1.73 2.95 2.97 4.96 3.22 2.14.27 4.43-.12 6.07-1.6 1.83-1.66 2.47-4.32 1.53-6.6l-.13-.26c-.21-.46-.77-1.26-.77-1.26z"/></svg>
+                </div>
+                <h3>Öl-Brennwertheizung</h3>
+                <p>Modernisierung auf effiziente Brennwerttechnik für niedrigere Heizkosten und mehr Komfort.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19.48 12.35c-1.57-4.08-7.16-4.3-5.81-10.23.1-.44-.37-.78-.75-.55C9.29 3.71 6 7.95 6 12c0 3.31 2.69 6 6 6 1.52 0 2.9-.57 3.95-1.5-.24-.09-.97-.35-1.17-.48-1.68-.96-3.78-2.72-3.78-5.17 0-2.47 2.13-4.55 4.3-5.28-.3 1.96.42 3.55 1.55 4.76 1.02 1.09 2.36 2.01 2.63 3.52.14.81.14 1.66-.01 2.5z"/></svg>
+                </div>
+                <h3>Pelletanlagen</h3>
+                <p>Umweltfreundliche Wärme aus nachwachsenden Rohstoffen – CO2-neutral und kosteneffizient.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 15.31L23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69zM12 18V6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"/></svg>
+                </div>
+                <h3>Solaranlagen</h3>
+                <p>Nutzen Sie die Kraft der Sonne für Warmwasser und Heizungsunterstützung.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+                </div>
+                <h3>Wartung & Service</h3>
+                <p>Regelmäßige Wartung Ihrer Anlagen für optimale Effizienz und lange Lebensdauer.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm4 8h-3v3h-2v-3H8V8h3V5h2v3h3v2z"/></svg>
+                </div>
+                <h3>Wasserschäden</h3>
+                <p>Schnelle und professionelle Beseitigung von Wasserschäden – wir sind für Sie da.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="ueber-uns">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&q=80" alt="Moderne Badezimmergestaltung">
+                <div class="about-badge">
+                    <div class="about-badge-number">100%</div>
+                    <div class="about-badge-text">Kundenzufriedenheit</div>
+                </div>
+            </div>
+            <div>
+                <h2>Ronny Siegfried – Ihr persönlicher Ansprechpartner</h2>
+                <p>Bei der Badsanierung arbeiten wir eng mit uns vertrauten Firmen zusammen: Elektriker, Maler, Fliesen- und Bodenleger. Zu unseren Stärken gehören auch exklusive Wandgestaltungen.</p>
+                <p>Alle Gewerke werden von uns koordiniert – wenn Sie mit uns einen Besichtigungstermin vereinbaren, sind diese auf Wunsch mit anwesend.</p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span>Alles aus einer Hand</span>
+                    </div>
+                    <div class="about-feature">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span>Barrierefreie Lösungen</span>
+                    </div>
+                    <div class="about-feature">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span>Faire Preise</span>
+                    </div>
+                    <div class="about-feature">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span>Persönliche Beratung</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" id="galerie">
+        <div class="section-header">
+            <span class="section-tag">Referenzen</span>
+            <h2>Unsere Projekte</h2>
+            <p>Einblicke in unsere realisierten Badsanierungen und Heizungsinstallationen.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80" alt="Moderne Badgestaltung">
+                <div class="gallery-item-overlay">
+                    <h4>Barrierefreies Bad</h4>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=600&q=80" alt="Elegantes Badezimmer">
+                <div class="gallery-item-overlay">
+                    <h4>Komplettsanierung</h4>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&q=80" alt="Heizungsanlage">
+                <div class="gallery-item-overlay">
+                    <h4>Heizungsmodernisierung</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs -->
+    <section class="jobs" id="jobs">
+        <div class="jobs-container">
+            <div class="section-header">
+                <span class="section-tag">Karriere</span>
+                <h2>🔧 Mitarbeiter gesucht!</h2>
+                <p>Werden Sie Teil unseres Teams – wir suchen Verstärkung!</p>
+            </div>
+            <div class="job-card">
+                <div class="job-info">
+                    <h3>Anlagenmechaniker SHK (m/w/d)</h3>
+                    <div class="job-tags">
+                        <span class="job-tag">Vollzeit</span>
+                        <span class="job-tag">Unbefristet</span>
+                        <span class="job-tag urgent">Ab sofort</span>
+                    </div>
+                </div>
+                <a href="#kontakt" class="btn btn-primary">Bewerben</a>
+            </div>
+            <div class="job-card">
+                <div class="job-info">
+                    <h3>Auszubildende/r SHK (m/w/d)</h3>
+                    <div class="job-tags">
+                        <span class="job-tag">Ausbildung</span>
+                        <span class="job-tag">3,5 Jahre</span>
+                        <span class="job-tag">Ab August 2026</span>
+                    </div>
+                </div>
+                <a href="#kontakt" class="btn btn-primary">Bewerben</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="kontakt">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Kontakt</h2>
+                <p style="opacity: 0.9; margin-bottom: 2rem;">Vereinbaren Sie noch heute einen kostenlosen Beratungstermin!</p>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Adresse</h4>
+                        <p>Steingartenstraße 35<br>35216 Biedenkopf-Kombach</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Telefon</h4>
+                        <p><a href="tel:064619894818">06461 989 48 18</a></p>
+                        <p><a href="tel:015226126112">0152 26126112</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </div>
+                    <div class="contact-text">
+                        <h4>E-Mail</h4>
+                        <p><a href="mailto:info@badundheizung-siegfried.de">info@badundheizung-siegfried.de</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Kostenlose Beratung anfragen</h3>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Vorname</label>
+                            <input type="text" placeholder="Ihr Vorname">
+                        </div>
+                        <div class="form-group">
+                            <label>Nachname</label>
+                            <input type="text" placeholder="Ihr Nachname">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>E-Mail</label>
+                            <input type="email" placeholder="ihre@email.de">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefon</label>
+                            <input type="tel" placeholder="Ihre Telefonnummer">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Ich interessiere mich für</label>
+                        <select>
+                            <option>Bitte wählen...</option>
+                            <option>Badsanierung</option>
+                            <option>Heizungsmodernisierung</option>
+                            <option>Wartung & Service</option>
+                            <option>Sonstiges</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Ihre Nachricht</label>
+                        <textarea placeholder="Beschreiben Sie kurz Ihr Anliegen..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Anfrage absenden</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo" style="color: white;">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8z"/></svg>
+                    </div>
+                    Bad & Heizung Siegfried
+                </a>
+                <p>Ihr Meisterbetrieb für Badsanierung und Heizungstechnik in Biedenkopf-Kombach und Umgebung.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Leistungen</h4>
+                <ul>
+                    <li><a href="#">Badsanierung</a></li>
+                    <li><a href="#">Heizungstechnik</a></li>
+                    <li><a href="#">Solaranlagen</a></li>
+                    <li><a href="#">Wartung</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Rechtliches</h4>
+                <ul>
+                    <li><a href="#">Impressum</a></li>
+                    <li><a href="#">Datenschutz</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Bad & Heizung Siegfried. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+        🎨 Dies ist eine <strong>Demo-Website</strong> erstellt von <a href="https://partpeople.de">partpeople</a> – Interesse? Kontaktieren Sie uns!
+    </div>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

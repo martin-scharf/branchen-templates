@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Hair | Friseursalon Michaela Bonacker in Biedenkopf</title>
+    <meta name="description" content="Modern Hair - Ihr Friseur in Biedenkopf. Schnitt, Farbe, Styling für Damen und Herren. Individuelle Beratung und professionelle Pflege für Ihr Haar.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose: #C9A9A6;
+            --rose-dark: #9B7B7B;
+            --rose-light: #E5D4D3;
+            --gold: #B8860B;
+            --gold-light: #DAA520;
+            --charcoal: #2D2D2D;
+            --text: #4A4A4A;
+            --text-soft: #7A7A7A;
+            --cream: #FDFBF9;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.25rem 4rem;
+            background: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--charcoal);
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 26px;
+            height: 26px;
+            fill: var(--white);
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .logo-text span {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 0.65rem;
+            color: var(--text-soft);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--rose-dark); }
+
+        .nav-cta {
+            background: var(--charcoal);
+            color: var(--white) !important;
+            padding: 0.75rem 1.75rem;
+            border-radius: 30px;
+        }
+
+        .nav-cta:hover { background: var(--rose-dark) !important; }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--charcoal);
+            margin: 5px 0;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-top: 5rem;
+        }
+
+        .hero-content {
+            padding: 6rem 4rem 4rem 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--rose-dark);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            width: fit-content;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--rose);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+        }
+
+        .hero h1 span { color: var(--rose-dark); }
+
+        .hero-text {
+            font-size: 1.05rem;
+            color: var(--text-soft);
+            margin-bottom: 2.5rem;
+            max-width: 420px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-primary {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .btn-primary:hover { background: var(--rose-dark); }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--charcoal);
+            border: 1px solid var(--charcoal);
+        }
+
+        .btn-secondary:hover {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .hero-visual {
+            position: relative;
+            background: linear-gradient(135deg, var(--rose-light) 0%, var(--rose) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-visual::before {
+            content: '✂';
+            font-size: 15rem;
+            opacity: 0.15;
+            color: var(--white);
+        }
+
+        /* Services */
+        section { padding: 6rem 4rem; }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--rose-dark);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-badge::before,
+        .section-badge::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--rose);
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-soft);
+            font-size: 1.05rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.03);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(201,169,166,0.2);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--rose-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: var(--charcoal);
+        }
+
+        .service-card p {
+            color: var(--text-soft);
+            font-size: 0.9rem;
+        }
+
+        /* About */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, var(--rose-light) 0%, var(--rose) 100%);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: var(--white);
+            opacity: 0.4;
+        }
+
+        .about-content h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+        }
+
+        .about-content p {
+            color: var(--text-soft);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .about-features li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            color: var(--text);
+        }
+
+        .about-features li::before {
+            content: '✓';
+            width: 28px;
+            height: 28px;
+            background: var(--rose-light);
+            color: var(--rose-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Hiring Section */
+        .hiring {
+            background: linear-gradient(135deg, var(--charcoal) 0%, #1a1a1a 100%);
+            color: var(--white);
+        }
+
+        .hiring .section-header h2 { color: var(--white); }
+        .hiring .section-header p { color: rgba(255,255,255,0.7); }
+        .hiring .section-badge { color: var(--rose-light); }
+        .hiring .section-badge::before,
+        .hiring .section-badge::after { background: var(--rose); }
+
+        .hiring-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hiring-benefits {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0;
+            text-align: left;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+        }
+
+        .benefit-item::before {
+            content: '★';
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .benefit-item h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .benefit-item p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .hiring .btn-primary {
+            background: var(--rose);
+            margin-top: 1rem;
+        }
+
+        .hiring .btn-primary:hover { background: var(--rose-dark); }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--rose-light);
+        }
+
+        .contact-item:last-child { border: none; }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--rose-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-soft);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item p {
+            font-size: 1.05rem;
+            color: var(--charcoal);
+        }
+
+        .contact-item a {
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover { color: var(--rose-dark); }
+
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 400px;
+            background: var(--rose-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 3rem 4rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--rose-light);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            nav { padding: 1rem 2rem; }
+            .hero { grid-template-columns: 1fr; min-height: auto; }
+            .hero-content { padding: 8rem 2rem 4rem; text-align: center; }
+            .hero-content .hero-badge { margin: 0 auto 1.5rem; }
+            .hero-text { margin: 0 auto 2.5rem; }
+            .hero-actions { justify-content: center; }
+            .hero-visual { height: 50vh; }
+            section { padding: 4rem 2rem; }
+            .services-grid { grid-template-columns: 1fr; max-width: 400px; }
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .about-image { order: -1; height: 300px; }
+            .hiring-benefits { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .menu-btn { display: block; }
+            .hero h1 { font-size: 2.2rem; }
+            footer { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M6.5 2c1.38 0 2.5 1.12 2.5 2.5 0 1.38-1.12 2.5-2.5 2.5s-2.5-1.12-2.5-2.5c0-1.38 1.12-2.5 2.5-2.5m0 12c2.62 0 5.5.58 7.43 1.62C15.35 13.63 17.5 13 20 13v8H4v-6.5c0-1.38 1.12-2.5 2.5-2.5m11 0c1.38 0 2.5-1.12 2.5-2.5 0-1.38-1.12-2.5-2.5-2.5s-2.5 1.12-2.5 2.5c0 1.38 1.12 2.5 2.5 2.5"/></svg>
+            </div>
+            <div class="logo-text">
+                Modern Hair
+                <span>Friseursalon Bonacker</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="#karriere">Karriere</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="tel:064614844" class="nav-cta">☎ 06461 4844</a></li>
+        </ul>
+        <button class="menu-btn">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Ihr Friseur in Biedenkopf</div>
+            <h1>Willkommen bei<br><span>Modern Hair</span></h1>
+            <p class="hero-text">Professionelle Haarpflege mit Herz – individuelle Beratung, kreative Schnitte und leuchtende Farben für Ihren persönlichen Style.</p>
+            <div class="hero-actions">
+                <a href="tel:064614844" class="btn btn-primary">Termin vereinbaren</a>
+                <a href="#leistungen" class="btn btn-secondary">Unsere Leistungen</a>
+            </div>
+        </div>
+        <div class="hero-visual"></div>
+    </section>
+
+    <section id="leistungen">
+        <div class="section-header">
+            <div class="section-badge">Unsere Leistungen</div>
+            <h2>Alles für Ihr Wohlbefinden</h2>
+            <p>Von klassisch bis trendy – wir verwirklichen Ihre Haarwünsche mit Leidenschaft und Können.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">✂</div>
+                <h3>Schnitt & Styling</h3>
+                <p>Professionelle Schnitte für Damen, Herren und Kinder – individuell auf Sie abgestimmt.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Farbe & Strähnchen</h3>
+                <p>Von natürlichen Tönen bis zu kreativen Highlights – für Ihren perfekten Look.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💆</div>
+                <h3>Pflege & Wellness</h3>
+                <p>Verwöhnende Haarkuren und entspannende Kopfmassagen für gesundes Haar.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👰</div>
+                <h3>Hochzeitsstyling</h3>
+                <p>Ihr perfekter Look für den schönsten Tag – inklusive Probetermin.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧔</div>
+                <h3>Herrenpflege</h3>
+                <p>Klassische Schnitte und moderne Bartpflege für den gepflegten Mann.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👶</div>
+                <h3>Kinderhaarschnitt</h3>
+                <p>Liebevolle Betreuung und kindgerechte Schnitte für die Kleinen.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ueber-uns" class="about">
+        <div class="about-grid">
+            <div class="about-image">💇‍♀️</div>
+            <div class="about-content">
+                <h2>Herzlich willkommen bei Modern Hair</h2>
+                <p>Seit vielen Jahren sind wir Ihr Friseur in Biedenkopf. Mit Leidenschaft und Können verwandeln wir Ihre Haarwünsche in Realität.</p>
+                <p>Inhaberin Michaela Bonacker und ihr Team legen größten Wert auf individuelle Beratung und persönliche Betreuung. Bei uns sind Sie keine Nummer – Sie sind Gast.</p>
+                <ul class="about-features">
+                    <li>Individuelle Typberatung</li>
+                    <li>Hochwertige Produkte</li>
+                    <li>Entspannte Atmosphäre</li>
+                    <li>Faire Preise</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="karriere" class="hiring">
+        <div class="section-header">
+            <div class="section-badge">Jetzt bewerben</div>
+            <h2>Werde Teil unseres Teams!</h2>
+            <p>Wir suchen motivierte Friseur/innen und Auszubildende, die mit Leidenschaft und Kreativität arbeiten.</p>
+        </div>
+        <div class="hiring-content">
+            <div class="hiring-benefits">
+                <div class="benefit-item">
+                    <div>
+                        <h4>Familiäres Team</h4>
+                        <p>Arbeiten in angenehmer Atmosphäre mit netten Kolleg/innen</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div>
+                        <h4>Weiterbildung</h4>
+                        <p>Regelmäßige Schulungen und Seminare</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div>
+                        <h4>Faire Bezahlung</h4>
+                        <p>Leistungsgerechtes Gehalt plus Trinkgeld</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div>
+                        <h4>Flexible Zeiten</h4>
+                        <p>Work-Life-Balance wird bei uns großgeschrieben</p>
+                    </div>
+                </div>
+            </div>
+            <a href="tel:064614844" class="btn btn-primary">Jetzt anrufen & bewerben</a>
+        </div>
+    </section>
+
+    <section id="kontakt">
+        <div class="section-header">
+            <div class="section-badge">Kontakt</div>
+            <h2>Besuchen Sie uns</h2>
+            <p>Wir freuen uns auf Ihren Besuch!</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Modern Hair<br>Michaela Bonacker</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h4>Adresse</h4>
+                        <p>Galgenbergstraße 9<br>35216 Biedenkopf</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h4>Telefon</h4>
+                        <p><a href="tel:064614844">06461 4844</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🕐</div>
+                    <div>
+                        <h4>Öffnungszeiten</h4>
+                        <p>Mo - Fr: nach Vereinbarung<br>Sa: nach Vereinbarung</p>
+                    </div>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2534.8!2d8.5296!3d50.9096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTDCsDU0JzM0LjYiTiA4wrAzMSc0Ni42IkU!5e0!3m2!1sde!2sde!4v1" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Modern Hair | Michaela Bonacker | Galgenbergstraße 9, 35216 Biedenkopf</p>
+        <p style="margin-top: 0.5rem;"><a href="#">Impressum</a> · <a href="#">Datenschutz</a></p>
+        <p style="margin-top: 1rem; font-size: 0.75rem;">Demo erstellt von <a href="https://partpeople.de">partpeople</a></p>
+    </footer>
+</body>
+</html>
