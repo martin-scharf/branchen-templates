@@ -1126,11 +1126,11 @@
         /* Service cards grid */
         .ws-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; margin-bottom: 32px; }
         .ws-card { position: relative; }
-        .ws-card input[type="radio"],
         .ws-card input[type="checkbox"] { display: none; }
-        .ws-card-box { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 24px 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); cursor: pointer; transition: all 0.3s ease; text-align: center; min-height: 100px; justify-content: center; }
+        .ws-card-box { position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 24px 14px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.1); border-radius: var(--radius); cursor: pointer; transition: all 0.3s ease; text-align: center; min-height: 100px; justify-content: center; }
         .ws-card-box:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); }
-        .ws-card input:checked + .ws-card-box { background: rgba(220,38,38,0.15); border-color: var(--color-accent); }
+        .ws-card input:checked + .ws-card-box { background: rgba(220,38,38,0.15); border-color: var(--color-accent); box-shadow: 0 0 20px rgba(220,38,38,0.2); }
+        .ws-card input:checked + .ws-card-box::after { content: ''; position: absolute; top: 8px; right: 8px; width: 22px; height: 22px; background: var(--color-accent); border-radius: 50%; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; }
         .ws-card-box svg { width: 32px; height: 32px; color: var(--color-accent); }
         .ws-card-box span { font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.85); }
 
@@ -1156,12 +1156,20 @@
         .es-item { display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); cursor: pointer; transition: all 0.3s ease; }
         .es-item:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); }
         .es-item input[type="checkbox"] { display: none; }
-        .es-item.checked { background: rgba(220,38,38,0.15); border-color: var(--color-accent); }
+        .es-item.checked { background: rgba(220,38,38,0.15); border-color: var(--color-accent); box-shadow: 0 0 20px rgba(220,38,38,0.2); }
         .es-item svg { width: 24px; height: 24px; color: var(--color-accent); flex-shrink: 0; }
         .es-item span { font-size: 0.9rem; font-weight: 500; color: rgba(255,255,255,0.85); }
         .es-check-indicator { width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.2); border-radius: 4px; margin-left: auto; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; }
         .es-item.checked .es-check-indicator { background: var(--color-accent); border-color: var(--color-accent); }
         .es-item.checked .es-check-indicator::after { content: ''; display: block; width: 6px; height: 10px; border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg); margin-top: -2px; }
+
+        /* Service Summary */
+        .service-summary { display: none; margin-top: 28px; padding: 24px; background: rgba(220,38,38,0.08); border: 1px solid rgba(220,38,38,0.3); border-radius: var(--radius); }
+        .service-summary.visible { display: block; }
+        .service-summary h4 { font-family: var(--font-display); font-size: 1.3rem; color: var(--color-accent); margin-bottom: 14px; }
+        .service-summary ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
+        .service-summary li { display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(220,38,38,0.15); border: 1px solid rgba(220,38,38,0.3); border-radius: var(--radius); font-size: 0.85rem; font-weight: 600; color: white; }
+        .service-summary li svg { width: 16px; height: 16px; color: var(--color-accent); flex-shrink: 0; }
 
         @media (max-width: 768px) {
             .st-tabs { flex-direction: column; }
@@ -1510,8 +1518,8 @@
         <div class="container">
             <div class="section-header center reveal">
                 <span class="section-tag">Service & Teile</span>
-                <h2>Service buchen & <span class="accent">Teile anfragen</span></h2>
-                <p>Wählen Sie den gewünschten Service oder fragen Sie Ersatzteile direkt an.</p>
+                <h2>Service <span class="accent">buchen</span></h2>
+                <p>Wählen Sie die gewünschten Services aus und senden Sie Ihre Anfrage direkt an uns.</p>
             </div>
 
             <!-- Tab Navigation -->
@@ -1524,10 +1532,6 @@
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
                     Weitere Services
                 </button>
-                <button class="st-tab" data-tab="ersatzteile">
-                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
-                    Ersatzteile
-                </button>
             </div>
 
             <!-- ==================== TAB 1: Werkstatt-Service ==================== -->
@@ -1536,54 +1540,60 @@
                     <h3>Service auswählen</h3>
                     <div class="ws-grid">
                         <label class="ws-card">
-                            <input type="radio" name="ws-service" value="inspektion">
+                            <input type="checkbox" name="ws-service" value="inspektion">
                             <div class="ws-card-box">
                                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
                                 <span>Inspektion / Wartung</span>
                             </div>
                         </label>
                         <label class="ws-card">
-                            <input type="radio" name="ws-service" value="hu-au">
+                            <input type="checkbox" name="ws-service" value="hu-au">
                             <div class="ws-card-box">
                                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                                 <span>HU/AU (TÜV)</span>
                             </div>
                         </label>
                         <label class="ws-card">
-                            <input type="radio" name="ws-service" value="oelwechsel">
+                            <input type="checkbox" name="ws-service" value="oelwechsel">
                             <div class="ws-card-box">
                                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                                 <span>Ölwechsel</span>
                             </div>
                         </label>
                         <label class="ws-card">
-                            <input type="radio" name="ws-service" value="bremsen">
+                            <input type="checkbox" name="ws-service" value="bremsen">
                             <div class="ws-card-box">
                                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4m10-10h-4M6 12H2"/></svg>
                                 <span>Bremsenservice</span>
                             </div>
                         </label>
                         <label class="ws-card">
-                            <input type="radio" name="ws-service" value="reifen">
+                            <input type="checkbox" name="ws-service" value="reifen">
                             <div class="ws-card-box">
                                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
                                 <span>Reifenwechsel</span>
                             </div>
                         </label>
                         <label class="ws-card">
-                            <input type="radio" name="ws-service" value="klima">
+                            <input type="checkbox" name="ws-service" value="klima">
                             <div class="ws-card-box">
                                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v18m0-18l-4 4m4-4l4 4m-4 14l-4-4m4 4l4-4M3 12h18M3 12l4-4m-4 4l4 4m14-4l-4-4m4 4l-4 4"/></svg>
                                 <span>Klimaservice</span>
                             </div>
                         </label>
                         <label class="ws-card">
-                            <input type="radio" name="ws-service" value="zahnriemen">
+                            <input type="checkbox" name="ws-service" value="zahnriemen">
                             <div class="ws-card-box">
                                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>
                                 <span>Zahnriemen / Steuerkette</span>
                             </div>
                         </label>
+                    </div>
+
+                    <!-- Zusammenfassung -->
+                    <div class="service-summary" id="ws1-summary">
+                        <h4>Ihre Auswahl</h4>
+                        <ul id="ws1-summary-list"></ul>
                     </div>
 
                     <!-- Bremsen Detail -->
@@ -1731,6 +1741,12 @@
                             <div class="es-check-indicator"></div>
                         </label>
                     </div>
+                    <!-- Zusammenfassung -->
+                    <div class="service-summary" id="ws2-summary">
+                        <h4>Ihre Auswahl</h4>
+                        <ul id="ws2-summary-list"></ul>
+                    </div>
+
                     <div class="pr-form-group" style="margin-bottom: 0;">
                         <label>Sonstiges / Freitext</label>
                         <textarea id="es-sonstiges" placeholder="Beschreiben Sie weitere gewünschte Arbeiten..."></textarea>
@@ -1793,123 +1809,7 @@
                 </div>
             </div>
 
-            <!-- ==================== TAB 3: Ersatzteile (bestehender Wizard) ==================== -->
-            <div class="st-panel" id="panel-ersatzteile">
-                <div class="pr-steps reveal">
-                    <div class="pr-step active" data-step="1"><span class="pr-step-num">1</span> Fahrzeug</div>
-                    <div class="pr-step" data-step="2"><span class="pr-step-num">2</span> Teile</div>
-                    <div class="pr-step" data-step="3"><span class="pr-step-num">3</span> Kontakt</div>
-                </div>
-
-                <!-- Step 1: Vehicle -->
-                <div class="pr-card reveal" id="pr-step1">
-                    <h3>Fahrzeug identifizieren</h3>
-                    <div class="pr-form-row">
-                        <div class="pr-form-group">
-                            <label>FIN / VIN</label>
-                            <input type="text" id="pr-fin" maxlength="17" placeholder="WVWZZZ3CZWE123456">
-                            <span class="pr-hint">17-stellig, aus Fahrzeugschein</span>
-                            <span class="pr-msg" id="pr-fin-msg"></span>
-                        </div>
-                        <div class="pr-form-group">
-                            <label>HSN (Feld 2.1)</label>
-                            <input type="text" id="pr-hsn" maxlength="4" placeholder="0603">
-                            <span class="pr-hint">4-stellig</span>
-                            <span class="pr-msg" id="pr-hsn-msg"></span>
-                        </div>
-                        <div class="pr-form-group">
-                            <label>TSN (Feld 2.2)</label>
-                            <input type="text" id="pr-tsn" maxlength="3" placeholder="BKG">
-                            <span class="pr-hint">3-stellig</span>
-                            <span class="pr-msg" id="pr-tsn-msg"></span>
-                        </div>
-                    </div>
-                    <button class="pr-btn-check" id="pr-check-btn" disabled>
-                        Fahrzeug prüfen
-                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </button>
-                    <div class="pr-vehicle-result" id="pr-vehicle-result">
-                        <div>
-                            <div class="pr-vehicle-brand" id="pr-v-brand"></div>
-                            <div class="pr-vehicle-model" id="pr-v-model"></div>
-                            <div class="pr-vehicle-specs" id="pr-v-specs"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 2: Parts -->
-                <div class="pr-card pr-parts-card" id="pr-step2">
-                    <h3>Benötigte Teile auswählen</h3>
-                    <div class="pr-cat">
-                        <h4>Inspektion</h4>
-                        <div class="pr-parts-grid">
-                            <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Ölfilter"><div class="pr-part-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg><span class="pr-part-name">Ölfilter</span></div></label>
-                            <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Luftfilter"><div class="pr-part-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 4h18M3 8h18M3 12h18M3 16h18M3 20h18"/></svg><span class="pr-part-name">Luftfilter</span></div></label>
-                            <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Innenraumfilter"><div class="pr-part-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v18m0-18l-4 4m4-4l4 4m-4 14l-4-4m4 4l4-4M3 12h18"/></svg><span class="pr-part-name">Innenraumfilter</span></div></label>
-                            <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Ölablassschraube"><div class="pr-part-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg><span class="pr-part-name">Ölablassschraube</span></div></label>
-                            <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Motoröl"><div class="pr-part-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg><span class="pr-part-name">Motoröl</span></div></label>
-                            <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Scheibenwischer"><div class="pr-part-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22V8m0 0l-4 4m4-4l4 4M4 18h16"/></svg><span class="pr-part-name">Scheibenwischer</span></div></label>
-                            <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Kraftstofffilter"><div class="pr-part-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 4h18M3 8h18M3 12h18M3 16h18M3 20h18"/></svg><span class="pr-part-name">Kraftstofffilter</span></div></label>
-                            <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Zündkerzen" data-fuel="benzin"><div class="pr-part-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg><span class="pr-part-name">Zündkerzen</span></div></label>
-                            <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Glühkerzen" data-fuel="diesel"><div class="pr-part-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v4m0 12v4m-6-10H2m20 0h-4m-1.343-5.657l-2.828 2.828m-5.658 5.658l-2.828 2.828m11.314 0l-2.828-2.828M6.343 6.343L3.515 3.515"/></svg><span class="pr-part-name">Glühkerzen</span></div></label>
-                        </div>
-                    </div>
-                    <div class="pr-cat">
-                        <h4>Bremsen</h4>
-                        <div class="pr-parts-grid">
-                            <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Bremsscheiben vorne"><div class="pr-part-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg><span class="pr-part-name">Bremsscheiben vorne</span></div></label>
-                            <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Bremsscheiben hinten"><div class="pr-part-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg><span class="pr-part-name">Bremsscheiben hinten</span></div></label>
-                            <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Bremsbeläge vorne"><div class="pr-part-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="2"/></svg><span class="pr-part-name">Bremsbeläge vorne</span></div></label>
-                            <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Bremsbeläge hinten"><div class="pr-part-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="2"/></svg><span class="pr-part-name">Bremsbeläge hinten</span></div></label>
-                            <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Warnkontakt vorne"><div class="pr-part-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg><span class="pr-part-name">Warnkontakt vorne</span></div></label>
-                            <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Warnkontakt hinten"><div class="pr-part-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg><span class="pr-part-name">Warnkontakt hinten</span></div></label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 3: Customer -->
-                <div class="pr-card pr-customer-card" id="pr-step3">
-                    <h3>Ihre Kontaktdaten</h3>
-                    <div class="pr-cust-row">
-                        <div class="pr-form-group">
-                            <label>Name *</label>
-                            <input type="text" id="pr-name" placeholder="Max Mustermann" required>
-                        </div>
-                        <div class="pr-form-group">
-                            <label>E-Mail *</label>
-                            <input type="email" id="pr-email" placeholder="email@beispiel.de" required>
-                        </div>
-                    </div>
-                    <div class="pr-cust-row">
-                        <div class="pr-form-group">
-                            <label>Telefon *</label>
-                            <input type="tel" id="pr-phone" placeholder="+49 123 456789" required>
-                        </div>
-                        <div class="pr-form-group">
-                            <label>Bemerkungen</label>
-                            <input type="text" id="pr-notes" placeholder="z.B. Einbau gewünscht, Dringlichkeit...">
-                        </div>
-                    </div>
-                    <div class="pr-form-group" style="margin-bottom:0;">
-                        <label>Zusätzliche Beschreibung</label>
-                        <textarea id="pr-desc" placeholder="Weitere Details zu den benötigten Teilen..."></textarea>
-                    </div>
-                    <div class="pr-submit-bar">
-                        <div class="pr-count"><strong id="pr-parts-count">0</strong> Teile ausgewählt</div>
-                        <button class="pr-btn-check" id="pr-send-btn" disabled>
-                            Anfrage senden
-                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Confirmation -->
-                <div class="pr-card pr-confirmation" id="pr-confirm">
-                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    <h3>Anfrage gesendet!</h3>
-                    <p>Vielen Dank! Wir haben Ihre Ersatzteil-Anfrage erhalten und melden uns schnellstmöglich mit einem Angebot bei Ihnen.</p>
-                </div>
-            </div>
+            
         </div>
     </section>
 
@@ -2125,31 +2025,51 @@
             });
         });
 
-        // ===== Tab 1: Werkstatt-Service =====
+        // ===== Tab 1: Werkstatt-Service (Mehrfachauswahl) =====
         (function() {
-            const serviceRadios = document.querySelectorAll('input[name="ws-service"]');
+            const serviceCheckboxes = document.querySelectorAll('input[name="ws-service"]');
             const bremsenDetail = document.getElementById('bremsen-detail');
             const sendBtn = document.getElementById('ws1-send');
+            const summary = document.getElementById('ws1-summary');
+            const summaryList = document.getElementById('ws1-summary-list');
 
-            serviceRadios.forEach(r => r.addEventListener('change', function() {
-                bremsenDetail.classList.toggle('visible', this.value === 'bremsen');
+            const serviceLabels = {
+                'inspektion': 'Inspektion / Wartung',
+                'hu-au': 'HU/AU (TÜV)',
+                'oelwechsel': 'Ölwechsel',
+                'bremsen': 'Bremsenservice',
+                'reifen': 'Reifenwechsel',
+                'klima': 'Klimaservice',
+                'zahnriemen': 'Zahnriemen / Steuerkette'
+            };
+
+            function updateSummaryWs1() {
+                const checked = Array.from(document.querySelectorAll('input[name="ws-service"]:checked'));
+                const hasBremsen = checked.some(c => c.value === 'bremsen');
+                bremsenDetail.classList.toggle('visible', hasBremsen);
+                summaryList.innerHTML = checked.map(c => 
+                    '<li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>' + (serviceLabels[c.value] || c.value) + '</li>'
+                ).join('');
+                summary.classList.toggle('visible', checked.length > 0);
                 validateWs1();
-            }));
+            }
+
+            serviceCheckboxes.forEach(cb => cb.addEventListener('change', updateSummaryWs1));
 
             function validateWs1() {
-                const service = document.querySelector('input[name="ws-service"]:checked');
+                const anyService = document.querySelectorAll('input[name="ws-service"]:checked').length > 0;
                 const name = document.getElementById('ws1-name').value.trim();
                 const email = document.getElementById('ws1-email').value.trim();
                 const phone = document.getElementById('ws1-phone').value.trim();
-                sendBtn.disabled = !(service && name && email && phone);
+                sendBtn.disabled = !(anyService && name && email && phone);
             }
             ['ws1-name','ws1-email','ws1-phone'].forEach(id => document.getElementById(id).addEventListener('input', validateWs1));
 
             sendBtn.addEventListener('click', function() {
-                const service = document.querySelector('input[name="ws-service"]:checked')?.value;
+                const services = Array.from(document.querySelectorAll('input[name="ws-service"]:checked')).map(c => c.value);
                 const bremsenDetails = Array.from(document.querySelectorAll('input[name="bremsen-detail"]:checked')).map(c => c.value);
                 console.log('Werkstatt-Service Anfrage:', {
-                    service, bremsenDetails,
+                    services, bremsenDetails,
                     bremsenFreitext: document.getElementById('ws-bremsen-freitext')?.value,
                     kennzeichen: document.getElementById('ws1-kennzeichen').value,
                     km: document.getElementById('ws1-km').value,
@@ -2168,6 +2088,17 @@
         (function() {
             const items = document.querySelectorAll('.es-item');
             const sendBtn = document.getElementById('ws2-send');
+            const summary = document.getElementById('ws2-summary');
+            const summaryList = document.getElementById('ws2-summary-list');
+
+            function updateSummaryWs2() {
+                const checked = Array.from(document.querySelectorAll('input[name="es-service"]:checked'));
+                summaryList.innerHTML = checked.map(c => 
+                    '<li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>' + c.value + '</li>'
+                ).join('');
+                summary.classList.toggle('visible', checked.length > 0);
+                validateWs2();
+            }
 
             items.forEach(item => {
                 item.addEventListener('click', function(e) {
@@ -2175,12 +2106,12 @@
                     const cb = this.querySelector('input[type="checkbox"]');
                     cb.checked = !cb.checked;
                     this.classList.toggle('checked', cb.checked);
-                    validateWs2();
+                    updateSummaryWs2();
                 });
                 const cb = item.querySelector('input[type="checkbox"]');
                 cb.addEventListener('change', function() {
                     item.classList.toggle('checked', this.checked);
-                    validateWs2();
+                    updateSummaryWs2();
                 });
             });
 
@@ -2213,178 +2144,6 @@
             });
         })();
 
-        // ===== Tab 3: Ersatzteil-Anfrage Logik =====
-        (function() {
-            // Demo HSN/TSN Datenbank
-            const vehicleDB = [
-                { hsn: '0603', tsn: 'BKG', marke: 'Volkswagen', modell: 'Golf VII 2.0 TDI', leistung: '110 kW / 150 PS', hubraum: '1968 ccm', kraftstoff: 'Diesel' },
-                { hsn: '0603', tsn: 'BNB', marke: 'Volkswagen', modell: 'Golf VIII 1.5 TSI', leistung: '110 kW / 150 PS', hubraum: '1498 ccm', kraftstoff: 'Benzin' },
-                { hsn: '0603', tsn: 'AUV', marke: 'Volkswagen', modell: 'Passat B8 2.0 TDI', leistung: '140 kW / 190 PS', hubraum: '1968 ccm', kraftstoff: 'Diesel' },
-                { hsn: '0005', tsn: 'CJA', marke: 'BMW', modell: '320d (F30)', leistung: '140 kW / 190 PS', hubraum: '1995 ccm', kraftstoff: 'Diesel' },
-                { hsn: '0005', tsn: 'CMH', marke: 'BMW', modell: '520i (G30)', leistung: '135 kW / 184 PS', hubraum: '1998 ccm', kraftstoff: 'Benzin' },
-                { hsn: '1313', tsn: 'AAO', marke: 'Mercedes-Benz', modell: 'C 220 d (W205)', leistung: '143 kW / 194 PS', hubraum: '1950 ccm', kraftstoff: 'Diesel' },
-                { hsn: '1313', tsn: 'ACR', marke: 'Mercedes-Benz', modell: 'E 200 (W213)', leistung: '135 kW / 184 PS', hubraum: '1991 ccm', kraftstoff: 'Benzin' },
-                { hsn: '3000', tsn: 'AEN', marke: 'Audi', modell: 'A4 2.0 TDI (B9)', leistung: '110 kW / 150 PS', hubraum: '1968 ccm', kraftstoff: 'Diesel' },
-                { hsn: '3000', tsn: 'AGZ', marke: 'Audi', modell: 'A3 1.5 TFSI', leistung: '110 kW / 150 PS', hubraum: '1498 ccm', kraftstoff: 'Benzin' },
-                { hsn: '4050', tsn: 'ABF', marke: 'Opel', modell: 'Astra K 1.4 Turbo', leistung: '110 kW / 150 PS', hubraum: '1399 ccm', kraftstoff: 'Benzin' },
-                { hsn: '4050', tsn: 'ACD', marke: 'Opel', modell: 'Corsa F 1.2 Turbo', leistung: '74 kW / 100 PS', hubraum: '1199 ccm', kraftstoff: 'Benzin' },
-                { hsn: '8566', tsn: 'ABH', marke: 'Skoda', modell: 'Octavia III 2.0 TDI', leistung: '110 kW / 150 PS', hubraum: '1968 ccm', kraftstoff: 'Diesel' },
-                { hsn: '2007', tsn: 'ACX', marke: 'Ford', modell: 'Focus IV 1.0 EcoBoost', leistung: '92 kW / 125 PS', hubraum: '999 ccm', kraftstoff: 'Benzin' },
-                { hsn: '6222', tsn: 'ACJ', marke: 'Toyota', modell: 'Corolla 1.8 Hybrid', leistung: '90 kW / 122 PS', hubraum: '1798 ccm', kraftstoff: 'Hybrid/Benzin' },
-                { hsn: '6253', tsn: 'AHL', marke: 'Hyundai', modell: 'Tucson 1.6 T-GDI', leistung: '132 kW / 180 PS', hubraum: '1598 ccm', kraftstoff: 'Benzin' },
-                { hsn: '6264', tsn: 'ABS', marke: 'Kia', modell: 'Ceed 1.4 T-GDI', leistung: '103 kW / 140 PS', hubraum: '1353 ccm', kraftstoff: 'Benzin' },
-                { hsn: '3003', tsn: 'AFA', marke: 'Seat', modell: 'Leon 2.0 TDI', leistung: '110 kW / 150 PS', hubraum: '1968 ccm', kraftstoff: 'Diesel' },
-                { hsn: '3811', tsn: 'ACE', marke: 'Renault', modell: 'Mégane IV 1.3 TCe', leistung: '103 kW / 140 PS', hubraum: '1332 ccm', kraftstoff: 'Benzin' },
-            ];
-
-            // WMI codes for VIN brand detection
-            const wmiCodes = {
-                'WVW':'Volkswagen','WV1':'VW Nutzfahrzeuge','WAU':'Audi','WBA':'BMW','WBS':'BMW M',
-                'WDB':'Mercedes-Benz','WDC':'Mercedes-Benz','WDD':'Mercedes-Benz','WP0':'Porsche',
-                'W0L':'Opel','WF0':'Ford','TMB':'Skoda','VSS':'Seat','VF1':'Renault',
-                'VF3':'Peugeot','ZFA':'Fiat','JTD':'Toyota','SB1':'Toyota','KMH':'Hyundai',
-                'KNA':'Kia','YV1':'Volvo','WMW':'Mini','WME':'Smart','JMZ':'Mazda',
-                'JN1':'Nissan','SAL':'Land Rover','UU1':'Dacia'
-            };
-
-            const prFin = document.getElementById('pr-fin');
-            const prHsn = document.getElementById('pr-hsn');
-            const prTsn = document.getElementById('pr-tsn');
-            const prCheckBtn = document.getElementById('pr-check-btn');
-            const prResult = document.getElementById('pr-vehicle-result');
-            const prStep2 = document.getElementById('pr-step2');
-            const prStep3 = document.getElementById('pr-step3');
-            const prSendBtn = document.getElementById('pr-send-btn');
-            const prConfirm = document.getElementById('pr-confirm');
-            const steps = document.querySelectorAll('.pr-step');
-
-            let confirmedVehicle = null;
-
-            function setStep(n) {
-                steps.forEach(s => s.classList.toggle('active', parseInt(s.dataset.step) <= n));
-            }
-
-            function checkPrForm() {
-                const hsnOk = /^\d{4}$/.test(prHsn.value);
-                const tsnOk = /^[A-Z0-9]{3}$/i.test(prTsn.value);
-                prHsn.className = prHsn.value ? (hsnOk ? 'pr-valid' : 'pr-invalid') : '';
-                prTsn.className = prTsn.value ? (tsnOk ? 'pr-valid' : 'pr-invalid') : '';
-                const hsnMsg = document.getElementById('pr-hsn-msg');
-                const tsnMsg = document.getElementById('pr-tsn-msg');
-                hsnMsg.textContent = prHsn.value ? (hsnOk ? '✓' : prHsn.value.length + '/4') : '';
-                hsnMsg.className = 'pr-msg ' + (hsnOk ? 'success' : 'error');
-                tsnMsg.textContent = prTsn.value ? (tsnOk ? '✓' : prTsn.value.length + '/3') : '';
-                tsnMsg.className = 'pr-msg ' + (tsnOk ? 'success' : 'error');
-                prCheckBtn.disabled = !(hsnOk && tsnOk);
-            }
-
-            // VIN brand preview
-            prFin.addEventListener('input', function() {
-                this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
-                const finMsg = document.getElementById('pr-fin-msg');
-                if (this.value.length >= 3) {
-                    const wmi = this.value.substring(0, 3);
-                    if (wmiCodes[wmi]) {
-                        finMsg.textContent = '🚗 ' + wmiCodes[wmi];
-                        finMsg.className = 'pr-msg success';
-                    } else {
-                        finMsg.textContent = this.value.length + '/17';
-                        finMsg.className = 'pr-msg';
-                    }
-                } else {
-                    finMsg.textContent = this.value.length ? this.value.length + '/17' : '';
-                    finMsg.className = 'pr-msg';
-                }
-            });
-
-            prHsn.addEventListener('input', function() {
-                this.value = this.value.replace(/\D/g, '');
-                checkPrForm();
-                if (this.value.length === 4) prTsn.focus();
-            });
-            prTsn.addEventListener('input', function() {
-                this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
-                checkPrForm();
-            });
-
-            // Check vehicle
-            prCheckBtn.addEventListener('click', function() {
-                const hsn = prHsn.value.padStart(4, '0');
-                const tsn = prTsn.value.toUpperCase();
-                const v = vehicleDB.find(x => x.hsn === hsn && x.tsn === tsn);
-
-                if (v) {
-                    confirmedVehicle = v;
-                    document.getElementById('pr-v-brand').textContent = v.marke;
-                    document.getElementById('pr-v-model').textContent = v.modell;
-                    document.getElementById('pr-v-specs').innerHTML = `<span>${v.leistung}</span><span>•</span><span>${v.hubraum}</span><span>•</span><span>${v.kraftstoff}</span>`;
-                    prResult.className = 'pr-vehicle-result visible';
-                    prStep2.classList.add('visible');
-                    prStep3.classList.add('visible');
-                    setStep(2);
-
-                    // Show/hide fuel-specific parts
-                    const isDiesel = v.kraftstoff.toLowerCase().includes('diesel');
-                    document.querySelectorAll('[data-fuel="benzin"]').forEach(el => el.closest('.pr-part-item').style.display = isDiesel ? 'none' : '');
-                    document.querySelectorAll('[data-fuel="diesel"]').forEach(el => el.closest('.pr-part-item').style.display = isDiesel ? '' : 'none');
-
-                    prStep2.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else {
-                    confirmedVehicle = null;
-                    document.getElementById('pr-v-brand').textContent = '✗ Fahrzeug nicht gefunden';
-                    document.getElementById('pr-v-model').textContent = 'HSN/TSN ' + hsn + '/' + tsn + ' nicht in der Demo-Datenbank';
-                    document.getElementById('pr-v-specs').innerHTML = '';
-                    prResult.className = 'pr-vehicle-result visible pr-error';
-                    prStep2.classList.remove('visible');
-                    prStep3.classList.remove('visible');
-                    setStep(1);
-                }
-            });
-
-            // Parts count
-            function updatePrCount() {
-                const c = document.querySelectorAll('input[name="pr-part"]:checked').length;
-                document.getElementById('pr-parts-count').textContent = c;
-                setStep(c > 0 ? 3 : 2);
-                validatePrSend();
-            }
-            document.querySelectorAll('input[name="pr-part"]').forEach(cb => cb.addEventListener('change', updatePrCount));
-
-            // Validate send
-            function validatePrSend() {
-                const name = document.getElementById('pr-name').value.trim();
-                const email = document.getElementById('pr-email').value.trim();
-                const phone = document.getElementById('pr-phone').value.trim();
-                const parts = document.querySelectorAll('input[name="pr-part"]:checked').length;
-                prSendBtn.disabled = !(name && email && phone && parts > 0 && confirmedVehicle);
-            }
-            ['pr-name','pr-email','pr-phone','pr-notes'].forEach(id => {
-                document.getElementById(id)?.addEventListener('input', validatePrSend);
-            });
-
-            // Send
-            prSendBtn.addEventListener('click', function() {
-                const parts = Array.from(document.querySelectorAll('input[name="pr-part"]:checked')).map(cb => cb.value);
-                console.log('Ersatzteil-Anfrage:', {
-                    fahrzeug: confirmedVehicle,
-                    fin: prFin.value,
-                    teile: parts,
-                    name: document.getElementById('pr-name').value,
-                    email: document.getElementById('pr-email').value,
-                    phone: document.getElementById('pr-phone').value,
-                    bemerkungen: document.getElementById('pr-notes').value,
-                    beschreibung: document.getElementById('pr-desc').value
-                });
-
-                // Show confirmation
-                document.getElementById('pr-step1').style.display = 'none';
-                prStep2.style.display = 'none';
-                prStep3.style.display = 'none';
-                document.querySelector('.pr-steps').style.display = 'none';
-                prConfirm.classList.add('visible');
-                prConfirm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            });
-        })();
-    </script>
+            </script>
 </body>
 </html>
