@@ -1031,6 +1031,88 @@
             font-weight: 300;
             line-height: 1;
         }
+
+        /* Ersatzteil-Anfrage Section */
+        .parts-request { background: var(--color-dark); color: white; position: relative; overflow: hidden; }
+        .parts-request::before { content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: linear-gradient(135deg, transparent 0%, rgba(220,38,38,0.08) 100%); pointer-events: none; }
+        .parts-request .section-tag { color: var(--color-accent); }
+        .parts-request .section-tag::before { background: var(--color-accent); }
+        .parts-request h2 { color: white; }
+        .parts-request .section-header p { color: rgba(255,255,255,0.6); }
+
+        .pr-steps { display: flex; gap: 12px; margin-bottom: 40px; }
+        .pr-step { display: flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: var(--radius); font-size: 0.85rem; font-weight: 600; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); transition: all 0.3s ease; }
+        .pr-step.active { background: rgba(220,38,38,0.2); border-color: var(--color-accent); color: white; }
+        .pr-step-num { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1rem; }
+        .pr-step.active .pr-step-num { background: var(--color-accent); }
+
+        .pr-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); padding: 40px; margin-bottom: 28px; }
+        .pr-card h3 { font-family: var(--font-display); font-size: 1.6rem; color: white; margin-bottom: 24px; }
+
+        .pr-form-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        .pr-form-group { display: flex; flex-direction: column; gap: 8px; }
+        .pr-form-group label { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.05em; }
+        .pr-form-group input { padding: 14px 18px; border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius); background: rgba(255,255,255,0.05); color: white; font-family: var(--font-body); font-size: 1rem; transition: all 0.3s ease; }
+        .pr-form-group input::placeholder { color: rgba(255,255,255,0.3); }
+        .pr-form-group input:focus { outline: none; border-color: var(--color-accent); background: rgba(255,255,255,0.08); }
+        .pr-form-group input.pr-valid { border-color: #22c55e; }
+        .pr-form-group input.pr-invalid { border-color: var(--color-accent); }
+        .pr-form-group .pr-hint { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+        .pr-form-group .pr-msg { font-size: 0.75rem; min-height: 1em; }
+        .pr-form-group .pr-msg.success { color: #22c55e; }
+        .pr-form-group .pr-msg.error { color: var(--color-accent); }
+
+        .pr-vehicle-result { display: none; padding: 20px; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); border-radius: var(--radius); margin-top: 16px; }
+        .pr-vehicle-result.visible { display: flex; align-items: center; gap: 20px; }
+        .pr-vehicle-result.pr-error { background: rgba(220,38,38,0.1); border-color: rgba(220,38,38,0.3); }
+        .pr-vehicle-brand { font-family: var(--font-display); font-size: 1.8rem; color: white; }
+        .pr-vehicle-model { color: rgba(255,255,255,0.7); font-size: 1rem; }
+        .pr-vehicle-specs { display: flex; gap: 16px; margin-top: 6px; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+
+        .pr-btn-check { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; background: var(--color-accent); color: white; border: none; border-radius: var(--radius); font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em; transition: all 0.3s ease; margin-top: 8px; }
+        .pr-btn-check:hover { background: var(--color-accent-dark); transform: translateY(-2px); }
+        .pr-btn-check:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+        /* Parts grid */
+        .pr-parts-card { display: none; }
+        .pr-parts-card.visible { display: block; }
+        .pr-cat { margin-bottom: 28px; }
+        .pr-cat h4 { font-family: var(--font-display); font-size: 1.3rem; color: var(--color-accent); margin-bottom: 14px; }
+        .pr-parts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+        .pr-part-item input[type="checkbox"] { display: none; }
+        .pr-part-box { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 18px 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); cursor: pointer; transition: all 0.3s ease; text-align: center; }
+        .pr-part-box:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); }
+        .pr-part-item input:checked + .pr-part-box { background: rgba(220,38,38,0.15); border-color: var(--color-accent); }
+        .pr-part-icon { font-size: 1.5rem; }
+        .pr-part-name { font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.8); }
+
+        /* Customer form */
+        .pr-customer-card { display: none; }
+        .pr-customer-card.visible { display: block; }
+        .pr-cust-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        .pr-form-group textarea { padding: 14px 18px; border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius); background: rgba(255,255,255,0.05); color: white; font-family: var(--font-body); font-size: 1rem; resize: vertical; min-height: 80px; transition: all 0.3s ease; }
+        .pr-form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+        .pr-form-group textarea:focus { outline: none; border-color: var(--color-accent); background: rgba(255,255,255,0.08); }
+
+        .pr-submit-bar { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; }
+        .pr-count { font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+        .pr-count strong { color: var(--color-accent); font-size: 1.2rem; }
+
+        /* Confirmation */
+        .pr-confirmation { display: none; text-align: center; padding: 60px 40px; }
+        .pr-confirmation.visible { display: block; }
+        .pr-confirmation svg { width: 80px; height: 80px; color: #22c55e; margin-bottom: 24px; }
+        .pr-confirmation h3 { font-family: var(--font-display); font-size: 2.5rem; color: white; margin-bottom: 16px; }
+        .pr-confirmation p { color: rgba(255,255,255,0.6); font-size: 1.1rem; max-width: 500px; margin: 0 auto; }
+
+        @media (max-width: 768px) {
+            .pr-form-row { grid-template-columns: 1fr; }
+            .pr-cust-row { grid-template-columns: 1fr; }
+            .pr-steps { flex-wrap: wrap; }
+            .pr-card { padding: 24px; }
+            .pr-parts-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+            .pr-submit-bar { flex-direction: column; gap: 16px; }
+        }
     </style>
 </head>
 <body>
@@ -1048,6 +1130,7 @@
                 <li><a href="#ueber-uns">Über uns</a></li>
                 <li><a href="#karriere">Karriere</a></li>
                 <li><a href="#bewertungen">Bewertungen</a></li>
+                <li><a href="#ersatzteil-anfrage">Ersatzteile</a></li>
                 <li><a href="#kontakt">Kontakt</a></li>
             </ul>
             <div class="nav-cta">
@@ -1071,6 +1154,7 @@
             <li><a href="#ueber-uns">Über uns</a></li>
             <li><a href="#karriere">Karriere</a></li>
             <li><a href="#bewertungen">Bewertungen</a></li>
+            <li><a href="#ersatzteil-anfrage">Ersatzteile</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
         </ul>
     </div>
@@ -1363,6 +1447,132 @@
         </div>
     </section>
 
+    <!-- Ersatzteil-Anfrage -->
+    <section class="parts-request" id="ersatzteil-anfrage">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span class="section-tag">Ersatzteil-Anfrage</span>
+                <h2>Ersatzteile <span class="accent">anfragen</span></h2>
+                <p>Geben Sie Ihre Fahrzeugdaten ein und wählen Sie die benötigten Teile – wir kümmern uns um den Rest.</p>
+            </div>
+
+            <div class="pr-steps reveal">
+                <div class="pr-step active" data-step="1"><span class="pr-step-num">1</span> Fahrzeug</div>
+                <div class="pr-step" data-step="2"><span class="pr-step-num">2</span> Teile</div>
+                <div class="pr-step" data-step="3"><span class="pr-step-num">3</span> Kontakt</div>
+            </div>
+
+            <!-- Step 1: Vehicle -->
+            <div class="pr-card reveal" id="pr-step1">
+                <h3>🔍 Fahrzeug identifizieren</h3>
+                <div class="pr-form-row">
+                    <div class="pr-form-group">
+                        <label>FIN / VIN</label>
+                        <input type="text" id="pr-fin" maxlength="17" placeholder="WVWZZZ3CZWE123456">
+                        <span class="pr-hint">17-stellig, aus Fahrzeugschein</span>
+                        <span class="pr-msg" id="pr-fin-msg"></span>
+                    </div>
+                    <div class="pr-form-group">
+                        <label>HSN (Feld 2.1)</label>
+                        <input type="text" id="pr-hsn" maxlength="4" placeholder="0603">
+                        <span class="pr-hint">4-stellig</span>
+                        <span class="pr-msg" id="pr-hsn-msg"></span>
+                    </div>
+                    <div class="pr-form-group">
+                        <label>TSN (Feld 2.2)</label>
+                        <input type="text" id="pr-tsn" maxlength="3" placeholder="BKG">
+                        <span class="pr-hint">3-stellig</span>
+                        <span class="pr-msg" id="pr-tsn-msg"></span>
+                    </div>
+                </div>
+                <button class="pr-btn-check" id="pr-check-btn" disabled>
+                    Fahrzeug prüfen
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </button>
+                <div class="pr-vehicle-result" id="pr-vehicle-result">
+                    <div>
+                        <div class="pr-vehicle-brand" id="pr-v-brand"></div>
+                        <div class="pr-vehicle-model" id="pr-v-model"></div>
+                        <div class="pr-vehicle-specs" id="pr-v-specs"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Parts -->
+            <div class="pr-card pr-parts-card" id="pr-step2">
+                <h3>🔧 Benötigte Teile auswählen</h3>
+                <div class="pr-cat">
+                    <h4>Inspektion</h4>
+                    <div class="pr-parts-grid">
+                        <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Ölfilter"><div class="pr-part-box"><span class="pr-part-icon">🛢️</span><span class="pr-part-name">Ölfilter</span></div></label>
+                        <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Luftfilter"><div class="pr-part-box"><span class="pr-part-icon">💨</span><span class="pr-part-name">Luftfilter</span></div></label>
+                        <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Innenraumfilter"><div class="pr-part-box"><span class="pr-part-icon">❄️</span><span class="pr-part-name">Innenraumfilter</span></div></label>
+                        <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Ölablassschraube"><div class="pr-part-box"><span class="pr-part-icon">🔩</span><span class="pr-part-name">Ölablassschraube</span></div></label>
+                        <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Motoröl"><div class="pr-part-box"><span class="pr-part-icon">🫗</span><span class="pr-part-name">Motoröl</span></div></label>
+                        <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Scheibenwischer"><div class="pr-part-box"><span class="pr-part-icon">🌧️</span><span class="pr-part-name">Scheibenwischer</span></div></label>
+                        <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Kraftstofffilter"><div class="pr-part-box"><span class="pr-part-icon">⛽</span><span class="pr-part-name">Kraftstofffilter</span></div></label>
+                        <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Zündkerzen" data-fuel="benzin"><div class="pr-part-box"><span class="pr-part-icon">⚡</span><span class="pr-part-name">Zündkerzen</span></div></label>
+                        <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Glühkerzen" data-fuel="diesel"><div class="pr-part-box"><span class="pr-part-icon">🔥</span><span class="pr-part-name">Glühkerzen</span></div></label>
+                    </div>
+                </div>
+                <div class="pr-cat">
+                    <h4>Bremsen</h4>
+                    <div class="pr-parts-grid">
+                        <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Bremsscheiben vorne"><div class="pr-part-box"><span class="pr-part-icon">⭕</span><span class="pr-part-name">Bremsscheiben vorne</span></div></label>
+                        <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Bremsscheiben hinten"><div class="pr-part-box"><span class="pr-part-icon">⭕</span><span class="pr-part-name">Bremsscheiben hinten</span></div></label>
+                        <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Bremsbeläge vorne"><div class="pr-part-box"><span class="pr-part-icon">🟫</span><span class="pr-part-name">Bremsbeläge vorne</span></div></label>
+                        <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Bremsbeläge hinten"><div class="pr-part-box"><span class="pr-part-icon">🟫</span><span class="pr-part-name">Bremsbeläge hinten</span></div></label>
+                        <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Warnkontakt vorne"><div class="pr-part-box"><span class="pr-part-icon">⚠️</span><span class="pr-part-name">Warnkontakt vorne</span></div></label>
+                        <label class="pr-part-item"><input type="checkbox" name="pr-part" value="Warnkontakt hinten"><div class="pr-part-box"><span class="pr-part-icon">⚠️</span><span class="pr-part-name">Warnkontakt hinten</span></div></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Customer -->
+            <div class="pr-card pr-customer-card" id="pr-step3">
+                <h3>📋 Ihre Kontaktdaten</h3>
+                <div class="pr-cust-row">
+                    <div class="pr-form-group">
+                        <label>Name *</label>
+                        <input type="text" id="pr-name" placeholder="Max Mustermann" required>
+                    </div>
+                    <div class="pr-form-group">
+                        <label>E-Mail *</label>
+                        <input type="email" id="pr-email" placeholder="email@beispiel.de" required>
+                    </div>
+                </div>
+                <div class="pr-cust-row">
+                    <div class="pr-form-group">
+                        <label>Telefon *</label>
+                        <input type="tel" id="pr-phone" placeholder="+49 123 456789" required>
+                    </div>
+                    <div class="pr-form-group">
+                        <label>Bemerkungen</label>
+                        <input type="text" id="pr-notes" placeholder="z.B. Einbau gewünscht, Dringlichkeit...">
+                    </div>
+                </div>
+                <div class="pr-form-group" style="margin-bottom:0;">
+                    <label>Zusätzliche Beschreibung</label>
+                    <textarea id="pr-desc" placeholder="Weitere Details zu den benötigten Teilen..."></textarea>
+                </div>
+                <div class="pr-submit-bar">
+                    <div class="pr-count"><strong id="pr-parts-count">0</strong> Teile ausgewählt</div>
+                    <button class="pr-btn-check" id="pr-send-btn" disabled>
+                        Anfrage senden
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Confirmation -->
+            <div class="pr-card pr-confirmation" id="pr-confirm">
+                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <h3>Anfrage gesendet!</h3>
+                <p>Vielen Dank! Wir haben Ihre Ersatzteil-Anfrage erhalten und melden uns schnellstmöglich mit einem Angebot bei Ihnen.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact -->
     <section class="contact" id="kontakt">
         <div class="container">
@@ -1480,6 +1690,7 @@
                         <li><a href="#ueber-uns">Über uns</a></li>
                         <li><a href="#karriere">Karriere</a></li>
                         <li><a href="#bewertungen">Bewertungen</a></li>
+                        <li><a href="#ersatzteil-anfrage">Ersatzteile</a></li>
                         <li><a href="#kontakt">Kontakt</a></li>
                     </ul>
                 </div>
@@ -1563,6 +1774,179 @@
             alert('Vielen Dank für Ihre Anfrage! Wir melden uns schnellstmöglich bei Ihnen.');
             form.reset();
         });
+
+        // ===== Ersatzteil-Anfrage Logik =====
+        (function() {
+            // Demo HSN/TSN Datenbank
+            const vehicleDB = [
+                { hsn: '0603', tsn: 'BKG', marke: 'Volkswagen', modell: 'Golf VII 2.0 TDI', leistung: '110 kW / 150 PS', hubraum: '1968 ccm', kraftstoff: 'Diesel' },
+                { hsn: '0603', tsn: 'BNB', marke: 'Volkswagen', modell: 'Golf VIII 1.5 TSI', leistung: '110 kW / 150 PS', hubraum: '1498 ccm', kraftstoff: 'Benzin' },
+                { hsn: '0603', tsn: 'AUV', marke: 'Volkswagen', modell: 'Passat B8 2.0 TDI', leistung: '140 kW / 190 PS', hubraum: '1968 ccm', kraftstoff: 'Diesel' },
+                { hsn: '0005', tsn: 'CJA', marke: 'BMW', modell: '320d (F30)', leistung: '140 kW / 190 PS', hubraum: '1995 ccm', kraftstoff: 'Diesel' },
+                { hsn: '0005', tsn: 'CMH', marke: 'BMW', modell: '520i (G30)', leistung: '135 kW / 184 PS', hubraum: '1998 ccm', kraftstoff: 'Benzin' },
+                { hsn: '1313', tsn: 'AAO', marke: 'Mercedes-Benz', modell: 'C 220 d (W205)', leistung: '143 kW / 194 PS', hubraum: '1950 ccm', kraftstoff: 'Diesel' },
+                { hsn: '1313', tsn: 'ACR', marke: 'Mercedes-Benz', modell: 'E 200 (W213)', leistung: '135 kW / 184 PS', hubraum: '1991 ccm', kraftstoff: 'Benzin' },
+                { hsn: '3000', tsn: 'AEN', marke: 'Audi', modell: 'A4 2.0 TDI (B9)', leistung: '110 kW / 150 PS', hubraum: '1968 ccm', kraftstoff: 'Diesel' },
+                { hsn: '3000', tsn: 'AGZ', marke: 'Audi', modell: 'A3 1.5 TFSI', leistung: '110 kW / 150 PS', hubraum: '1498 ccm', kraftstoff: 'Benzin' },
+                { hsn: '4050', tsn: 'ABF', marke: 'Opel', modell: 'Astra K 1.4 Turbo', leistung: '110 kW / 150 PS', hubraum: '1399 ccm', kraftstoff: 'Benzin' },
+                { hsn: '4050', tsn: 'ACD', marke: 'Opel', modell: 'Corsa F 1.2 Turbo', leistung: '74 kW / 100 PS', hubraum: '1199 ccm', kraftstoff: 'Benzin' },
+                { hsn: '8566', tsn: 'ABH', marke: 'Skoda', modell: 'Octavia III 2.0 TDI', leistung: '110 kW / 150 PS', hubraum: '1968 ccm', kraftstoff: 'Diesel' },
+                { hsn: '2007', tsn: 'ACX', marke: 'Ford', modell: 'Focus IV 1.0 EcoBoost', leistung: '92 kW / 125 PS', hubraum: '999 ccm', kraftstoff: 'Benzin' },
+                { hsn: '6222', tsn: 'ACJ', marke: 'Toyota', modell: 'Corolla 1.8 Hybrid', leistung: '90 kW / 122 PS', hubraum: '1798 ccm', kraftstoff: 'Hybrid/Benzin' },
+                { hsn: '6253', tsn: 'AHL', marke: 'Hyundai', modell: 'Tucson 1.6 T-GDI', leistung: '132 kW / 180 PS', hubraum: '1598 ccm', kraftstoff: 'Benzin' },
+                { hsn: '6264', tsn: 'ABS', marke: 'Kia', modell: 'Ceed 1.4 T-GDI', leistung: '103 kW / 140 PS', hubraum: '1353 ccm', kraftstoff: 'Benzin' },
+                { hsn: '3003', tsn: 'AFA', marke: 'Seat', modell: 'Leon 2.0 TDI', leistung: '110 kW / 150 PS', hubraum: '1968 ccm', kraftstoff: 'Diesel' },
+                { hsn: '3811', tsn: 'ACE', marke: 'Renault', modell: 'Mégane IV 1.3 TCe', leistung: '103 kW / 140 PS', hubraum: '1332 ccm', kraftstoff: 'Benzin' },
+            ];
+
+            // WMI codes for VIN brand detection
+            const wmiCodes = {
+                'WVW':'Volkswagen','WV1':'VW Nutzfahrzeuge','WAU':'Audi','WBA':'BMW','WBS':'BMW M',
+                'WDB':'Mercedes-Benz','WDC':'Mercedes-Benz','WDD':'Mercedes-Benz','WP0':'Porsche',
+                'W0L':'Opel','WF0':'Ford','TMB':'Skoda','VSS':'Seat','VF1':'Renault',
+                'VF3':'Peugeot','ZFA':'Fiat','JTD':'Toyota','SB1':'Toyota','KMH':'Hyundai',
+                'KNA':'Kia','YV1':'Volvo','WMW':'Mini','WME':'Smart','JMZ':'Mazda',
+                'JN1':'Nissan','SAL':'Land Rover','UU1':'Dacia'
+            };
+
+            const prFin = document.getElementById('pr-fin');
+            const prHsn = document.getElementById('pr-hsn');
+            const prTsn = document.getElementById('pr-tsn');
+            const prCheckBtn = document.getElementById('pr-check-btn');
+            const prResult = document.getElementById('pr-vehicle-result');
+            const prStep2 = document.getElementById('pr-step2');
+            const prStep3 = document.getElementById('pr-step3');
+            const prSendBtn = document.getElementById('pr-send-btn');
+            const prConfirm = document.getElementById('pr-confirm');
+            const steps = document.querySelectorAll('.pr-step');
+
+            let confirmedVehicle = null;
+
+            function setStep(n) {
+                steps.forEach(s => s.classList.toggle('active', parseInt(s.dataset.step) <= n));
+            }
+
+            function checkPrForm() {
+                const hsnOk = /^\d{4}$/.test(prHsn.value);
+                const tsnOk = /^[A-Z0-9]{3}$/i.test(prTsn.value);
+                prHsn.className = prHsn.value ? (hsnOk ? 'pr-valid' : 'pr-invalid') : '';
+                prTsn.className = prTsn.value ? (tsnOk ? 'pr-valid' : 'pr-invalid') : '';
+                const hsnMsg = document.getElementById('pr-hsn-msg');
+                const tsnMsg = document.getElementById('pr-tsn-msg');
+                hsnMsg.textContent = prHsn.value ? (hsnOk ? '✓' : prHsn.value.length + '/4') : '';
+                hsnMsg.className = 'pr-msg ' + (hsnOk ? 'success' : 'error');
+                tsnMsg.textContent = prTsn.value ? (tsnOk ? '✓' : prTsn.value.length + '/3') : '';
+                tsnMsg.className = 'pr-msg ' + (tsnOk ? 'success' : 'error');
+                prCheckBtn.disabled = !(hsnOk && tsnOk);
+            }
+
+            // VIN brand preview
+            prFin.addEventListener('input', function() {
+                this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+                const finMsg = document.getElementById('pr-fin-msg');
+                if (this.value.length >= 3) {
+                    const wmi = this.value.substring(0, 3);
+                    if (wmiCodes[wmi]) {
+                        finMsg.textContent = '🚗 ' + wmiCodes[wmi];
+                        finMsg.className = 'pr-msg success';
+                    } else {
+                        finMsg.textContent = this.value.length + '/17';
+                        finMsg.className = 'pr-msg';
+                    }
+                } else {
+                    finMsg.textContent = this.value.length ? this.value.length + '/17' : '';
+                    finMsg.className = 'pr-msg';
+                }
+            });
+
+            prHsn.addEventListener('input', function() {
+                this.value = this.value.replace(/\D/g, '');
+                checkPrForm();
+                if (this.value.length === 4) prTsn.focus();
+            });
+            prTsn.addEventListener('input', function() {
+                this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+                checkPrForm();
+            });
+
+            // Check vehicle
+            prCheckBtn.addEventListener('click', function() {
+                const hsn = prHsn.value.padStart(4, '0');
+                const tsn = prTsn.value.toUpperCase();
+                const v = vehicleDB.find(x => x.hsn === hsn && x.tsn === tsn);
+
+                if (v) {
+                    confirmedVehicle = v;
+                    document.getElementById('pr-v-brand').textContent = v.marke;
+                    document.getElementById('pr-v-model').textContent = v.modell;
+                    document.getElementById('pr-v-specs').innerHTML = `<span>${v.leistung}</span><span>•</span><span>${v.hubraum}</span><span>•</span><span>${v.kraftstoff}</span>`;
+                    prResult.className = 'pr-vehicle-result visible';
+                    prStep2.classList.add('visible');
+                    prStep3.classList.add('visible');
+                    setStep(2);
+
+                    // Show/hide fuel-specific parts
+                    const isDiesel = v.kraftstoff.toLowerCase().includes('diesel');
+                    document.querySelectorAll('[data-fuel="benzin"]').forEach(el => el.closest('.pr-part-item').style.display = isDiesel ? 'none' : '');
+                    document.querySelectorAll('[data-fuel="diesel"]').forEach(el => el.closest('.pr-part-item').style.display = isDiesel ? '' : 'none');
+
+                    prStep2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    confirmedVehicle = null;
+                    document.getElementById('pr-v-brand').textContent = '✗ Fahrzeug nicht gefunden';
+                    document.getElementById('pr-v-model').textContent = 'HSN/TSN ' + hsn + '/' + tsn + ' nicht in der Demo-Datenbank';
+                    document.getElementById('pr-v-specs').innerHTML = '';
+                    prResult.className = 'pr-vehicle-result visible pr-error';
+                    prStep2.classList.remove('visible');
+                    prStep3.classList.remove('visible');
+                    setStep(1);
+                }
+            });
+
+            // Parts count
+            function updatePrCount() {
+                const c = document.querySelectorAll('input[name="pr-part"]:checked').length;
+                document.getElementById('pr-parts-count').textContent = c;
+                setStep(c > 0 ? 3 : 2);
+                validatePrSend();
+            }
+            document.querySelectorAll('input[name="pr-part"]').forEach(cb => cb.addEventListener('change', updatePrCount));
+
+            // Validate send
+            function validatePrSend() {
+                const name = document.getElementById('pr-name').value.trim();
+                const email = document.getElementById('pr-email').value.trim();
+                const phone = document.getElementById('pr-phone').value.trim();
+                const parts = document.querySelectorAll('input[name="pr-part"]:checked').length;
+                prSendBtn.disabled = !(name && email && phone && parts > 0 && confirmedVehicle);
+            }
+            ['pr-name','pr-email','pr-phone','pr-notes'].forEach(id => {
+                document.getElementById(id)?.addEventListener('input', validatePrSend);
+            });
+
+            // Send
+            prSendBtn.addEventListener('click', function() {
+                const parts = Array.from(document.querySelectorAll('input[name="pr-part"]:checked')).map(cb => cb.value);
+                console.log('Ersatzteil-Anfrage:', {
+                    fahrzeug: confirmedVehicle,
+                    fin: prFin.value,
+                    teile: parts,
+                    name: document.getElementById('pr-name').value,
+                    email: document.getElementById('pr-email').value,
+                    phone: document.getElementById('pr-phone').value,
+                    bemerkungen: document.getElementById('pr-notes').value,
+                    beschreibung: document.getElementById('pr-desc').value
+                });
+
+                // Show confirmation
+                document.getElementById('pr-step1').style.display = 'none';
+                prStep2.style.display = 'none';
+                prStep3.style.display = 'none';
+                document.querySelector('.pr-steps').style.display = 'none';
+                prConfirm.classList.add('visible');
+                prConfirm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        })();
     </script>
 </body>
 </html>
